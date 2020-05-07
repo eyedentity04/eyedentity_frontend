@@ -5,21 +5,29 @@ import Logo from "../Img/logo.png";
 import { register } from "../../actioncreators/register";
 
 const Register = (props) => {
-  const [data, setData] = useState();
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
 
   const handleChange = (event) => {
-    const { name, value } = event.currentTarget;
+    let { name, value } = event.currentTarget;
     setData({
       ...data,
       [name]: value,
     });
   };
 
-  const save = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     props.register(data);
+    console.log(data);
+    
   };
-  
-return (
+
+  return (
     <div className="cardform">
       <div className="card p-3 rounded" style={{ width: "18rem" }}>
         <img
@@ -29,7 +37,7 @@ return (
           style={{ width: "75px" }}
         />
         <h4 className="card-title mx-auto">Register</h4>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Name</label>
             <input
@@ -37,6 +45,7 @@ return (
               className="form-control"
               id="name"
               name="name"
+              value={data.name}
               onChange={handleChange}
             />
           </div>
@@ -47,25 +56,34 @@ return (
               className="form-control"
               id="email"
               name="email"
+              value={data.email}
               onChange={handleChange}
             />
           </div>
           <div className="form-group">
-            <label>Password</label>
+            <label>password</label>
             <input
               type="password"
               className="form-control"
               id="password"
               name="password"
+              value={data.password}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <label>Confirm Password</label>
+            <input
+              type="password"
+              className="form-control"
+              id="password"
+              name="confirmPassword"
+              value={data.confirmPassword}
               onChange={handleChange}
             />
           </div>
           <div className="form-group form-check"></div>
-          <button
-            type="submit"
-            className="btn btn-info btn-block"
-            onClick={save}
-          >
+          <button type="submit" className="btn btn-info btn-block">
             Make An Account
           </button>
         </form>
@@ -75,7 +93,7 @@ return (
 };
 
 const mapDispatchToProps = {
-  register: register,
+  register,
 };
 
 export default connect(null, mapDispatchToProps)(Register);

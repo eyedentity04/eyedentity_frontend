@@ -3,11 +3,10 @@ const initialState = {
 };
 
 const regis = (state = initialState, action) => {
-  let data = [];
   switch (action.type) {
     case "USER_REGISTER":
-      data = state.data;
-      return { ...state, data: [...data, action.payload] };
+      return { ...state, data: [...state.data, action.payload] };
+      
     default:
       return state;
   }
