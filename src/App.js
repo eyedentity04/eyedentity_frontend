@@ -1,27 +1,34 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { createStore, applyMiddleware } from "redux";
-import { Provider } from "react-redux";
-import reducers from "./reducers";
-import thunk from "redux-thunk";
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+import { connect } from "react-redux";
 
 import Login from "./components/Login/Login";
-import UserRegister from "./components/Login/Register"
+import UserRegister from "./components/Login/Register";
+import Home from "./components/Home";
 
-const store = createStore(reducers,applyMiddleware(thunk));
-
-function App() {
+function App(props) {
   return (
-    <Provider store={store}>
-      <Router>
-        <Switch>
-          <Route path="/register" component={UserRegister} exact />
-          <Route path="/" component={Login} exact />
-        </Switch>
-      </Router>
-    </Provider>
+    <Router>
+      <Switch>
+        <Route path="/" exact>
+          {props.login.data ? <Home/> : <Redirect push to="/login" />}
+        </Route>
+        <Route path="/login" component={Login} exact />
+        <Route path="/register" component={UserRegister} exact />
+      </Switch>
+    </Router>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    login: state.login.data,
+  };
+};
+
+export default connect(mapStateToProps)(App);

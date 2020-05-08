@@ -1,12 +1,12 @@
 const initialState = {
-    data: [],
+    data: localStorage.getItem('token'),
   };
   
   const login = (state = initialState, action) => {
     let data = [];
     switch (action.type) {
       case "USER_LOGIN":
-        data = state.data;
+        localStorage.setItem('token', action.payload)
         return { ...state, data: [...data, action.payload] };
       default:
         return state;

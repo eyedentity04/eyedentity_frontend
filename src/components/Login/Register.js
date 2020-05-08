@@ -23,7 +23,6 @@ const Register = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     props.register(data);
-    console.log(data);
     
   };
 

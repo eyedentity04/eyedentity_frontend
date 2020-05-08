@@ -5,5 +5,5 @@ import login from './login'
 
 export default combineReducers({
     regis : regis,
-    login 
+    login : login
 })
