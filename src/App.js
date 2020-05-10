@@ -1,4 +1,4 @@
-import React from "react";
+import React ,{Component} from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,28 +7,50 @@ import {
 } from "react-router-dom";
 import { connect } from "react-redux";
 
+import {Provider} from "react-redux";
+import store from "./store/store";
+
+import jwt_decode from "jwt-decode";
+import setAuthToken from "./utils/axios";
+import {setCurrentUser, logoutUser} from "./actioncreators/auth";
+
 import Login from "./components/Login/Login";
 import UserRegister from "./components/Login/Register";
 import Home from "./components/Home";
 
-function App(props) {
-  return (
-    <Router>
-      <Switch>
-        <Route path="/" exact>
-          {props.login.data ? <Home/> : <Redirect push to="/login" />}
-        </Route>
-        <Route path="/login" component={Login} exact />
-        <Route path="/register" component={UserRegister} exact />
-      </Switch>
-    </Router>
-  );
+
+if (localStorage.jwtToken) {
+ 
+  const token = localStorage.jwtToken;
+  setAuthToken(token);
+ 
+  const decoded = jwt_decode(token);
+ 
+  store.dispatch(setCurrentUser(decoded));
+  
+  const currentTime = Date.now() / 1000; 
+  if (decoded.exp < currentTime) {
+     
+      store.dispatch(logoutUser());
+      
+      window.location.href = "./register";
+  }
+}
+export default class App extends Component {
+  render() {
+      return (
+          <Provider store={store}>
+              <Router>
+                <Switch>
+                      <Route exact path="/" component={Home}/>
+                      <Route exact path="/register" component={UserRegister}/>
+                      <Route exact path="/login" component={Login}/>
+                      
+                </Switch>
+              </Router>
+          </Provider>
+      )
+  }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    login: state.login.data,
-  };
-};
 
-export default connect(mapStateToProps)(App);

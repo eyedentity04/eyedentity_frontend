@@ -6,7 +6,7 @@ export const register = (data) => {
       "https://eyedentity-socialmedia.herokuapp.com/users/register",
       data
     );
-    console.log(response);
+   
 
     dispatch({
       type: "USER_REGISTER",
