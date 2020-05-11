@@ -6,7 +6,7 @@ import "./Style.css";
 import Logo from "../Img/logo.png";
 import { login } from "../../actioncreators/login";
 
-const Login = (props) => {
+const Index = (props) => {
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -45,6 +45,7 @@ const Login = (props) => {
               id="email"
               name="email"
               onChange={handleChange}
+              value={data.email}
             />
           </div>
           <div className="form-group">
@@ -55,6 +56,7 @@ const Login = (props) => {
               id="password"
               name="password"
               onChange={handleChange}
+              value={data.password}
             />
           </div>
           <div className="form-group form-check"></div>
@@ -70,14 +72,18 @@ const Login = (props) => {
   );
 };
 
+<<<<<<< HEAD
 const mapStateToProps = (state) => {
   return {
     login: state.login
   };
 };
+=======
+
+>>>>>>> upstream/master
 
 const mapDispatchToProps = {
   login: login,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(null,mapDispatchToProps)(Index);
