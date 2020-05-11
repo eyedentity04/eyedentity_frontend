@@ -3,7 +3,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect,
 } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -15,9 +14,7 @@ function App(props) {
   return (
     <Router>
       <Switch>
-        <Route path="/" exact>
-          {props.login.data ? <Home/> : <Redirect push to="/login" />}
-        </Route>
+        <Route path="/" component={Home} exact/>
         <Route path="/login" component={Login} exact />
         <Route path="/register" component={UserRegister} exact />
       </Switch>
@@ -27,7 +24,7 @@ function App(props) {
 
 const mapStateToProps = (state) => {
   return {
-    login: state.login.data,
+    login: state.login,
   };
 };
 
