@@ -1,4 +1,4 @@
-import React ,{Component} from "react";
+import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,50 +7,36 @@ import {
 } from "react-router-dom";
 import { connect } from "react-redux";
 
-import {Provider} from "react-redux";
-import store from "./store/store";
-
-import jwt_decode from "jwt-decode";
-import setAuthToken from "./utils/axios";
-import {setCurrentUser, logoutUser} from "./actioncreators/auth";
-
 import Login from "./components/Login/Login";
 import UserRegister from "./components/Login/Register";
 import Home from "./components/Home";
 
 
-if (localStorage.jwtToken) {
- 
-  const token = localStorage.jwtToken;
-  setAuthToken(token);
- 
-  const decoded = jwt_decode(token);
- 
-  store.dispatch(setCurrentUser(decoded));
-  
-  const currentTime = Date.now() / 1000; 
-  if (decoded.exp < currentTime) {
-     
-      store.dispatch(logoutUser());
-      
-      window.location.href = "./register";
-  }
-}
-export default class App extends Component {
-  render() {
-      return (
-          <Provider store={store}>
-              <Router>
-                <Switch>
-                      <Route exact path="/" component={Home}/>
-                      <Route exact path="/register" component={UserRegister}/>
-                      <Route exact path="/login" component={Login}/>
-                      
-                </Switch>
-              </Router>
-          </Provider>
-      )
-  }
+function App(props) {
+  return (
+    <Router>
+      <Switch>
+        {/* <Route path="/index" component={Index} exact /> */}
+        <Route path="/" exact>
+          {props.viaLogin ? <Home /> : <Redirect push to="/login" />}
+        </Route>cd 
+        <Route path="/login">
+          {" "}
+          {props.viaLogin ? <Redirect push to="/" /> : <Login />}
+        </Route>
+        <Route path="/register">
+          <UserRegister />
+        </Route>
+      </Switch>
+    </Router>
+  );
 }
 
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    viaLogin: state.login.viaLogin,
+  };
+};
 
+export default connect(mapStateToProps)(App);
