@@ -6,7 +6,6 @@ import {add} from "../../actioncreators/Home"
 
 const Add = (props) => {
   const [data, setData] = useState({
-    name: "",
     description: "",
   });
 
@@ -45,11 +44,7 @@ const Add = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-      viaLogin: state.login.viaLogin
-  }
-}
+
 const mapDispatchToProps = { add: add };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Add);
+export default connect(null,mapDispatchToProps)(Add);
