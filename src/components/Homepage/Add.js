@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Style.css";
+import "./Add.css";
 import { connect } from "react-redux";
 import Attach from "../Img/paperclip.svg";
 import {add} from "../../actioncreators/Home"
@@ -7,6 +7,7 @@ import {add} from "../../actioncreators/Home"
 const Add = (props) => {
   const [data, setData] = useState({
     description: "",
+    token :""
   });
 
   const handleAdd = () => {

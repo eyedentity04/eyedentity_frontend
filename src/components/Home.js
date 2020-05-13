@@ -3,12 +3,14 @@ import Navbar from './Navbar'
 
 import {connect} from 'react-redux'
 import Add from './Homepage/Add'
+import Post from './Homepage/Post'
 
 const Home = (props) => {
     return (
         <div>
             <Navbar/>
             <Add/>
+            <Post/>
         </div>
     )
 }

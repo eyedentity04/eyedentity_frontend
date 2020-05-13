@@ -1,0 +1,11 @@
+div.row{
+    display: flex;
+    align-items: center;
+}
+
+
+img.rounded-circle {
+    border-radius: 20px;
+    width: 80px;
+    margin: 8px 8px 3px 30px;
+}
