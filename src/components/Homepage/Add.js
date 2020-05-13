@@ -6,6 +6,7 @@ import {add} from "../../actioncreators/Home"
 
 const Add = (props) => {
   const [data, setData] = useState({
+    name: "",
     description: "",
   });
 

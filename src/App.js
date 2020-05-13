@@ -20,7 +20,6 @@ function App(props) {
           {props.viaLogin ? <Home /> : <Redirect push to="/login" />}
         </Route>
         <Route path="/login">
-         
           {props.viaLogin ? <Redirect push to="/" /> : <Login />}
         </Route>
         <Route path="/register">
@@ -32,6 +31,7 @@ function App(props) {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state);
   return {
     viaLogin: state.login.viaLogin,
   };
