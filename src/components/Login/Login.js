@@ -72,18 +72,15 @@ const Index = (props) => {
   );
 };
 
-<<<<<<< HEAD
+
 const mapStateToProps = (state) => {
   return {
     login: state.login
   };
 };
-=======
-
->>>>>>> upstream/master
 
 const mapDispatchToProps = {
   login: login,
 };
 
-export default connect(null,mapDispatchToProps)(Index);
+export default connect(mapStateToProps,mapDispatchToProps)(Index);

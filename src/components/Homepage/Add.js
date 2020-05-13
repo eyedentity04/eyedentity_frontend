@@ -1,39 +1,54 @@
 import React, { useState } from "react";
-import "./Style.css"
-import {connect} from "react-redux"
-import Attach from "../Img/paperclip.svg"
+import "./Style.css";
+import { connect } from "react-redux";
+import Attach from "../Img/paperclip.svg";
+import {add} from "../../actioncreators/Home"
 
 const Add = (props) => {
   const [data, setData] = useState({
-      text: "",
+    description: "",
   });
 
   const handleAdd = () => {
-      props.add(data);
-  }
+    props.add(data);
+  };
+
   const handleChange = (event) => {
-      let{id, defaultValue, checked} = event.currentTarget;
-  }
+    let { name,value } = event.currentTarget;
+    setData({
+      ...data,
+      [name]: value,
+    });
+  };
 
   return (
     <div className="container">
       <div className="form-group">
         <textarea
           className="form-control mt-5"
-          id="add"
+          id="description"
+          name="description"
           rows={6}
-          defaultValue={""}
+          value={data.description}
           placeholder="Type something...."
           onChange={handleChange}
         />
+        <img src={Attach} alt=" " style={{ width: "15px", marginBottom: "10px" }}  />
       </div>
-      <img src={Attach} style={ {width : "15px", marginBottom : "10px"}}/>
-      <br/>
-      <button type="button" class="btn btn-info" onClick={handleAdd} >Submit</button>
+
+      <br />
+      <button type="button" class="btn btn-info" onClick={handleAdd}>
+        Submit
+      </button>
     </div>
   );
 };
 
-const mapDispatchToProps = {Add};
+const mapStateToProps = (state) => {
+  return {
+      viaLogin: state.login.viaLogin
+  }
+}
+const mapDispatchToProps = { add: add };
 
-export default connect(null, mapDispatchToProps)(Add);
+export default connect(mapStateToProps, mapDispatchToProps)(Add);

@@ -7,7 +7,6 @@ export const register = (data) => {
       data
     );
    
-
     dispatch({
       type: "USER_REGISTER",
       payload: response.data.data,

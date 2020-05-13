@@ -4,7 +4,6 @@ export const login = (data) => {
     return async(dispatch) => {
         try {
             const response = await axios.post("https://eyedentity-socialmedia.herokuapp.com/users/login", data)
-            
             dispatch({
                 type: 'USER_LOGIN',
                 payload: response.data
