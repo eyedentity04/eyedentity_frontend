@@ -1,11 +1,7 @@
 import axios from "axios";
-const setAuthToken = token => {
-    if (token) {
-        
-        axios.defaults.headers.common["x-access-token"] = token;
-    } else {
-       
-        delete axios.defaults.headers.common["x-access-token"];
-    }
-};
-export default setAuthToken;
+const newAxios = axios.create({
+  baseURL: process.env.DB_EYEDENTITY_SERVER,
+  Headers: { token: localStorage.getItem("token") },
+});
+
+export default newAxios;

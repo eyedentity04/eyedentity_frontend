@@ -73,9 +73,14 @@ const Index = (props) => {
 };
 
 
+const mapStateToProps = (state) => {
+  return {
+    login: state.login
+  };
+};
 
 const mapDispatchToProps = {
   login: login,
 };
 
-export default connect(null,mapDispatchToProps)(Index);
+export default connect(mapStateToProps,mapDispatchToProps)(Index);

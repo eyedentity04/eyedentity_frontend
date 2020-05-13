@@ -13,16 +13,6 @@ const Home = (props) => {
     )
 }
 
-// export default class Home extends Component {
-//     render() {
-//         return (
-//             <div>
-//                 <Navbar/>
-//             </div>
-//         )
-//     }
-// }
-
 const mapStateToProps = (state) => {
     return {
         viaLogin: state.login.viaLogin
