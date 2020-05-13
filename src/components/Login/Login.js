@@ -23,7 +23,7 @@ const Index = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     props.login(data);
-    console.log(data);
+    // console.log(data);
   };
 
   return (
