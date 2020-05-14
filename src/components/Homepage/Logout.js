@@ -1,11 +1,20 @@
-import React from 'react'
+import React from "react";
+import { logout } from "../../actioncreators/login";
+import { connect } from "react-redux";
 
-const Logout= () => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+const Logout = (props) => {
+  const onChange = () => {
+    props.logout();
+  };
+  return (
+    <div className="btn btn-danger" onClick={onChange}>
+      Logout
+    </div>
+  );
+};
 
-export default Logout
+const mapDispatchToProps = {
+  logout: logout,
+};
+
+export default connect(null, mapDispatchToProps)(Logout);

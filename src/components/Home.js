@@ -3,7 +3,7 @@ import Navbar from './Navbar'
 
 import {connect} from 'react-redux'
 import Add from './Homepage/Add'
-import Post from './Homepage/Post'
+import Post from './Homepage/post'
 
 const Home = (props) => {
     return (

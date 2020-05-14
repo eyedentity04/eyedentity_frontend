@@ -23,7 +23,6 @@ const Index = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     props.login(data);
-    // console.log(data);
   };
 
   return (
@@ -75,7 +74,7 @@ const Index = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    login: state.login
+    vialogin: state.login.vialogin
   };
 };
 

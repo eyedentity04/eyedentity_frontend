@@ -3,6 +3,7 @@ import Logo from "../components/Img/logo.png";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import Logout from "./Homepage/Logout";
 
 class Navbar extends Component {
   render() {
@@ -13,7 +14,7 @@ class Navbar extends Component {
             <img src={Logo} width="65px" alt="" />
             <strong>Welcome, Users</strong>
           </Link>
-          
+
           <button
             className="navbar-toggler"
             type="button"
@@ -27,12 +28,16 @@ class Navbar extends Component {
           </button>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            
             <form className="form-inline my-2 my-lg-0 mx-auto">
               <div className="input-group">
-                <input type="text" class="form-control" placeholder="Search" size="50"/>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Search"
+                  size="30"
+                />
                 <button class="btn btn-info" type="submit">
-                  <FontAwesomeIcon icon={faSearch}/>
+                  <FontAwesomeIcon icon={faSearch} />
                 </button>
               </div>
             </form>
@@ -58,9 +63,7 @@ class Navbar extends Component {
                 </Link>
               </li>
               <li className="nav-item ml-lg-2 ml-md-0 mr-2 mr-md-0">
-                <Link className="nav-link text-danger active" to="/logout">
-                  Logout
-                </Link>
+                <Logout />
               </li>
             </ul>
           </div>
