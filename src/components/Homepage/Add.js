@@ -1,20 +1,21 @@
 import React, { useState } from "react";
-import "./Style.css";
+import "./Add.css";
 import { connect } from "react-redux";
-import Attach from "../Img/paperclip.svg";
-import {add} from "../../actioncreators/Home"
+import { add } from "../../actioncreators/Home";
 
 const Add = (props) => {
   const [data, setData] = useState({
     description: "",
+    image:""
   });
 
   const handleAdd = () => {
     props.add(data);
+    console.log(data)
   };
 
   const handleChange = (event) => {
-    let { name,value } = event.currentTarget;
+    let { name, value } = event.currentTarget;
     setData({
       ...data,
       [name]: value,
@@ -29,14 +30,23 @@ const Add = (props) => {
           id="description"
           name="description"
           rows={6}
+          style={{ resize: "none" }}
           value={data.description}
           placeholder="Type something...."
           onChange={handleChange}
         />
-        <img src={Attach} alt=" " style={{ width: "15px", marginBottom: "10px" }}  />
-      </div>
 
-      <br />
+        <input
+          type="file"
+          className="form-control"
+          id="image"
+          name="image"
+          value={data.image}
+          onChange={handleChange}
+          accept="image/x-png,image/gif,image/jpeg" 
+        />
+
+      </div>
       <button type="button" class="btn btn-info" onClick={handleAdd}>
         Submit
       </button>
@@ -44,7 +54,6 @@ const Add = (props) => {
   );
 };
 
-
 const mapDispatchToProps = { add: add };
 
-export default connect(null,mapDispatchToProps)(Add);
+export default connect(null, mapDispatchToProps)(Add);

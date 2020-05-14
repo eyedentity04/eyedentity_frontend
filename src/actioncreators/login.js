@@ -12,7 +12,6 @@ export const login = (data) => {
         type: "USER_LOGIN",
         payload: response.data,
       });
-      console.log(response.data)
     } catch (error) {
       error && alert(`login failed ,${error.message}`);
     }

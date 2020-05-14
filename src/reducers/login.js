@@ -1,8 +1,5 @@
-
-
 const initialState = {
-  viaLogin: localStorage.getItem("token")
-  
+  viaLogin: localStorage.getItem("token") 
 };
 
 const login = (state = initialState, action) => {
@@ -16,7 +13,7 @@ const login = (state = initialState, action) => {
       };
       
     case "USER_LOGOUT":
-      localStorage.removeItem("token", action.payload);
+      localStorage.removeItem("user", action.payload);
       return {
         ...state,
         viaLogin: "",
