@@ -6,7 +6,7 @@ import { add } from "../../actioncreators/Home";
 const Add = (props) => {
   const [data, setData] = useState({
     description: "",
-    image:""
+    image:[]
   });
 
   const handleAdd = () => {
@@ -22,6 +22,7 @@ const Add = (props) => {
     });
   };
 
+  
   return (
     <div className="container">
       <div className="form-group">
