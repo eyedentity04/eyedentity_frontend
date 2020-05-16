@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import img1 from "../Img/img1.jpg";
 import like from "../Img/like.svg";
+import axios from "axios"
 import {connect} from "react-redux"
 import "./post.css";
 
@@ -12,10 +13,11 @@ const Post = (props) => {
   useEffect(() => {
       if (data && !data.length){
           props.getData()
+          console.log(props)
       }
+      
   }, [props,data])
-
-  const imgUrl= "https://eyedentity-socialmedia.herokuapp.com"
+    
   const showPost = data.map((item, index) => (
     <div key={index}>
       <div className="card mt-4" style={{ width: "auto" }}>
@@ -27,7 +29,7 @@ const Post = (props) => {
           <p className="card-text">
             {item.description}
           </p>
-          <img src={`${imgUrl}/${item.image}`} alt=""/>
+          <img src="" alt=""/>
           <img src={like} style={{ width: "15px" }} alt=""/>
         </div>
       </div>

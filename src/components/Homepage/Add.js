@@ -1,60 +1,62 @@
-import React, { useState } from "react";
+import React from "react";
+import {Formik} from 'formik'
 import "./Add.css";
 import { connect } from "react-redux";
 import { add } from "../../actioncreators/Home";
+import {Form} from 'react-bootstrap'
 
 const Add = (props) => {
-  const [data, setData] = useState({
-    description: "",
-    image:[]
-  });
+    return (
+      <Formik
+        initialValues={{
+          description : '',
+          image : null
+        }}
+        onSubmit ={(values)=>{
+          let formData = new FormData();
 
-  const handleAdd = () => {
-    props.add(data);
-    console.log(data)
-  };
+          formData.append('description',values.description)
+          formData.append('image',values.image)
 
-  const handleChange = (event) => {
-    let { name, value } = event.currentTarget;
-    setData({
-      ...data,
-      [name]: value,
-    });
-  };
-
-  
-  return (
-    <div className="container">
-      <div className="form-group">
-        <textarea
-          className="form-control mt-5"
-          id="description"
-          name="description"
-          rows={6}
-          style={{ resize: "none" }}
-          value={data.description}
-          placeholder="Type something...."
-          onChange={handleChange}
-        />
-
-        <input
-          type="file"
-          className="form-control"
-          id="image"
-          name="image"
-          value={data.image}
-          onChange={handleChange}
-          accept="image/x-png,image/gif,image/jpeg" 
-        />
-
-      </div>
-      <button type="button" class="btn btn-info" onClick={handleAdd}>
-        Submit
-      </button>
-    </div>
-  );
-};
+          props.add(formData);
+        }}
+      >
+        {props => (
+          <Form onSubmit={props.handleSubmit}>
+            <div className="container">
+              <div className="form-group">
+                <textarea
+                className="form-control mt-5"
+                id="description"
+                name="description"
+                rows={6}
+                style={{ resize: "none" }}
+                value={props.values.description}
+                placeholder="Type something...."
+                onChange={props.handleChange}
+              />
+              <input
+                type="file"
+                className="form-control"
+                id="image"
+                name="image"
+                onChange={(event)=>{
+                  props.setFieldValue('image',event.currentTarget.files[0])
+                }}
+              />
+              </div>
+              <button type="submit" className="btn btn-info" >
+                Submit
+              </button>
+            </div>
+          </Form>
+        )}
+      </Formik>
+    )
+  }
 
 const mapDispatchToProps = { add: add };
 
 export default connect(null, mapDispatchToProps)(Add);
+
+

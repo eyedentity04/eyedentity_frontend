@@ -6,7 +6,7 @@ export const add = (data) => {
     const token = user.token;
     axios
       .post("https://eyedentity-socialmedia.herokuapp.com/post/create", data, {
-        headers: { token: token },
+        headers: { "token": token },
       })
       .then((response) => {
         console.log(response);
@@ -24,7 +24,7 @@ export const getData = () => {
     const token = user.token;
     axios
       .get("https://eyedentity-socialmedia.herokuapp.com/post/show", {
-        headers: { token: token },
+        headers: { "token": token },
       })
       .then((response) => {
         console.log(response.data);
