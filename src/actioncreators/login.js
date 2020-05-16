@@ -7,8 +7,11 @@ export const login = (data) => {
         "http://eyedentity-socialmedia.herokuapp.com/users/login",
         data
       );
-
+      
+      console.log(response.data)
+      
       dispatch({
+
         type: "USER_LOGIN",
         payload: response.data,
       });
