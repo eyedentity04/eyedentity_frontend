@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import img1 from "../Img/img1.jpg";
 import like from "../Img/like.svg";
-import axios from "axios"
 import {connect} from "react-redux"
 import "./post.css";
 
@@ -16,7 +15,7 @@ const Post = (props) => {
           console.log(props)
       }
       
-  }, [props,data])
+  }, [])
     
   const showPost = data.map((item, index) => (
     <div key={index}>
@@ -29,7 +28,7 @@ const Post = (props) => {
           <p className="card-text">
             {item.description}
           </p>
-          <img src="" alt=""/>
+          <img src={`http://eyedentity-socialmedia.herokuapp.com/${item.image}`} alt=""/>
           <img src={like} style={{ width: "15px" }} alt=""/>
         </div>
       </div>

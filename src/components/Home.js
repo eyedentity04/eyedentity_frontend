@@ -1,25 +1,24 @@
-import React from 'react'
-import Navbar from './Navbar'
+import React from "react";
+import Navbar from "./Navbar";
 
-import {connect} from 'react-redux'
-import Add from './Homepage/Add'
-import Post from './Homepage/Post'
+import { connect } from "react-redux";
+import Add from "./Homepage/Add";
+import Post from "./Homepage/Post";
 
-const Home = (props) => {
-    return (
-        <div>
-            <Navbar/>
-            <Add/>
-            <Post/>
-        </div>
-    )
-}
+const Home = () => {
+  return (
+    <div>
+      <Navbar />
+      <Add />
+      <Post />
+    </div>
+  );
+};
 
 const mapStateToProps = (state) => {
-    return {
-        viaLogin: state.login.viaLogin
-    }
-}
+  return {
+    viaLogin: state.login.viaLogin,
+  };
+};
 
 export default connect(mapStateToProps)(Home);
-
