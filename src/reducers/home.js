@@ -1,5 +1,6 @@
 const initialState = {
   data: [],
+  image : {}
 };
 
 const homeUser = (state = initialState, action) => {
@@ -8,7 +9,6 @@ const homeUser = (state = initialState, action) => {
       return { ...state, data: [...state.data, action.payload] };
     case "POST_SHOW":
       return { ...state, data: action.payload };
-
     default:
       return state;
   }

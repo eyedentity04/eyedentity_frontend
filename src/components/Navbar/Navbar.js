@@ -35,7 +35,7 @@ class Navbar extends Component {
               <div className="input-group">
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Search"
                   size="30"
                 />
