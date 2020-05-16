@@ -35,6 +35,7 @@ const Add = (props) => {
                 placeholder="Type something...."
                 onChange={props.handleChange}
               />
+              <br/>
               <input
                 type="file"
                 className="form-control"
@@ -45,7 +46,7 @@ const Add = (props) => {
                 }}
               />
               </div>
-              <button type="submit" className="btn btn-info" >
+              <button type="submit" className="btn btn-info" style={{backgroundColor : "#8D7B65"}}>
                 Submit
               </button>
             </div>
