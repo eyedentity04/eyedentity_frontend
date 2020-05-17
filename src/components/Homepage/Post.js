@@ -19,7 +19,7 @@ const Post = (props) => {
     <div key={index}>
       <div className="card mt-4" style={{ width: "auto" }}>
         <div className="row">
-          <img src={img1} className="rounded-circle" alt="..." />
+          <img src={img1} className="rounded-circle1" alt="..." />
           <h4 className="card-title">User</h4>
         </div>
         <div className="card-body">

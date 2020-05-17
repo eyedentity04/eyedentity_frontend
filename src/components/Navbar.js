@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import Logo from "../Img/logofinal.png"
+import Logo from "./Img/logofinal.png"
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import Logout from "../Homepage/Logout";
-
+import Logout from "./Homepage/Logout";
+import Profile from './Profile/Profile'
 // import "./Navbar.css"
 
 
@@ -53,11 +53,6 @@ class Navbar extends Component {
               <li className="nav-item ml-lg-2 ml-md-0 mr-2 mr-md-0">
                 <Link className="nav-link" to="/profile">
                   Profile
-                </Link>
-              </li>
-              <li className="nav-item ml-lg-2 ml-md-0 mr-2 mr-md-0">
-                <Link className="nav-link" to="/community">
-                  Community
                 </Link>
               </li>
               <li className="nav-item ml-lg-2 ml-md-0 mr-2 mr-md-0">
