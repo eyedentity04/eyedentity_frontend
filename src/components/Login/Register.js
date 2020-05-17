@@ -3,6 +3,7 @@ import "./Style.css";
 import { connect } from "react-redux";
 import Logo from "../Img/logo.png";
 import { register } from "../../actioncreators/register";
+import {Link} from 'react-router-dom'
 
 const Register = (props) => {
   const [data, setData] = useState({
@@ -23,7 +24,7 @@ const Register = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     props.register(data);
-    
+    window.alert("register succes")
   };
 
   return (
@@ -85,6 +86,9 @@ const Register = (props) => {
           <button type="submit" className="btn btn-info btn-block">
             Make An Account
           </button>
+          <p className="text-center leading">
+            login here <Link to="/login">login</Link>
+          </p>
         </form>
       </div>
     </div>

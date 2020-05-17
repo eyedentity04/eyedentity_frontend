@@ -12,9 +12,7 @@ const Post = (props) => {
   useEffect(() => {
       if (data && !data.length){
           props.getData()
-          console.log(props)
-      }
-      
+      }      
   }, [])
     
   const showPost = data.map((item, index) => (

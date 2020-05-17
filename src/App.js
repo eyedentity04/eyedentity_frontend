@@ -31,7 +31,7 @@ function App(props) {
 
 const mapStateToProps = (state) => {
   return {
-    viaLogin: state.login.viaLogin,
+    viaLogin: state.login.viaLogin
   };
 };
 
