@@ -11,7 +11,6 @@ export const login = (data) => {
       console.log(response.data)
       
       dispatch({
-
         type: "USER_LOGIN",
         payload: response.data,
       });

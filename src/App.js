@@ -3,14 +3,13 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect
+  Redirect,
 } from "react-router-dom";
 import { connect } from "react-redux";
 
 import Login from "./components/Login/Login";
 import UserRegister from "./components/Login/Register";
 import Home from "./components/Home";
-
 
 function App(props) {
   return (
@@ -32,7 +31,7 @@ function App(props) {
 
 const mapStateToProps = (state) => {
   return {
-    viaLogin: state.login.viaLogin,
+    viaLogin: state.login.viaLogin
   };
 };
 

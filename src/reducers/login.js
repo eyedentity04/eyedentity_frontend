@@ -1,12 +1,13 @@
 const initialState = {
-  viaLogin: localStorage.getItem("token") 
+  viaLogin: localStorage.getItem("user") 
 };
+
 
 const login = (state = initialState, action) => {
   
   switch (action.type) {
     case "USER_LOGIN":
-      localStorage.setItem("user", JSON.stringify(action.payload));
+    localStorage.setItem("user", JSON.stringify(action.payload));
       return {
         ...state,
         viaLogin: action.payload

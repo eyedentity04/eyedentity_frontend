@@ -6,17 +6,23 @@ import { add } from "../../actioncreators/Home";
 import {Form} from 'react-bootstrap'
 
 const Add = (props) => {
-    return (
+  
+  const user = JSON.parse(localStorage.getItem("user"));
+  const id = user.id;  
+  
+  return (
       <Formik
         initialValues={{
           description : '',
-          image : null
+          image : null,
+          name : id
         }}
         onSubmit ={(values)=>{
           let formData = new FormData();
 
           formData.append('description',values.description)
           formData.append('image',values.image)
+          formData.append('name',values.name)
 
           props.add(formData);
         }}
@@ -35,6 +41,7 @@ const Add = (props) => {
                 placeholder="Type something...."
                 onChange={props.handleChange}
               />
+              <br/>
               <input
                 type="file"
                 className="form-control"
@@ -45,7 +52,7 @@ const Add = (props) => {
                 }}
               />
               </div>
-              <button type="submit" className="btn btn-info" >
+              <button type="submit" className="btn btn-info" style={{backgroundColor : "#8D7B65"}}>
                 Submit
               </button>
             </div>

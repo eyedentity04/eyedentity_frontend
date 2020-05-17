@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./Style.css";
 import { connect } from "react-redux";
-import Logo from "../Img/logo.png";
+import Logo from "../Img/logofinal.png";
 import { register } from "../../actioncreators/register";
+import {Link} from 'react-router-dom'
 
 const Register = (props) => {
   const [data, setData] = useState({
@@ -23,12 +24,12 @@ const Register = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     props.register(data);
-    
+    window.alert("register succes")
   };
 
   return (
     <div className="cardform">
-      <div className="card p-3 rounded" style={{ width: "18rem" }}>
+      <div className="card p-3 rounded" style={{ width: "18rem", backgroundColor: "#F1EAC3" }}>
         <img
           src={Logo}
           className="card-img-top mx-auto"
@@ -80,11 +81,17 @@ const Register = (props) => {
               value={data.confirmPassword}
               onChange={handleChange}
             />
+            <p className="text-center leading">
+            Login Here <Link to="/login">Login</Link>
+          </p>
           </div>
           <div className="form-group form-check"></div>
-          <button type="submit" className="btn btn-info btn-block">
+          <button type="submit" className="btn btn-info btn-block" style={{backgroundColor : "#8D7B65"}}>
             Make An Account
           </button>
+          <p className="text-center leading">
+            login here <Link to="/login">login</Link>
+          </p>
         </form>
       </div>
     </div>

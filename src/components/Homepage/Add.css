@@ -1,5 +1,9 @@
+body {
+    background-color: rgb(246, 229, 180) !important ;
+}
+
 button {
     display: flex;
     justify-content: center;
-    align-items: right;
+    align-items: flex-end;
 }
