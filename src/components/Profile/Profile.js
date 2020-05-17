@@ -55,7 +55,7 @@ class Profile extends Component {
                 <div className="card" style={{ width: "16rem" }}>
                   <FontAwesomeIcon icon={faUsers} className="fa-8x mx-auto" />
                   <div className="card-body">
-                    <h5 className="card-title mx-auto">Community</h5>
+                    <h5 className="card-title mx-auto">Communities</h5>
                   </div>
                 </div>
               </div>

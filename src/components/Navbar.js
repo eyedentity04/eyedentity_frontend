@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import Logout from "./Homepage/Logout";
-import Profile from './Profile/Profile'
 // import "./Navbar.css"
 
 

@@ -5,8 +5,6 @@ import { connect } from "react-redux";
 import { add } from "../../actioncreators/Home";
 import {Form} from 'react-bootstrap'
 
-const user = JSON.parse(localStorage.getItem("user"));
-const id = user.id;
 
 const Add = (props) => {
   
@@ -19,7 +17,6 @@ const Add = (props) => {
           name : id,
           description : '',
           image : null,
-          name : id
         }}
         onSubmit ={(values)=>{
           let formData = new FormData();
@@ -27,7 +24,6 @@ const Add = (props) => {
           formData.append('name',values.name)
           formData.append('description',values.description)
           formData.append('image',values.image)
-          formData.append('name',values.name)
 
           props.add(formData);
         }}
