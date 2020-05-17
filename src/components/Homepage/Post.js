@@ -15,6 +15,8 @@ const Post = (props) => {
     }
   }, []);
 
+  console.log(data)
+  
   const showPost = data.map((item, index) =>(
     <div key={index}>
       <div className="card mt-4" style={{ width: "auto" }}>
@@ -22,9 +24,11 @@ const Post = (props) => {
           <img src={img1} className="rounded-circle" alt="..." />
         </div>
         <div className="card-body">
-          <p className="card-text">{item.description}</p>
-          <img src={item.img} alt="" />
-          <img src={like} style={{ width: "15px" }} alt="" />
+          <p className="card-text">
+            {item.description}
+          </p>
+          <img src={`http://api.riyofirsan.com/${item.image}`} alt=""/>
+          <img src={like} style={{ width: "15px" }} alt=""/>
         </div>
       </div>
     </div>
