@@ -21,13 +21,8 @@ const Post = (props) => {
       <div key={index}>
       <div className="card mt-4" style={{ width: "auto" }}>
         <div className="row">
-<<<<<<< HEAD
-          <img src={img1} className="rounded-circle1" alt="..." />
-          <h4 className="card-title">User</h4>
-=======
           <img src={img1} className="rounded-circle" alt="..." />
           <h4 className="card-title">{item.name.name}</h4>
->>>>>>> cbfc772b3e64cedf8cb18636637dd726bf332e67
         </div>
         <div className="card-body">
           <p className="card-text">
