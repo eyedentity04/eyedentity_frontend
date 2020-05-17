@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import img1 from "../Img/img1.jpg";
 import like from "../Img/like.svg";
 import {connect} from "react-redux"
-import "./post.css";
+import "./post  .css";
 
 import {getData} from '../../actioncreators/Home';
 
