@@ -26,7 +26,7 @@ const Post = (props) => {
           <p className="card-text">
             {item.description}
           </p>
-          <img src={item.img} alt=""/>
+          <img src={`http://api.riyofirsan.com/${item.image}`} alt=""/>
           <img src={like} style={{ width: "15px" }} alt=""/>
         </div>
       </div>
