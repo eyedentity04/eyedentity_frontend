@@ -5,13 +5,9 @@ export const add = (data) => {
     const user = JSON.parse(localStorage.getItem("user"));
     const token = user.token;
     axios
-      .post(
-        "https://eyedentity-socialmedia.herokuapp.com/post/create",
-        data,
-        {
-          headers: { token: token },
-        }
-      )
+      .post("http://api.riyofirsan.com/post/create", data, {
+        headers: { "token": token },
+      })
       .then((response) => {
         console.log(response);
         dispatch({
@@ -32,7 +28,7 @@ export const getData = () => {
       })
       .then((response) => {
         console.log(response.data);
-        console.log(response.data[1].name.name)
+        
         dispatch({
           type: "POST_SHOW",
           payload: response.data,
