@@ -15,23 +15,31 @@ const Post = (props) => {
       }      
   }, [])
     
-  const showPost = data.map((item, index) => (
-    <div key={index}>
+  const showPost = data.map((item, index) => {
+    console.log(item)
+    return(
+      <div key={index}>
       <div className="card mt-4" style={{ width: "auto" }}>
         <div className="row">
+<<<<<<< HEAD
           <img src={img1} className="rounded-circle1" alt="..." />
           <h4 className="card-title">User</h4>
+=======
+          <img src={img1} className="rounded-circle" alt="..." />
+          <h4 className="card-title">{item.name.name}</h4>
+>>>>>>> cbfc772b3e64cedf8cb18636637dd726bf332e67
         </div>
         <div className="card-body">
           <p className="card-text">
             {item.description}
           </p>
-          <img src={item.img} alt=""/>
+          <img src={`http://api.riyofirsan.com/${item.image}`} alt=""/>
           <img src={like} style={{ width: "15px" }} alt=""/>
         </div>
       </div>
     </div>
-  ));
+    )
+  });
 
   return <div className="container">{showPost}</div>;
 };

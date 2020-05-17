@@ -5,7 +5,7 @@ export const add = (data) => {
     const user = JSON.parse(localStorage.getItem("user"));
     const token = user.token;
     axios
-      .post("https://eyedentity-socialmedia.herokuapp.com/post/create", data, {
+      .post("http://api.riyofirsan.com/post/create", data, {
         headers: { "token": token },
       })
       .then((response) => {
@@ -23,7 +23,7 @@ export const getData = () => {
     const user = JSON.parse(localStorage.getItem("user"));
     const token = user.token;
     axios
-      .get("http://eyedentity-socialmedia.herokuapp.com/post/show", {
+      .get("http://api.riyofirsan.com/post/show", {
         headers: { "token": token },
       })
       .then((response) => {
