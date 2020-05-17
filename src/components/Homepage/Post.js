@@ -15,15 +15,12 @@ const Post = (props) => {
     }
   }, []);
 
-  console.log(data)
-  console.log(data.name)
-  
-  const showPost = data.map((item, index) =>(
+const showPost = data.map((item, index) =>(
     <div key={index}>
       <div className="card mt-4" style={{ width: "auto" }}>
         <div className="row">
           <img src={img1} className="rounded-circle" alt="..." />
-          {JSON.stringify(item.name)}
+          {name(item.name)}
         </div>
         <div className="card-body">
           <p className="card-text">
