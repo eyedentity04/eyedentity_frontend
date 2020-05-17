@@ -1,17 +1,17 @@
 const initialState = {
-    data: [],
+    data: []
   };
   
-  const homeUser = (state = initialState, action) => {
+  const commentUser = (state = initialState, action) => {
     switch (action.type) {
-      case "POST_ADD":
+      case "COMMENT_POST":
         return { ...state, data: [...state.data, action.payload] };
-      case "POST_SHOW":
+      case "COMMENT_SHOW":
         return { ...state, data: action.payload };
-  
       default:
         return state;
     }
   };
   
-  export default homeUser;
+  export default commentUser;
+  

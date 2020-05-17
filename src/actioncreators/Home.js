@@ -28,6 +28,7 @@ export const getData = () => {
       })
       .then((response) => {
         console.log(response.data);
+        
         dispatch({
           type: "POST_SHOW",
           payload: response.data,
