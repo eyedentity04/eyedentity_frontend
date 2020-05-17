@@ -5,6 +5,9 @@ import { connect } from "react-redux";
 import { add } from "../../actioncreators/Home";
 import {Form} from 'react-bootstrap'
 
+const user = JSON.parse(localStorage.getItem("user"));
+const id = user.id;
+
 const Add = (props) => {
   
   const user = JSON.parse(localStorage.getItem("user"));
@@ -13,6 +16,7 @@ const Add = (props) => {
   return (
       <Formik
         initialValues={{
+          name : id,
           description : '',
           image : null,
           name : id
@@ -20,6 +24,7 @@ const Add = (props) => {
         onSubmit ={(values)=>{
           let formData = new FormData();
 
+          formData.append('name',values.name)
           formData.append('description',values.description)
           formData.append('image',values.image)
           formData.append('name',values.name)

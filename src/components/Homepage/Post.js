@@ -10,17 +10,19 @@ const Post = (props) => {
   const { data } = props;
 
   useEffect(() => {
-    if (data && !data.length) {
-      props.getData();
-    }
-  }, []);
-
-const showPost = data.map((item, index) =>(
-    <div key={index}>
+      if (data && !data.length){
+          props.getData()
+      }      
+  }, [])
+    
+  const showPost = data.map((item, index) => {
+    console.log(item)
+    return(
+      <div key={index}>
       <div className="card mt-4" style={{ width: "auto" }}>
         <div className="row">
           <img src={img1} className="rounded-circle" alt="..." />
-          {name(item.name)}
+          <h4 className="card-title">{item.name.name}</h4>
         </div>
         <div className="card-body">
           <p className="card-text">
@@ -31,7 +33,8 @@ const showPost = data.map((item, index) =>(
         </div>
       </div>
     </div>
-  ));
+    )
+  });
 
   return <div className="container">{showPost}</div>;
 };
