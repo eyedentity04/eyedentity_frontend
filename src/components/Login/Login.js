@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import "./Style.css";
-import Logo from "../Img/logo.png";
+import Logo from "../Img/logofinal.png";
 import { login } from "../../actioncreators/login";
 
 const Index = (props) => {
@@ -27,12 +27,12 @@ const Index = (props) => {
 
   return (
     <div className="cardform">
-      <div className="card p-3 rounded" style={{ width: "18rem" }}>
+      <div className="card p-3 rounded" style={{ width: "18rem", backgroundColor : "#F1EAC3" }}>
         <img
           src={Logo}
           className="card-img-top mx-auto"
           alt="..."
-          style={{ width: "75px" }}
+          style={{ width: "55px" }}
         />
         <h4 className="card-title mx-auto">Login</h4>
         <form onSubmit={handleSubmit}>
@@ -62,7 +62,7 @@ const Index = (props) => {
           <p className="text-center leading">
             Don't have an account ? <Link to="/register">Register</Link>
           </p>
-            <button type="submit" className="btn btn-info btn-block">
+            <button type="submit" className="btn btn-block" style={{backgroundColor : "#8D7B65"}}>
               Submit
             </button>
         </form>

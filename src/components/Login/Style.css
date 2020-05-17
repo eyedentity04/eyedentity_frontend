@@ -1,5 +1,5 @@
 .cardform{
-    background-image: url(../Img/1.png);
+    background-image: url(../Img/test.jpeg);
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
@@ -9,3 +9,6 @@
     align-items: center;
 }
 
+.btn btn-block {
+    background-color: brown;
+}

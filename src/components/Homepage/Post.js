@@ -26,7 +26,7 @@ const Post = (props) => {
           <p className="card-text">
             {item.description}
           </p>
-          <img src={`http://eyedentity-socialmedia.herokuapp.com/${item.image}`} alt=""/>
+          <img src={item.img} alt=""/>
           <img src={like} style={{ width: "15px" }} alt=""/>
         </div>
       </div>

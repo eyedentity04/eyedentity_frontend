@@ -1,17 +1,20 @@
 import React, { Component } from "react";
-import Logo from "../components/Img/logo.png";
+import Logo from "../Img/logofinal.png"
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import Logout from "./Homepage/Logout";
+import Logout from "../Homepage/Logout";
+
+// import "./Navbar.css"
+
 
 class Navbar extends Component {
   render() {
     return (
       <div>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-info">
+        <nav className="navbar navbar-expand-lg navbar-dark" style={{backgroundColor : "#493D2A",}}>
           <Link className="navbar-brand" to="/">
-            <img src={Logo} width="65px" alt="" />
+            <img src={Logo} width="35px" alt="" />
             <strong>Welcome, Users</strong>
           </Link>
 
@@ -36,7 +39,7 @@ class Navbar extends Component {
                   placeholder="Search"
                   size="30"
                 />
-                <button className="btn btn-info" type="submit">
+                <button class="btn btn-info" type="submit" style={{backgroundColor : "#8D7B65"}}>
                   <FontAwesomeIcon icon={faSearch} />
                 </button>
               </div>
