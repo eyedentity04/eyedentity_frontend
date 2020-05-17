@@ -15,12 +15,14 @@ const Post = (props) => {
       }      
   }, [])
     
-  const showPost = data.map((item, index) => (
-    <div key={index}>
+  const showPost = data.map((item, index) => {
+    console.log(item)
+    return(
+      <div key={index}>
       <div className="card mt-4" style={{ width: "auto" }}>
         <div className="row">
           <img src={img1} className="rounded-circle" alt="..." />
-          <h4 className="card-title">User</h4>
+          <h4 className="card-title">{item.name.name}</h4>
         </div>
         <div className="card-body">
           <p className="card-text">
@@ -31,7 +33,8 @@ const Post = (props) => {
         </div>
       </div>
     </div>
-  ));
+    )
+  });
 
   return <div className="container">{showPost}</div>;
 };
