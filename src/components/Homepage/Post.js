@@ -6,6 +6,7 @@ import "./post.css";
 import Comment from './Comment'
 
 import { getData } from "../../actioncreators/Home";
+import ShowComment from "./ShowComment";
 
 const Post = (props) => {
   const { data } = props;
@@ -21,8 +22,9 @@ const Post = (props) => {
       <div key={index}>
         <div className="card mt-4" style={{ width: "auto" }}>
           <div className="card-title">
-            <img src={img1} className="rounded-circle" style={{ width: "70px" }} alt="..." />
+            <img src={img1} className="rounded-circle ml-2 mt-2" style={{ width: "50px" }} alt="..." />
             <span>{item.name.name}</span>
+          <p className="text-muted ml-2 mt-2" >{item.date}</p>
           </div>
           <div className="card-body">
             <p className="card-text">{item.description}</p>
@@ -34,6 +36,7 @@ const Post = (props) => {
             <img src={like} style={{ width: "15px" }} alt="" />
           </div>
         </div>
+        <ShowComment/>
         <Comment/>
       </div>
     );
