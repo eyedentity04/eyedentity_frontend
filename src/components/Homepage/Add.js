@@ -1,22 +1,22 @@
 import React from "react";
 import { Formik } from "formik";
 import "./Add.css";
+import Tag from './Tag'
 import { connect } from "react-redux";
 import { add } from "../../actioncreators/Home";
 import { Form } from "react-bootstrap";
-import Tag from "./Tag";
 
 const Add = (props) => {
   const user = JSON.parse(localStorage.getItem("user"));
   const id = user.id;
-
+  
   return (
     <Formik
       initialValues={{
         name: id,
         description: "",
         image: null,
-        tags: [],
+        tag: [],
       }}
       onSubmit={(values) => {
         let formData = new FormData();
@@ -43,12 +43,8 @@ const Add = (props) => {
                 placeholder="Type something...."
                 onChange={props.handleChange}
               />
+              <Tag/>
               
-              <Tag
-                value={props.values.tags}
-                onChange={props.handleChange}
-              />
-
               <input
                 type="file"
                 className="form-control"
@@ -59,6 +55,7 @@ const Add = (props) => {
                 }}
               />
             </div>
+            
             <button
               type="submit"
               className="btn btn-info"
