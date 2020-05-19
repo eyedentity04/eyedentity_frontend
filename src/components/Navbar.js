@@ -4,17 +4,18 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import Logout from "./Homepage/Logout";
-// import "./Navbar.css"
+import img1 from './Img/img1.jpg'
+import "./Navbar.css"
 
 
 class Navbar extends Component {
   render() {
     return (
       <div>
-        <nav className="navbar navbar-expand-lg navbar-dark" style={{backgroundColor : "#493D2A",}}>
+        <nav className="navbar navbar-expand-lg navbar-dark" style={{backgroundColor : "#493D2A", padding : "0% 5% 0% 5%"}}>
           <Link className="navbar-brand" to="/">
             <img src={Logo} width="35px" alt="" />
-            <strong>Welcome, Users</strong>
+            <strong> Memoir</strong>
           </Link>
 
           <button
@@ -30,13 +31,13 @@ class Navbar extends Component {
           </button>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <form className="form-inline my-2 my-lg-0 mx-auto">
+            <form className="form-inline my-2 my-lg-0 ">
               <div className="input-group">
                 <input
                   type="text"
                   className="form-control"
                   placeholder="Search"
-                  size="30"
+                  size="65"
                 />
                 <button class="btn btn-info" type="submit" style={{backgroundColor : "#8D7B65"}}>
                   <FontAwesomeIcon icon={faSearch} />
@@ -44,14 +45,16 @@ class Navbar extends Component {
               </div>
             </form>
             <ul className="navbar-nav ml-auto">
-              <li className="nav-item active ml-lg-2 ml-md-0 mr-2 mr-md-0">
+            <li>
+                <Link className="nav-link" to="/profile">
+                <img src={img1} className="rounded-circle" style={{ width: "35px" }} alt="..." />
+                <span> User</span>
+                </Link>
+             
+             </li>
+              <li className="nav-item  ml-lg-2 ml-md-0 mr-2 mr-md-0">
                 <Link className="nav-link" to="/">
                   Home <span className="sr-only">(current)</span>
-                </Link>
-              </li>
-              <li className="nav-item ml-lg-2 ml-md-0 mr-2 mr-md-0">
-                <Link className="nav-link" to="/profile">
-                  Profile
                 </Link>
               </li>
               <li className="nav-item ml-lg-2 ml-md-0 mr-2 mr-md-0">
@@ -59,9 +62,11 @@ class Navbar extends Component {
                   Message
                 </Link>
               </li>
+              
               <li className="nav-item ml-lg-2 ml-md-0 mr-2 mr-md-0">
                 <Logout />
               </li>
+            
             </ul>
           </div>
         </nav>

@@ -81,6 +81,7 @@ const Register = (props) => {
               value={data.confirmPassword}
               onChange={handleChange}
             />
+            <br/>
             <p className="text-center leading">
             Login Here <Link to="/login">Login</Link>
           </p>
@@ -89,9 +90,6 @@ const Register = (props) => {
           <button type="submit" className="btn btn-info btn-block" style={{backgroundColor : "#8D7B65"}}>
             Make An Account
           </button>
-          <p className="text-center leading">
-            login here <Link to="/login">login</Link>
-          </p>
         </form>
       </div>
     </div>

@@ -7,7 +7,7 @@ const Logout = (props) => {
     props.logout();
   };
   return (
-    <div className="btn btn-danger" onClick={onChange}>
+    <div className="nav-link" onClick={onChange}>
       Logout
     </div>
   );
