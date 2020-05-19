@@ -24,7 +24,6 @@ const Post = (props) => {
           <div className="card-title">
             <img src={img1} className="rounded-circle ml-2 mt-2" style={{ width: "50px" }} alt="..." />
             <span>{item.name.name}</span>
-          <p className="text-muted ml-2 mt-2" >{item.date}</p>
           </div>
           <div className="card-body">
             <p className="card-text">{item.description}</p>
@@ -36,8 +35,6 @@ const Post = (props) => {
             <img src={like} style={{ width: "15px" }} alt="" />
           </div>
         </div>
-        <ShowComment/>
-        <Comment/>
       </div>
     );
   });
