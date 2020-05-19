@@ -3,7 +3,12 @@ import Navbar from "../Navbar";
 import profilepic from "../Img/img1.jpg";
 import "./Profile.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUsers, faImages, faVideo, faUserFriends} from "@fortawesome/free-solid-svg-icons";
+import {
+  faUsers,
+  faImages,
+  faVideo,
+  faUserFriends,
+} from "@fortawesome/free-solid-svg-icons";
 
 class Profile extends Component {
   render() {
@@ -11,25 +16,26 @@ class Profile extends Component {
       <div>
         <Navbar />
         <div className="container">
-
           <div className="profile">
-            <img
-              src={profilepic}
-              className="rounded-circle"
-              alt="..."
-              style={{ width: "200px" }}
-            />
-          </div>
+            <img src={profilepic} className="profileimage" alt="..." />
+            <br/><br/><br/><br/><br/><br/>
+            <div className="username">
+              <h2>User</h2>
+              <span>This is user</span>
+            </div>
 
-          <br />
+            <br />
+          </div>
           <div>
-            <h2>User</h2>
-            <span>This is user</span>
-            <br/><br/>
+            <br />
+            <br />
             <div className="row">
               <div className="col-md-3">
                 <div className="card" style={{ width: "16rem" }}>
-                  <FontAwesomeIcon icon={faUserFriends} className="fa-8x mx-auto" />
+                  <FontAwesomeIcon
+                    icon={faUserFriends}
+                    className="fa-8x mx-auto"
+                  />
                   <div className="card-body">
                     <h5 className="card-title mx-auto">Friends</h5>
                   </div>
@@ -61,7 +67,6 @@ class Profile extends Component {
               </div>
             </div>
           </div>
-
         </div>
       </div>
     );

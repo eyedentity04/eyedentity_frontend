@@ -23,7 +23,7 @@ const Post = (props) => {
         <div className="card mt-4" style={{ width: "auto" }}>
           <div className="card-title">
             <img src={img1} className="rounded-circle ml-2 mt-2" style={{ width: "50px" }} alt="..." />
-            <span>{item.name.name}</span>
+            <span> {item.name.name}</span>
           </div>
           <div className="card-body">
             <p className="card-text">{item.description}</p>
