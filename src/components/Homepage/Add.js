@@ -7,7 +7,7 @@ import { add } from "../../actioncreators/Home";
 import { Form } from "react-bootstrap";
 
 import Geocode from "react-geocode";
-import Tag from "./Tag";
+
 
 
 const Add = (props) => {
