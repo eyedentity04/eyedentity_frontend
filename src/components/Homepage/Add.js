@@ -16,7 +16,7 @@ const Add = (props) => {
         name: id,
         description: "",
         image: null,
-        tag: [],
+        // tag: [],
       }}
       onSubmit={(values) => {
         let formData = new FormData();
@@ -43,7 +43,6 @@ const Add = (props) => {
                 placeholder="Type something...."
                 onChange={props.handleChange}
               />
-              <Tag/>
               
               <input
                 type="file"

@@ -10,7 +10,7 @@ const TagInput = () => {
       event.target.value=""
     }
   }
-
+  
   const removeTags = index =>{
     setTag([...tag.filter(tags=>tag.indexOf(tags) !== index)])
   }
