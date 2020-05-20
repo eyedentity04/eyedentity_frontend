@@ -3,8 +3,6 @@ import img1 from "../Img/img1.jpg";
 import like from "../Img/like.svg";
 import { connect } from "react-redux";
 import "./post.css";
-import Comment from './Comment'
-
 import { getData } from "../../actioncreators/Home";
 import ShowComment from "./ShowComment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenAlt} from "@fortawesome/free-solid-svg-icons";
 
 import Geocode from "react-geocode";
-import Tag from "./Tag";
+
 
 
 const Add = (props) => {

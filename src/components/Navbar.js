@@ -6,10 +6,31 @@ import { faSearch, faComments, faHome} from "@fortawesome/free-solid-svg-icons";
 import Logout from "./Homepage/Logout";
 import img1 from './Img/img1.jpg'
 import "./Navbar.css"
+import axios from "axios"
+
 
 
 class Navbar extends Component {
+  constructor(){
+    super()
+    this.state ={
+      data : {}
+    }
+  }
+
+  componentDidMount(){
+    const user = JSON.parse(localStorage.getItem('user'))
+    
+    axios.get(`http://api.riyofirsan.com/users/show/${user.id}`)
+    .then((response) => {
+      this.setState({data : response.data})
+      console.log(response)
+    })
+  }
+
   render() {
+    let user = Object.assign({},this.state.data)
+    
     return (
       <div>
         <nav className="navbar navbar-expand-lg navbar-dark" 

@@ -36,3 +36,23 @@ export const getData = () => {
       });
   };
 };
+
+
+
+export const user = () => {
+  const user = JSON.parse(localStorage.getItem('user'))
+const id = user.id
+  return (dispatch) => {
+    axios.get(`http://api.riyofirsan.com/users/show/${id}`)
+    .then((response) => {
+      console.log(response.data)
+    .catch(err =>{
+      window.alert(err)
+    })
+    dispatch({
+      type : "USER",
+      payload : response.data
+    })
+    })
+  }
+}
