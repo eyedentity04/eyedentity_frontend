@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Formik } from "formik";
 import "./Add.css";
+import Tag from './Tag'
 import { connect } from "react-redux";
 import { add } from "../../actioncreators/Home";
 import { Form } from "react-bootstrap";
+
 import Geocode from "react-geocode";
 import Tag from "./Tag";
+
 
 const Add = (props) => {
   const user = JSON.parse(localStorage.getItem("user"));
   const id = user.id;
+
 
   const [data,setData] = useState([])
   useEffect(()=>{
@@ -38,6 +42,7 @@ const Add = (props) => {
   let lath = data.lat
   // console.log(lath)
 
+
   return (
     <Formik
       initialValues={{
@@ -47,6 +52,7 @@ const Add = (props) => {
         namePlace : city,
         long : lng,
         lat : lath
+
       }}
       onSubmit={(values) => {
         let formData = new FormData();
@@ -75,7 +81,9 @@ const Add = (props) => {
                 placeholder="Type something...."
                 onChange={props.handleChange}
               />
+             
               
+
               <div
                 value={props.namePlace}
                 onChange={props.handleChange}
@@ -89,6 +97,7 @@ const Add = (props) => {
                 onChange={props.handleChange}
               />
 
+
               <input
                 type="file"
                 className="form-control"
@@ -99,6 +108,7 @@ const Add = (props) => {
                 }}
               />
             </div>
+            
             <button
               type="submit"
               className="btn btn-info"

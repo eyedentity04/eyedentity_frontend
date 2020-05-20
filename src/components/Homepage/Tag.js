@@ -1,51 +1,40 @@
-import React, {Component} from 'react'
-import './tag.css'
+import React, { useState } from "react";
+import "./tag.css";
 
-class InputTag extends Component {
-  constructor() {
-    super();
-    
-    this.state = {
-      tags: []
-    };
-  }
+const TagInput = () => {
+  const [tag, setTag] = useState([]);
   
-  removeTag = (i) => {
-    const newTags = [ ...this.state.tags ];
-    newTags.splice(i, 1);
-    this.setState({ tags: newTags });
-  }
-
-  inputKeyDown = (e) => {
-    const val = e.target.value;
-    if (e.key === 'Enter' && val) {
-      if (this.state.tags.find(tag => tag.toLowerCase() === val.toLowerCase())) {
-        return;
-      }
-      this.setState({ tags: [...this.state.tags, val]});
-      this.tagInput.value = null;
-    } else if (e.key === 'Backspace' && !val) {
-      this.removeTag(this.state.tags.length - 1);
+  const addTags = event => {
+    if (event.key=="Enter" && event.target.value !== ""){
+      setTag([...tag,event.target.value])
+      event.target.value=""
     }
   }
 
-  render() {
-    const { tags } = this.state;
-
-    return (
-      <div className="input-tag">
-        <ul className="input-tag__tags">
-          { tags.map((tag, i) => (
-            <li key={tag}>
-              {tag}
-              <button type="button" onClick={() => { this.removeTag(i); }}>+</button>
-            </li>
-          ))}
-          <li className="input-tag__tags__input"><input type="text" placeholder="Tag Someone" onKeyDown={this.inputKeyDown} ref={c => { this.tagInput = c; }} /></li>
-        </ul>
-      </div>
-    );
+  const removeTags = index =>{
+    setTag([...tag.filter(tags=>tag.indexOf(tags) !== index)])
   }
-}
+  return (
+    <div className="tags-input">
+        <ul id="tags">
+            {tag.map((tags, index) => (
+                <li key={index} className="tag">
+                    <span className='tag-title'>{tags}</span>
+                    <span className='tag-close-icon'
+                        onClick={() => removeTags(index)}
+                    >
+                        x
+                    </span>
+                </li>
+            ))}
+        </ul>
+        <input
+            type="text"
+            onKeyUp={event => event.key === "Enter" ? addTags(event) : null}
+            placeholder="Press enter to add tags"
+        />
+    </div>
+);
+};
 
-export default InputTag
+export default TagInput
