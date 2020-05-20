@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Logo from "./Img/logofinal.png"
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faComments, faHome} from "@fortawesome/free-solid-svg-icons";
 import Logout from "./Homepage/Logout";
 import img1 from './Img/img1.jpg'
 import "./Navbar.css"
@@ -12,7 +12,12 @@ class Navbar extends Component {
   render() {
     return (
       <div>
-        <nav className="navbar navbar-expand-lg navbar-dark" style={{backgroundColor : "#493D2A", padding : "0% 5% 0% 5%"}}>
+        <nav className="navbar navbar-expand-lg navbar-dark" 
+        style={{
+          backgroundColor : "#493D2A", 
+          padding : "0% 5% 0% 5%",
+          
+          }}>
           <Link className="navbar-brand" to="/">
             <img src={Logo} width="35px" alt="" />
             <strong> Memoir</strong>
@@ -47,19 +52,19 @@ class Navbar extends Component {
             <ul className="navbar-nav ml-auto">
             <li>
                 <Link className="nav-link" to="/profile">
-                <img src={img1} className="rounded-circle" style={{ width: "35px" }} alt="..." />
-                <span> User</span>
+                <img src={img1} className="rounded-circle" style={{ width: "30px" }} alt="..." />
+                <b><span> User</span> </b>
                 </Link>
              
              </li>
               <li className="nav-item  ml-lg-2 ml-md-0 mr-2 mr-md-0">
                 <Link className="nav-link" to="/">
-                  Home <span className="sr-only">(current)</span>
+                  <b><FontAwesomeIcon icon={faHome} className="fa-2x mx-auto" /> <span className="sr-only">(current)</span></b>
                 </Link>
               </li>
               <li className="nav-item ml-lg-2 ml-md-0 mr-2 mr-md-0">
                 <Link className="nav-link" to="/message">
-                  Message
+                <FontAwesomeIcon icon={faComments} className="fa-2x mx-auto" />
                 </Link>
               </li>
               
@@ -76,3 +81,4 @@ class Navbar extends Component {
 }
 
 export default Navbar;
+

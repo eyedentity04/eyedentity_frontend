@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Formik } from "formik";
 import "./Add.css";
-import Tag from './Tag'
 import { connect } from "react-redux";
 import { add } from "../../actioncreators/Home";
 import { Form } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPenAlt} from "@fortawesome/free-solid-svg-icons";
 
 import Geocode from "react-geocode";
 import Tag from "./Tag";
@@ -107,15 +108,17 @@ const Add = (props) => {
                   props.setFieldValue("image", event.currentTarget.files[0]);
                 }}
               />
-            </div>
-            
-            <button
+               <button
               type="submit"
-              className="btn btn-info"
+              className="btn btn-info mt-2"
               style={{ backgroundColor: "#8D7B65" }}
             >
-              Submit
+              <FontAwesomeIcon icon={faPenAlt} className="fa-1x mx-auto" />
+                &nbsp; Submit
             </button>
+            </div>
+            
+           
           </div>
         </Form>
       )}
