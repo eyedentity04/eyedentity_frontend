@@ -18,6 +18,7 @@ const Post = (props) => {
   }, []);
 
   const showPost = data.map((item, index) => {
+    console.log(item.tagPlace[0].namePlace)
     return (
       <div key={index}>
         <div className="card mt-4" style={{ width: "auto" }}>
@@ -32,6 +33,9 @@ const Post = (props) => {
               src={`http://api.riyofirsan.com/${item.image}`}
               alt=""
             />
+            <div>{item.tagPlace[0].namePlace}</div>
+            <div>{item.tagPlace[0].long}</div>
+            <div>{item.tagPlace[0].lat}</div>
             <img src={like} style={{ width: "15px" }} alt="" />
           </div>
         </div>

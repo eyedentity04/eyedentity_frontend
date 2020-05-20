@@ -1,14 +1,42 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Formik } from "formik";
 import "./Add.css";
 import { connect } from "react-redux";
 import { add } from "../../actioncreators/Home";
 import { Form } from "react-bootstrap";
+import Geocode from "react-geocode";
 import Tag from "./Tag";
 
 const Add = (props) => {
   const user = JSON.parse(localStorage.getItem("user"));
   const id = user.id;
+
+  const [data,setData] = useState([])
+  useEffect(()=>{
+    navigator.geolocation.getCurrentPosition(function(position){
+      console.log(position.coords.latitude)
+      console.log(position.coords.longitude)
+      Geocode.setApiKey("AIzaSyAVDqkzOARvGHvFnfaIYEiDBeIFaTjDDGI")
+      Geocode.fromLatLng(
+        position.coords.latitude,
+        position.coords.longitude
+      ).then((response)=>{
+        console.log(response.results[0].address_components[4].long_name)
+        setData({
+          lat: response.results[3].geometry.location.lat,
+          lng: response.results[3].geometry.location.lng,
+          city: response.results[0].address_components[4].long_name
+        })
+      })
+    })
+  },[])
+
+  let city = data.city
+  // console.log(city)
+  let lng = data.lng
+  // console.log(lng)
+  let lath = data.lat
+  // console.log(lath)
 
   return (
     <Formik
@@ -16,7 +44,9 @@ const Add = (props) => {
         name: id,
         description: "",
         image: null,
-        tags: [],
+        namePlace : city,
+        long : lng,
+        lat : lath
       }}
       onSubmit={(values) => {
         let formData = new FormData();
@@ -24,7 +54,9 @@ const Add = (props) => {
         formData.append("name", values.name);
         formData.append("description", values.description);
         formData.append("image", values.image);
-        formData.append("tag", values.tags);
+        formData.append("namePlace", city);
+        formData.append("long", lng);
+        formData.append("lat", lath);
 
         props.add(formData);
       }}
@@ -34,7 +66,7 @@ const Add = (props) => {
           <div className="container">
             <div className="form-group">
               <textarea
-                className="form-control mt-5"
+                className="form-control mt-5"                                                                                                                                                                                                       
                 id="description"
                 name="description"
                 rows={6}
@@ -44,8 +76,16 @@ const Add = (props) => {
                 onChange={props.handleChange}
               />
               
-              <Tag
-                value={props.values.tags}
+              <div
+                value={props.namePlace}
+                onChange={props.handleChange}
+              />
+              <div
+                value={props.long}
+                onChange={props.handleChange}
+              />
+              <div
+                value={props.lat}
                 onChange={props.handleChange}
               />
 
