@@ -1,22 +1,57 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Formik } from "formik";
 import "./Add.css";
-import Tag from './Tag'
+
 import { connect } from "react-redux";
 import { add } from "../../actioncreators/Home";
 import { Form } from "react-bootstrap";
 
+import Geocode from "react-geocode";
+import TagInput from "./Tag";
+import Filter from "./Filter";
+
 const Add = (props) => {
   const user = JSON.parse(localStorage.getItem("user"));
   const id = user.id;
-  
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      console.log(position.coords.latitude);
+      console.log(position.coords.longitude);
+      Geocode.setApiKey("AIzaSyAVDqkzOARvGHvFnfaIYEiDBeIFaTjDDGI");
+      Geocode.fromLatLng(
+        position.coords.latitude,
+        position.coords.longitude
+      ).then((response) => {
+        console.log(response.results[0].address_components[4].long_name);
+        setData({
+          lat: response.results[3].geometry.location.lat,
+          lng: response.results[3].geometry.location.lng,
+          city: response.results[0].address_components[4].long_name,
+        });
+      });
+    });
+  }, []);
+
+  let city = data.city;
+  // console.log(city)
+  let lng = data.lng;
+  // console.log(lng)
+  let lath = data.lat;
+  // console.log(lath)
+
   return (
     <Formik
       initialValues={{
         name: id,
         description: "",
         image: null,
-        // tag: [],
+        namePlace: city,
+        long: lng,
+        lat: lath,
+        tag: []
       }}
       onSubmit={(values) => {
         let formData = new FormData();
@@ -24,7 +59,10 @@ const Add = (props) => {
         formData.append("name", values.name);
         formData.append("description", values.description);
         formData.append("image", values.image);
-        formData.append("tag", values.tags);
+        formData.append("namePlace", city);
+        formData.append("long", lng);
+        formData.append("lat", lath);
+        formData.append("tag",values.tag)
 
         props.add(formData);
       }}
@@ -43,7 +81,21 @@ const Add = (props) => {
                 placeholder="Type something...."
                 onChange={props.handleChange}
               />
-              
+
+              <div value={props.namePlace} onChange={props.handleChange} />
+              <div value={props.long} onChange={props.handleChange} />
+              <div value={props.lat} onChange={props.handleChange} />
+
+              <input
+                type="text"
+                className="form-control"
+                id="tag"
+                name="tag"
+                value={props.values.tag}
+                placeholder="tag"
+                onChange={props.handleChange}
+              />
+
               <input
                 type="file"
                 className="form-control"
@@ -54,7 +106,9 @@ const Add = (props) => {
                 }}
               />
             </div>
-            
+
+            <Filter />
+
             <button
               type="submit"
               className="btn btn-info"

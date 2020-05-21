@@ -1,8 +1,23 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
+import axios from 'axios'
 import "./tag.css";
 
-const TagInput = () => {
+const TagInput = (value,onChange) => {
   const [tag, setTag] = useState([]);
+  const [query, setQuery] = useState('');
+  const [url, setUrl] = useState(
+    'http://api.riyofirsan.com/users/findQuery?name=redux',
+  );
+ 
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios(url);
+ 
+      setTag(result.tag);
+    };
+ 
+    fetchData();
+  }, [url]);
   
   const addTags = event => {
     if (event.key=="Enter" && event.target.value !== ""){
@@ -30,6 +45,7 @@ const TagInput = () => {
         </ul>
         <input
             type="text"
+            onChange={event => setQuery(event.target.value)}
             onKeyUp={event => event.key === "Enter" ? addTags(event) : null}
             placeholder="Press enter to add tags"
         />
