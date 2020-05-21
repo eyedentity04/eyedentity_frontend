@@ -74,7 +74,7 @@ class Navbar extends Component {
             <li>
                 <Link className="nav-link" to="/profile">
                 <img src={img1} className="rounded-circle" style={{ width: "30px" }} alt="..." />
-                <b><span> User</span> </b>
+        <b><span> {user.name}</span> </b>
                 </Link>
              
              </li>
