@@ -30,7 +30,7 @@ const Add = (props) => {
         setData({
           lat: response.results[3].geometry.location.lat,
           lng: response.results[3].geometry.location.lng,
-          city: response.results[0].address_components[4].long_name
+          city: response.results[3].formatted_address
         })
       })
     })
@@ -89,14 +89,14 @@ const Add = (props) => {
                 value={props.namePlace}
                 onChange={props.handleChange}
               />
-              <div
+              {/* <div
                 value={props.long}
                 onChange={props.handleChange}
               />
               <div
                 value={props.lat}
                 onChange={props.handleChange}
-              />
+              /> */}
 
 
               <input

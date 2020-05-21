@@ -35,8 +35,8 @@ const Post = (props) => {
               alt=""
             />
             <div>{item.tagPlace[0].namePlace}</div>
-            <div>{item.tagPlace[0].long}</div>
-            <div>{item.tagPlace[0].lat}</div>
+            {/* <div>{item.tagPlace[0].long}</div>
+            <div>{item.tagPlace[0].lat}</div> */}
             <button type="submit"
               className="btn btn-info mt-2"
               style={{ backgroundColor: "#8D7B65" }}> 
