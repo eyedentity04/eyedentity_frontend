@@ -8,6 +8,7 @@ import {
   faImages,
   faUserFriends,
 } from "@fortawesome/free-solid-svg-icons";
+import axios from 'axios'
 
 class Profile extends Component {
   constructor(){

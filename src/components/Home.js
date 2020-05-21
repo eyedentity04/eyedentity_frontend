@@ -12,7 +12,6 @@ const Home = () => {
       <Navbar />
       <Add />
       <Post />
-      <Location/>
     </div>
   );
 };
