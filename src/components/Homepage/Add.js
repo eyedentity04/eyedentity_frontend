@@ -33,19 +33,11 @@ const Add = (props) => {
         setData({
           lat: response.results[3].geometry.location.lat,
           lng: response.results[3].geometry.location.lng,
-<<<<<<< HEAD
-          city: response.results[3].formatted_address
-        })
-      })
-    })
-  },[])
-=======
           city: response.results[0].address_components[4].long_name,
         });
       });
     });
   }, []);
->>>>>>> 31d4cd82ba59abed5e6d14f64c1276a70f9870fb
 
   let city = data.city;
   // console.log(city)
@@ -94,18 +86,6 @@ const Add = (props) => {
                 onChange={props.handleChange}
               />
 
-<<<<<<< HEAD
-              <div
-                value={props.namePlace}
-                onChange={props.handleChange}
-              />
-              {/* <div
-                value={props.long}
-                onChange={props.handleChange}
-              />
-              <div
-                value={props.lat}
-=======
               <div value={props.namePlace} onChange={props.handleChange} />
               <div value={props.long} onChange={props.handleChange} />
               <div value={props.lat} onChange={props.handleChange} />
@@ -117,7 +97,6 @@ const Add = (props) => {
                 name="tag"
                 value={props.values.tag}
                 placeholder="tag"
->>>>>>> 31d4cd82ba59abed5e6d14f64c1276a70f9870fb
                 onChange={props.handleChange}
               /> */}
 
