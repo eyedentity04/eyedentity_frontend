@@ -1,5 +1,6 @@
 .cardform{
-    background-image: url(../Img/test.jpeg);
+    background: rgba(0, 0,0, 0.4);
+    background-image: url(../Img/test.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;

@@ -19,6 +19,7 @@ const Post = (props) => {
 
   const showPost = data.map((item, index) => {
     console.log(item.tagPlace[0].namePlace);
+<<<<<<< HEAD
 
     return (
       <div key={index}>
@@ -31,10 +32,27 @@ const Post = (props) => {
               alt="..."
             />
             <span> {item.name.name}</span>
+=======
+    return (
+      <div key={index}>
+        <div class="card mt-3 w-100" style={{ borderRadius: "10px" }}>
+          <div class="card-header">
+            <div className="d-flex flex-row">
+              <img src={img1} style={{ width: "50px", borderRadius: "50%" }} />
+              <div className="d-inline-flex flex-column">
+                <p className="lead font-weight-bold mb-0 ml-2">
+                  {item.name.name}
+                </p>
+                <p className=" text-muted mb-0 ml-2">{item.tagPlace[0].namePlace}</p>
+              </div>
+              <p className="text-muted ml-auto">{item.date}</p>
+            </div>
+>>>>>>> b52231b913c75a46ffa53e9b60e809560fb71549
           </div>
-          <div className="card-body">
-            <p className="card-text">{item.description}</p>
+          <div class="card-body">
+            <p class="card-text">{item.description}</p>
             <img
+<<<<<<< HEAD
               style={{ width: "20%" }}
               src={`http://api.riyofirsan.com/${item.image}`}
               alt=""
@@ -46,6 +64,16 @@ const Post = (props) => {
             <button
               type="submit"
               className="btn btn-info mt-2"
+=======
+              style={{ height: "400px" }}
+              className="card-img-top"
+              src={`http://api.riyofirsan.com/${item.image}`}
+              alt=""
+            />
+            <button
+              type="submit"
+              className="btn btn-info mt-3"
+>>>>>>> b52231b913c75a46ffa53e9b60e809560fb71549
               style={{ backgroundColor: "#8D7B65" }}
             >
               <FontAwesomeIcon icon={faThumbsUp} className="fa-1x mx-auto" />

@@ -63,7 +63,7 @@ class Navbar extends Component {
                   type="text"
                   className="form-control"
                   placeholder="Search"
-                  size="65"
+                  size="60"
                 />
                 <button class="btn btn-info" type="submit" style={{backgroundColor : "#8D7B65"}}>
                   <FontAwesomeIcon icon={faSearch} />
@@ -80,12 +80,12 @@ class Navbar extends Component {
              </li>
               <li className="nav-item  ml-lg-2 ml-md-0 mr-2 mr-md-0">
                 <Link className="nav-link" to="/">
-                  <b><FontAwesomeIcon icon={faHome} className="fa-2x mx-auto" /> <span className="sr-only">(current)</span></b>
+                  <b><FontAwesomeIcon icon={faHome} className="fa-lg mx-auto" /></b>
                 </Link>
               </li>
               <li className="nav-item ml-lg-2 ml-md-0 mr-2 mr-md-0">
                 <Link className="nav-link" to="/message">
-                <FontAwesomeIcon icon={faComments} className="fa-2x mx-auto" />
+                <FontAwesomeIcon icon={faComments} className="fa-lg mx-auto" />
                 </Link>
               </li>
               

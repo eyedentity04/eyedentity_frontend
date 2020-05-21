@@ -1,8 +1,9 @@
 
 
-.profile{
+ .profile{
     background-image: url(../Img/profilebg.jpg);
-    width: 100%;
+    Background-size:cover;
+    Background-repeat:no-repeat;
     display: flex;
     justify-content:end;
     align-items: flex-end;
@@ -17,4 +18,22 @@
 .username{
     padding-bottom: 4%;
     padding-left: 2%;
+}
+
+.row{
+    padding: 0%;
+    margin: 0%;
+}
+
+.col-lg-4{
+    background-color: white;
+}
+
+.fa-2x{
+    
+    margin:15px 0px 0px 150px;
+}
+
+.rowicon{
+    text-align: center;
 }
