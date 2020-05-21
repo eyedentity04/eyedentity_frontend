@@ -23,7 +23,7 @@ export const getComment = () => {
     const user = JSON.parse(localStorage.getItem("user"));
     const token = user.token;
     axios
-      .get("http://api.riyofirsan.com/post/show", {
+      .get("http://api.riyofirsan.com/post/test", {
         headers: { "token": token },
       })
       .then((response) => {

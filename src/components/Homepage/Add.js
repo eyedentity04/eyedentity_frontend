@@ -15,6 +15,10 @@ const Add = (props) => {
   const id = user.id;
 
   const [data, setData] = useState([]);
+  const [query, setQuery] = useState("");
+  const [url, setUrl] = useState(
+    "http://api.riyofirsan.com/users/findQuery?name=redux"
+  );
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(function (position) {

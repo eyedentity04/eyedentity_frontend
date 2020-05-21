@@ -1,6 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
 
+
+
 strong{
     font-family:'Parisienne', cursive;
     font-size: 26px;
 }
+
+b{
+    color: rgb(255, 255, 255);
+}
+
+b:hover{
+    color: rgb(110, 90, 71);
+}
+
