@@ -14,6 +14,7 @@ const TagInput = (value,onChange) => {
       const result = await axios(url);
  
       setTag(result.tag);
+      console.log(result.tag)
     };
  
     fetchData();
@@ -24,10 +25,12 @@ const TagInput = (value,onChange) => {
       setTag([...tag,event.target.value])
       event.target.value=""
     }
+    console.log(event)
   }
   
   const removeTags = index =>{
     setTag([...tag.filter(tags=>tag.indexOf(tags) !== index)])
+    console.log(index)
   }
   return (
     <div className="tags-input">

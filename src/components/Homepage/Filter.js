@@ -13,6 +13,7 @@ function Filter() {
         const result = await axios(url);
    
         setData(result.data);
+        console.log(result.data)
       };
    
       fetchData();
@@ -36,8 +37,9 @@ function Filter() {
    
         <ul>
           {data.map(item => (
-            <li key={item._id}>
-              {item.name}
+            
+            <li key={item}>
+              {item.name} , {item._id}
             </li>
           ))}
         </ul>

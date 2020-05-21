@@ -11,6 +11,8 @@ const homeUser = (state = initialState, action) => {
       return { ...state, data: action.payload };
     case "USER" : 
       return {...state, data : action.payload}
+    case "TAG" : 
+      return {...state,data:[...state.data,action.payload]}
     default:
       return state;
   }

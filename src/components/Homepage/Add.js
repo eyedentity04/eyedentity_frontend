@@ -5,20 +5,38 @@ import "./Add.css";
 import { connect } from "react-redux";
 import { add } from "../../actioncreators/Home";
 import { Form } from "react-bootstrap";
-
 import Geocode from "react-geocode";
-import TagInput from "./Tag";
 import Filter from "./Filter";
+import axios from "axios";
 
 const Add = (props) => {
   const user = JSON.parse(localStorage.getItem("user"));
   const id = user.id;
 
   const [data, setData] = useState([]);
+  const [tags, setTags] = useState([]);
   const [query, setQuery] = useState("");
   const [url, setUrl] = useState(
     "http://api.riyofirsan.com/users/findQuery?name=redux"
   );
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios(url);
+      if (result.data && !result.data.length) {
+        window.alert("users not found");
+      }
+      setTags(result.data);
+      console.log(result.data);
+    };
+
+    fetchData();
+  }, [url]);
+
+  //   let show =
+  // console.log(show)
+
+  console.log();
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(function (position) {
@@ -33,19 +51,11 @@ const Add = (props) => {
         setData({
           lat: response.results[3].geometry.location.lat,
           lng: response.results[3].geometry.location.lng,
-<<<<<<< HEAD
-          city: response.results[3].formatted_address
-        })
-      })
-    })
-  },[])
-=======
-          city: response.results[0].address_components[4].long_name,
+          city: response.results[3].formatted_address,
         });
       });
     });
   }, []);
->>>>>>> 31d4cd82ba59abed5e6d14f64c1276a70f9870fb
 
   let city = data.city;
   // console.log(city)
@@ -63,7 +73,7 @@ const Add = (props) => {
         namePlace: city,
         long: lng,
         lat: lath,
-        tag: []
+        tag: "",
       }}
       onSubmit={(values) => {
         let formData = new FormData();
@@ -74,7 +84,7 @@ const Add = (props) => {
         formData.append("namePlace", city);
         formData.append("long", lng);
         formData.append("lat", lath);
-        formData.append("tag",values.tag)
+        formData.append("tag", values.tag);
 
         props.add(formData);
       }}
@@ -93,22 +103,9 @@ const Add = (props) => {
                 placeholder="Type something...."
                 onChange={props.handleChange}
               />
-
-<<<<<<< HEAD
-              <div
-                value={props.namePlace}
-                onChange={props.handleChange}
-              />
-              {/* <div
-                value={props.long}
-                onChange={props.handleChange}
-              />
-              <div
-                value={props.lat}
-=======
               <div value={props.namePlace} onChange={props.handleChange} />
-              <div value={props.long} onChange={props.handleChange} />
-              <div value={props.lat} onChange={props.handleChange} />
+              {/* <div value={props.long} onChange={props.handleChange} />
+              <div value={props.lat} onChange={props.handleChange} /> */}
 
               <input
                 type="text"
@@ -117,10 +114,48 @@ const Add = (props) => {
                 name="tag"
                 value={props.values.tag}
                 placeholder="tag"
->>>>>>> 31d4cd82ba59abed5e6d14f64c1276a70f9870fb
                 onChange={props.handleChange}
-              /> */}
+              />
 
+              <div>
+                <input
+                  type="text"
+                  value={query}
+                  onChange={(event) => setQuery(event.target.value)}
+                />
+                <div className="row">
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setUrl(
+                        `http://api.riyofirsan.com/users/findQuery?name=${query}`
+                      )
+                    }
+                  >
+                    Search
+                  </button>
+                  <button type="button" onClick={(e) => setTags((e = []))}>
+                    Reset
+                  </button>
+                </div>
+
+                <div>
+                  {tags.map((item) => (
+                    <div className="container">
+                      <div className="row">
+                        <div className="col-6">
+                          <button
+                            className="btn btn-secondary"
+                            onClick={(e) => (props.values.tag = item._id)}
+                          >
+                            {item.name}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
               <input
                 type="file"
                 className="form-control"
@@ -132,7 +167,7 @@ const Add = (props) => {
               />
             </div>
 
-            <Filter />
+            {/* <Filter /> */}
 
             <button
               type="submit"
