@@ -9,6 +9,7 @@ import {
   faUserFriends,
 } from "@fortawesome/free-solid-svg-icons";
 import axios from 'axios'
+import Postprofile from './PostProfile'
 
 class Profile extends Component {
   constructor(){
@@ -38,12 +39,13 @@ class Profile extends Component {
             
             <div className="username">
               <h2>User</h2>
-              <span>This is user</span>
+              <span>This is a description about user</span>
             </div>
 
             <br />
           </div>
-            <div className="row">
+          <div className="container">
+          <div className="row">
             <div className="col-lg-4">
             <FontAwesomeIcon icon={faUserFriends} className="fa-2x " />
             <h4 className="rowicon">Friends</h4>
@@ -56,9 +58,11 @@ class Profile extends Component {
             <FontAwesomeIcon icon={faUsers} className="fa-2x " />
             <h4  className="rowicon">Community</h4>
             </div>
-          
-
             </div>
+          </div>
+            <Postprofile/>
+            
+            
           </div>
     );
   }

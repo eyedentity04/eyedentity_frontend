@@ -1,9 +1,9 @@
 
 
-.profile{
+ .profile{
     background-image: url(../Img/profilebg.jpg);
-    width: 100%;
-    height: fit-content; 
+    Background-size:cover;
+    Background-repeat:no-repeat;
     display: flex;
     justify-content:end;
     align-items: flex-end;
@@ -18,6 +18,11 @@
 .username{
     padding-bottom: 4%;
     padding-left: 2%;
+}
+
+.row{
+    padding: 0%;
+    margin: 0%;
 }
 
 .col-lg-4{
