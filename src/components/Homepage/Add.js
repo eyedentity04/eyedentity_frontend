@@ -98,7 +98,7 @@ const Add = (props) => {
                 value={props.values.tag}
                 placeholder="tag"
                 onChange={props.handleChange}
-              /> */}
+              /> 
 
               <input
                 type="file"
