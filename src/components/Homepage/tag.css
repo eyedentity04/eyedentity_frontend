@@ -32,9 +32,11 @@
   border-radius: 6px;
   background: #0052cc;
 }
+
 .tag .tag-title {
   margin-top: 3px;
 }
+
 .tag .tag-close-icon {
   display: block;
   width: 16px;
