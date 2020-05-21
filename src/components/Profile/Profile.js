@@ -8,16 +8,34 @@ import {
   faImages,
   faUserFriends,
 } from "@fortawesome/free-solid-svg-icons";
+import axios from 'axios'
 
 class Profile extends Component {
+  constructor(){
+    super()
+    this.state ={
+      data : {}
+    }
+  }
+
+  componentDidMount(){
+    const user = JSON.parse(localStorage.getItem('user'))
+    
+    axios.get(`http://api.riyofirsan.com/users/show/${user.id}`)
+    .then((response) => {
+      this.setState({data : response.data})
+      console.log(response)
+    })
+  }
+ 
   render() {
     return (
       <div>
         <Navbar />
         
           <div className="profile">
-            <img src={profilepic} className="profileimage" alt="..." />
-            <br/><br/><br/><br/><br/><br/>
+            <img src={profilepic} className="profileimage mb-5" alt="..." />
+            
             <div className="username">
               <h2>User</h2>
               <span>This is user</span>
