@@ -1,48 +1,58 @@
 import React, { useState, useEffect } from "react";
 import { Formik } from "formik";
 import "./Add.css";
+
 import { connect } from "react-redux";
 import { add } from "../../actioncreators/Home";
 import { Form } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPenAlt} from "@fortawesome/free-solid-svg-icons";
 
 import Geocode from "react-geocode";
-
-
+import TagInput from "./Tag";
+import Filter from "./Filter";
 
 const Add = (props) => {
   const user = JSON.parse(localStorage.getItem("user"));
   const id = user.id;
 
+  const [data, setData] = useState([]);
+  const [query, setQuery] = useState("");
+  const [url, setUrl] = useState(
+    "http://api.riyofirsan.com/users/findQuery?name=redux"
+  );
 
-  const [data,setData] = useState([])
-  useEffect(()=>{
-    navigator.geolocation.getCurrentPosition(function(position){
-      console.log(position.coords.latitude)
-      console.log(position.coords.longitude)
-      Geocode.setApiKey("AIzaSyAVDqkzOARvGHvFnfaIYEiDBeIFaTjDDGI")
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      console.log(position.coords.latitude);
+      console.log(position.coords.longitude);
+      Geocode.setApiKey("AIzaSyAVDqkzOARvGHvFnfaIYEiDBeIFaTjDDGI");
       Geocode.fromLatLng(
         position.coords.latitude,
         position.coords.longitude
-      ).then((response)=>{
-        console.log(response.results[0].address_components[4].long_name)
+      ).then((response) => {
+        console.log(response.results[0].address_components[4].long_name);
         setData({
           lat: response.results[3].geometry.location.lat,
           lng: response.results[3].geometry.location.lng,
-          city: response.results[0].address_components[4].long_name
+<<<<<<< HEAD
+          city: response.results[3].formatted_address
         })
       })
     })
   },[])
+=======
+          city: response.results[0].address_components[4].long_name,
+        });
+      });
+    });
+  }, []);
+>>>>>>> 31d4cd82ba59abed5e6d14f64c1276a70f9870fb
 
-  let city = data.city
+  let city = data.city;
   // console.log(city)
-  let lng = data.lng
+  let lng = data.lng;
   // console.log(lng)
-  let lath = data.lat
+  let lath = data.lat;
   // console.log(lath)
-
 
   return (
     <Formik
@@ -50,10 +60,10 @@ const Add = (props) => {
         name: id,
         description: "",
         image: null,
-        namePlace : city,
-        long : lng,
-        lat : lath
-
+        namePlace: city,
+        long: lng,
+        lat: lath,
+        tag: []
       }}
       onSubmit={(values) => {
         let formData = new FormData();
@@ -64,6 +74,7 @@ const Add = (props) => {
         formData.append("namePlace", city);
         formData.append("long", lng);
         formData.append("lat", lath);
+        formData.append("tag",values.tag)
 
         props.add(formData);
       }}
@@ -73,7 +84,7 @@ const Add = (props) => {
           <div className="container">
             <div className="form-group">
               <textarea
-                className="form-control mt-5"                                                                                                                                                                                                       
+                className="form-control mt-5"
                 id="description"
                 name="description"
                 rows={6}
@@ -82,22 +93,33 @@ const Add = (props) => {
                 placeholder="Type something...."
                 onChange={props.handleChange}
               />
-             
-              
 
+<<<<<<< HEAD
               <div
                 value={props.namePlace}
                 onChange={props.handleChange}
               />
-              <div
+              {/* <div
                 value={props.long}
                 onChange={props.handleChange}
               />
               <div
                 value={props.lat}
-                onChange={props.handleChange}
-              />
+=======
+              <div value={props.namePlace} onChange={props.handleChange} />
+              <div value={props.long} onChange={props.handleChange} />
+              <div value={props.lat} onChange={props.handleChange} />
 
+              <input
+                type="text"
+                className="form-control"
+                id="tag"
+                name="tag"
+                value={props.values.tag}
+                placeholder="tag"
+>>>>>>> 31d4cd82ba59abed5e6d14f64c1276a70f9870fb
+                onChange={props.handleChange}
+              /> */}
 
               <input
                 type="file"
@@ -108,17 +130,17 @@ const Add = (props) => {
                   props.setFieldValue("image", event.currentTarget.files[0]);
                 }}
               />
-               <button
+            </div>
+
+            <Filter />
+
+            <button
               type="submit"
-              className="btn btn-info mt-2"
+              className="btn btn-info"
               style={{ backgroundColor: "#8D7B65" }}
             >
-              <FontAwesomeIcon icon={faPenAlt} className="fa-1x mx-auto" />
-                &nbsp; Submit
+              Submit
             </button>
-            </div>
-            
-           
           </div>
         </Form>
       )}

@@ -71,10 +71,10 @@ class Navbar extends Component {
               </div>
             </form>
             <ul className="navbar-nav ml-auto">
-            <li className="nav-item  ml-lg-2 ml-md-0 mr-2 mr-md-0">
-                <Link className="nav-link mt-2" to="/profile">
-                <img src={img1} className="rounded-circle " style={{ width: "35px" }} alt="..." />
-                <b><span> User</span> </b>
+            <li>
+                <Link className="nav-link" to="/profile">
+                <img src={img1} className="rounded-circle" style={{ width: "30px" }} alt="..." />
+        <b><span> {user.name}</span> </b>
                 </Link>
              
              </li>
