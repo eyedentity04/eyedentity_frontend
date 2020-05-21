@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUsers,
   faImages,
-  faVideo,
   faUserFriends,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -32,7 +31,7 @@ class Profile extends Component {
     return (
       <div>
         <Navbar />
-        <div className="container">
+        
           <div className="profile">
             <img src={profilepic} className="profileimage mb-5" alt="..." />
             
@@ -43,49 +42,23 @@ class Profile extends Component {
 
             <br />
           </div>
-          <div>
-            <br />
-            <br />
             <div className="row">
-              <div className="col-md-3">
-                <div className="card" style={{ width: "16rem" }}>
-                  <FontAwesomeIcon
-                    icon={faUserFriends}
-                    className="fa-8x mx-auto"
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title mx-auto">Friends</h5>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-3">
-                <div className="card" style={{ width: "16rem" }}>
-                  <FontAwesomeIcon icon={faImages} className="fa-8x mx-auto" />
-                  <div className="card-body">
-                    <h5 className="card-title mx-auto">Images</h5>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-3">
-                <div className="card" style={{ width: "16rem" }}>
-                  <FontAwesomeIcon icon={faVideo} className="fa-8x mx-auto" />
-                  <div className="card-body">
-                    <h5 className="card-title mx-auto">Videos</h5>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-3">
-                <div className="card" style={{ width: "16rem" }}>
-                  <FontAwesomeIcon icon={faUsers} className="fa-8x mx-auto" />
-                  <div className="card-body">
-                    <h5 className="card-title mx-auto">Communities</h5>
-                  </div>
-                </div>
-              </div>
+            <div className="col-lg-4">
+            <FontAwesomeIcon icon={faUserFriends} className="fa-2x " />
+            <h4 className="rowicon">Friends</h4>
+            </div>
+            <div className="col-lg-4">
+            <FontAwesomeIcon icon={faImages} className="fa-2x" />
+            <h4  className="rowicon">Images</h4>
+            </div>
+            <div className="col-lg-4">
+            <FontAwesomeIcon icon={faUsers} className="fa-2x " />
+            <h4  className="rowicon">Community</h4>
+            </div>
+          
+
             </div>
           </div>
-        </div>
-      </div>
     );
   }
 }

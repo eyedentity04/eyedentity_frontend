@@ -18,7 +18,7 @@ Location = (props) => {
         position.coords.latitude,
         position.coords.longitude
       ).then((response) => {
-        console.log(response.results[0].address_components[4].long_name);
+        console.log(response.results[3].formatted_address);
         setData({
           lat: response.results[3].geometry.location.lat,
           lng: response.results[3].geometry.location.lng,
