@@ -21,14 +21,17 @@ const Post = (props) => {
     console.log(item.tagPlace[0].namePlace);
     return (
       <div key={index}>
-        <div class="card mt-3 w-100" style={{borderRadius:"10px"}}>
+        <div class="card mt-3 w-100" style={{ borderRadius: "10px" }}>
           <div class="card-header">
             <div className="d-flex flex-row">
-            <img src={img1} style={{ width: "50px", borderRadius: "50%" }} />
-            <div className="d-inline-flex flex-column">
-            <p className="lead font-weight-bold mb-0 ml-2">{item.name.name}</p>
-            <p className="text-muted mb-0 ml-2">{item.date}</p>
-            </div>
+              <img src={img1} style={{ width: "50px", borderRadius: "50%" }} />
+              <div className="d-inline-flex flex-column">
+                <p className="lead font-weight-bold mb-0 ml-2">
+                  {item.name.name}
+                </p>
+                <p className=" text-muted mb-0 ml-2">{item.tagPlace[0].namePlace}</p>
+              </div>
+              <p className="text-muted ml-auto">{item.date}</p>
             </div>
           </div>
           <div class="card-body">
@@ -39,15 +42,15 @@ const Post = (props) => {
               src={`http://api.riyofirsan.com/${item.image}`}
               alt=""
             />
-            <button type="submit"
+            <button
+              type="submit"
               className="btn btn-info mt-3"
-              style={{ backgroundColor: "#8D7B65" }}> 
-            <FontAwesomeIcon icon={faThumbsUp} className="fa-1x mx-auto" />
-            &nbsp;
-            Like
+              style={{ backgroundColor: "#8D7B65" }}
+            >
+              <FontAwesomeIcon icon={faThumbsUp} className="fa-1x mx-auto" />
+              &nbsp; Like
             </button>
           </div>
-          
         </div>
       </div>
     );
