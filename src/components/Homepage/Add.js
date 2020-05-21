@@ -51,11 +51,7 @@ const Add = (props) => {
         setData({
           lat: response.results[3].geometry.location.lat,
           lng: response.results[3].geometry.location.lng,
-<<<<<<< HEAD
-          city: response.results[3].formatted_address,
-=======
           city: response.results[0].address_components[4].long_name,
->>>>>>> b52231b913c75a46ffa53e9b60e809560fb71549
         });
       });
     });
@@ -107,10 +103,6 @@ const Add = (props) => {
                 placeholder="Type something...."
                 onChange={props.handleChange}
               />
-<<<<<<< HEAD
-=======
-
->>>>>>> b52231b913c75a46ffa53e9b60e809560fb71549
               <div value={props.namePlace} onChange={props.handleChange} />
               {/* <div value={props.long} onChange={props.handleChange} />
               <div value={props.lat} onChange={props.handleChange} /> */}
@@ -123,11 +115,7 @@ const Add = (props) => {
                 value={props.values.tag}
                 placeholder="tag"
                 onChange={props.handleChange}
-<<<<<<< HEAD
               />
-=======
-              /> 
->>>>>>> b52231b913c75a46ffa53e9b60e809560fb71549
 
               <div>
                 <input
