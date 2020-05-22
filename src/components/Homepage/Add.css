@@ -1,9 +1,33 @@
 body {
-    background-color: rgb(246, 229, 180) !important ;
+    background-color: rgb(246, 229, 180) !important;
 }
 
 button {
     display: flex;
     justify-content: center;
     align-items: flex-end;
+}
+
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.custom-btn {
+    border: 3px solid #8D7B65;
+    color: #8D7B65;
+    background-color: transparent;
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
 }

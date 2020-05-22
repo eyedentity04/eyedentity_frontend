@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Formik } from "formik";
 import "./Add.css";
+import "./tag.css";
 
 import { connect } from "react-redux";
 import { add } from "../../actioncreators/Home";
 import { Form } from "react-bootstrap";
 import Geocode from "react-geocode";
-import Filter from "./Filter";
 import axios from "axios";
 
 const Add = (props) => {
@@ -16,6 +16,7 @@ const Add = (props) => {
   const [data, setData] = useState([]);
   const [tags, setTags] = useState([]);
   const [query, setQuery] = useState("");
+
   const [url, setUrl] = useState(
     "http://api.riyofirsan.com/users/findQuery?name=redux"
   );
@@ -23,20 +24,13 @@ const Add = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(url);
-      if (result.data && !result.data.length) {
-        window.alert("users not found");
-      }
+
       setTags(result.data);
       console.log(result.data);
     };
 
     fetchData();
   }, [url]);
-
-  //   let show =
-  // console.log(show)
-
-  console.log();
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(function (position) {
@@ -58,11 +52,13 @@ const Add = (props) => {
   }, []);
 
   let city = data.city;
-  // console.log(city)
   let lng = data.lng;
-  // console.log(lng)
   let lath = data.lat;
-  // console.log(lath)
+
+  const removeTags = (index) => {
+    setTags([...tags.filter((tag) => tags.indexOf(tag) !== index)]);
+    console.log(index);
+  };
 
   return (
     <Formik
@@ -93,8 +89,19 @@ const Add = (props) => {
         <Form onSubmit={props.handleSubmit}>
           <div className="container">
             <div className="form-group">
-              <textarea
+              <input
+                type="text"
                 className="form-control mt-5"
+                id="tag"
+                name="tag"
+                value={props.values.tag}
+                placeholder="Tag Someone With Search"
+                readOnly="readOnly"
+                onChange={props.handleChange}
+              />
+
+              <textarea
+                className="form-control"
                 id="description"
                 name="description"
                 rows={6}
@@ -104,78 +111,74 @@ const Add = (props) => {
                 onChange={props.handleChange}
               />
               <div value={props.namePlace} onChange={props.handleChange} />
-              {/* <div value={props.long} onChange={props.handleChange} />
-              <div value={props.lat} onChange={props.handleChange} /> */}
 
-              <input
-                type="text"
-                className="form-control"
-                id="tag"
-                name="tag"
-                value={props.values.tag}
-                placeholder="tag"
-                onChange={props.handleChange}
-              />
-
-              <div>
+              <div className="input-group">
                 <input
                   type="text"
+                  className="form-control"
+                  size="30"
+                  placeholder="Search Tag Your Friends Here"
                   value={query}
                   onChange={(event) => setQuery(event.target.value)}
                 />
-                <div className="row">
-                  <button
-                    type="button"
-                    onClick={() =>
-                      setUrl(
-                        `http://api.riyofirsan.com/users/findQuery?name=${query}`
-                      )
-                    }
-                  >
-                    Search
-                  </button>
-                  <button type="button" onClick={(e) => setTags((e = []))}>
-                    Reset
-                  </button>
-                </div>
+                <button
+                  type="button"
+                  className="btn text-light ml-1"
+                  style={{ backgroundColor: "#8D7B65" }}
+                  onClick={() =>
+                    setUrl(
+                      `http://api.riyofirsan.com/users/findQuery?name=${query}`
+                    )
+                  }
+                >
+                  Search
+                </button>
 
-                <div>
-                  {tags.map((item) => (
-                    <div className="container">
-                      <div className="row">
-                        <div className="col-6">
-                          <button
-                            className="btn btn-secondary"
-                            onClick={(e) => (props.values.tag = item._id)}
-                          >
-                            {item.name}
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+                <div className="tags-input">
+                  <ul id="tags">
+                    {tags.map((item, index) => (
+                      <li key={index} className="tag">
+                        <button
+                          className="btn-custom"
+                          onClick={(e) => (props.values.tag = item._id)}
+                        >
+                          <span className="tag-title">{item.name}</span>
+                        </button>
+
+                        <span
+                          className="tag-close-icon"
+                          onClick={() => removeTags(index)}
+                        >
+                          x
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
-              <input
-                type="file"
-                className="form-control"
-                id="image"
-                name="image"
-                onChange={(event) => {
-                  props.setFieldValue("image", event.currentTarget.files[0]);
-                }}
-              />
+              <div className="upload-btn-wrapper">
+                <button type="submit" className="custom-btn">
+                  Upload a file
+                </button>
+
+                <input
+                  type="file"
+                  className="form-control"
+                  id="image"
+                  name="image"
+                  onChange={(event) => {
+                    props.setFieldValue("image", event.currentTarget.files[0]);
+                  }}
+                />
+              </div>
             </div>
-
-            {/* <Filter /> */}
-
             <button
-              type="submit"
-              className="btn btn-info"
-              style={{ backgroundColor: "#8D7B65" }}
-            >
-              Submit
-            </button>
+                type="submit"
+                className="btn text-light"
+                style={{ backgroundColor: "#8D7B65" }}
+              >
+                Submit
+              </button>
           </div>
         </Form>
       )}

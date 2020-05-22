@@ -1,6 +1,5 @@
 const initialState = {
   data: [],
-  image : {}
 };
 
 const homeUser = (state = initialState, action) => {
