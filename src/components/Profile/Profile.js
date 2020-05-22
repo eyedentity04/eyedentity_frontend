@@ -44,7 +44,7 @@ class Profile extends Component {
 
             <br />
           </div>
-          <div className="container">
+          <div className="jumbotron">
           <div className="row">
             <div className="col-lg-4">
             <FontAwesomeIcon icon={faUserFriends} className="fa-2x " />
