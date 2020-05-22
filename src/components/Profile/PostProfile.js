@@ -39,7 +39,7 @@ class Postprofile extends Component {
             <img
               style={{ height: "400px" }}
               className="card-img-top"
-            //   src={`http://api.riyofirsan.com/${item.image}`}
+              // src={`http://api.riyofirsan.com/${item.image}`}
               alt=""
             />
             <button type="submit"
