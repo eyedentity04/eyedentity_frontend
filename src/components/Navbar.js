@@ -91,12 +91,14 @@ class Navbar extends Component {
               <li className="nav-item  ml-lg-2 ml-md-0 mr-2 mr-md-0">
                 <Link className="nav-link" to="/">
                   <FontAwesomeIcon icon={faHome} className="fa-lg mx-auto" />
+                  &nbsp;
                    Home
                 </Link>
               </li>
               <li className="nav-item ml-lg-2 ml-md-0 mr-2 mr-md-0">
                 <Link className="nav-link" to="/message">
                   <FontAwesomeIcon icon={faPlus} className="fa-lg mx-auto" />
+                  &nbsp;
                    Add
                 </Link>
               </li>
