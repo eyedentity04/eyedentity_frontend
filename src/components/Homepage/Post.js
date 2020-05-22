@@ -29,7 +29,12 @@ const Post = (props) => {
                 <p className="lead font-weight-bold mb-0 ml-2">
                   {item.name.name}
                 </p>
-                <p className=" text-muted mb-0 ml-2">{item.tagPlace[0].namePlace}</p>
+                <p className=" text-muted mb-0 ml-2">
+                  {item.tagPlace[0].namePlace}
+                </p>
+                <p className=" text-muted mb-0 ml-2">
+                  {item.tag.map((item) => item.name)}
+                </p>
               </div>
               <p className="text-muted ml-auto">{item.date}</p>
             </div>
