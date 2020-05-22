@@ -89,8 +89,19 @@ const Add = (props) => {
         <Form onSubmit={props.handleSubmit}>
           <div className="container">
             <div className="form-group">
-              <textarea
+              <input
+                type="text"
                 className="form-control mt-5"
+                id="tag"
+                name="tag"
+                value={props.values.tag}
+                placeholder="Tag Someone With Search"
+                readOnly="readOnly"
+                onChange={props.handleChange}
+              />
+
+              <textarea
+                className="form-control"
                 id="description"
                 name="description"
                 rows={6}
@@ -101,19 +112,12 @@ const Add = (props) => {
               />
               <div value={props.namePlace} onChange={props.handleChange} />
 
-              <input
-                type="text"
-                className="form-control"
-                id="tag"
-                name="tag"
-                value={props.values.tag}
-                placeholder="tag"
-                onChange={props.handleChange}
-              />
-
-              <div>
+              <div className="input-group">
                 <input
                   type="text"
+                  className="form-control"
+                  size="30"
+                  placeholder="Search Tag Your Friends Here"
                   value={query}
                   onChange={(event) => setQuery(event.target.value)}
                 />
@@ -128,14 +132,6 @@ const Add = (props) => {
                   }
                 >
                   Search
-                </button>
-                <button
-                  type="button"
-                  className="btn text-light ml-1"
-                  style={{ backgroundColor: "#8D7B65" }}
-                  onClick={(e) => setTags((e = []))}
-                >
-                  Reset
                 </button>
 
                 <div className="tags-input">
@@ -160,24 +156,29 @@ const Add = (props) => {
                   </ul>
                 </div>
               </div>
-              <input
-                type="file"
-                className="form-control"
-                id="image"
-                name="image"
-                onChange={(event) => {
-                  props.setFieldValue("image", event.currentTarget.files[0]);
-                }}
-              />
-            </div>
+              <div className="upload-btn-wrapper">
+                <button type="submit" className="custom-btn">
+                  Upload a file
+                </button>
 
+                <input
+                  type="file"
+                  className="form-control"
+                  id="image"
+                  name="image"
+                  onChange={(event) => {
+                    props.setFieldValue("image", event.currentTarget.files[0]);
+                  }}
+                />
+              </div>
+            </div>
             <button
-              type="submit"
-              className="btn btn-info"
-              style={{ backgroundColor: "#8D7B65" }}
-            >
-              Submit
-            </button>
+                type="submit"
+                className="btn text-light"
+                style={{ backgroundColor: "#8D7B65" }}
+              >
+                Submit
+              </button>
           </div>
         </Form>
       )}

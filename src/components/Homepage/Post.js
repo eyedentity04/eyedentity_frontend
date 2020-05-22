@@ -6,7 +6,7 @@ import "./post.css";
 import { getData } from "../../actioncreators/Home";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
+import { faThumbsUp,faComment } from "@fortawesome/free-solid-svg-icons";
 
 const Post = (props) => {
   const { data } = props;
@@ -49,11 +49,19 @@ const Post = (props) => {
             />
             <button
               type="submit"
-              className="btn btn-info mt-3"
+              className="btn text-light mt-3"
               style={{ backgroundColor: "#8D7B65" }}
             >
               <FontAwesomeIcon icon={faThumbsUp} className="fa-1x mx-auto" />
               &nbsp; Like
+            </button>
+            <button
+              type="submit"
+              className="btn text-light mt-3 ml-2"
+              style={{ backgroundColor: "#8D7B65" }}
+            >
+              <FontAwesomeIcon icon={faComment} className="fa-1x mx-auto" />
+              &nbsp; Comment
             </button>
           </div>
         </div>
