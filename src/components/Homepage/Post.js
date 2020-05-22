@@ -24,7 +24,7 @@ const Post = (props) => {
         <div class="card mt-3 w-100" style={{ borderRadius: "10px" }}>
           <div class="card-header">
             <div className="d-flex flex-row">
-              <img src={img1} style={{ width: "50px", borderRadius: "50%" }} />
+              <img src={img1} style={{ height:"50px", width: "50px", borderRadius: "50%" }} />
               <div className="d-inline-flex flex-column">
                 <p className="lead font-weight-bold mb-0 ml-2">
                   {item.name.name}
@@ -32,14 +32,14 @@ const Post = (props) => {
                 <p className=" text-muted mb-0 ml-2">
                   {item.tagPlace[0].namePlace}
                 </p>
-                <p className=" text-muted mb-0 ml-2">
-                  {item.tag.map((item) => item.name)}
-                </p>
               </div>
               <p className="text-muted ml-auto">{item.date}</p>
             </div>
           </div>
           <div class="card-body">
+          <p className="card-text text-muted mb-0">
+                {item.tag.map((item,index) =>  <span className="mr-1" key={index}> @{item.name}</span>)}
+              </p>
             <p class="card-text">{item.description}</p>
             <img
               style={{ height: "400px" }}
