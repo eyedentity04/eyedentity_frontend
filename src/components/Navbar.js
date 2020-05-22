@@ -57,6 +57,7 @@ class Navbar extends Component {
           </button>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            
             <form className="form-inline my-2 my-lg-0 ">
               <div className="input-group">
                 <input
@@ -74,6 +75,7 @@ class Navbar extends Component {
                 </button>
               </div>
             </form>
+            
             <ul className="navbar-nav ml-auto">
               <li className="nav-item  ml-lg-2 ml-md-0 mr-2 mr-md-0">
                 <Link className="nav-link" to="/profile">
