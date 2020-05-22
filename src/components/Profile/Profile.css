@@ -20,13 +20,9 @@
     padding-left: 2%;
 }
 
-.row{
-    padding: 0%;
-    margin: 0%;
-}
-
 .col-lg-4{
-    background-color: white;
+
+    margin: 0 px 15px;
 }
 
 .fa-2x{
