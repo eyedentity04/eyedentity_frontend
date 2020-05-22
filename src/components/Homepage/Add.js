@@ -123,7 +123,7 @@ const Add = (props) => {
                 />
                 <button
                   type="button"
-                  className="btn text-light ml-1"
+                  className="btn text-light"
                   style={{ backgroundColor: "#8D7B65" }}
                   onClick={() =>
                     setUrl(

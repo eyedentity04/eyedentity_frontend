@@ -30,7 +30,7 @@ const Index = (props) => {
       <div className="card p-3 rounded" style={{ width: "18rem", backgroundColor : "#F1EAC3" }}>
         <img
           src={Logo}
-          className="card-img-top mx-auto"
+          className="mx-auto"
           alt="..."
           style={{ width: "55px" }}
         />

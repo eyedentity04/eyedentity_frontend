@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import img1 from "../Img/img1.jpg";
-
+import "../Homepage/post.css"
 import { connect } from "react-redux";
 
 import { getData } from "../../actioncreators/profile";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
+import { faThumbsUp,faComment } from "@fortawesome/free-solid-svg-icons";
 
 const Post = (props) => {
   const { data } = props;
@@ -37,7 +37,6 @@ const Post = (props) => {
           <div class="card-body">
             <p class="card-text">{item.description}</p>
             <img
-              style={{ height: "400px" }}
               className="card-img-top"
               src={`http://api.riyofirsan.com/${item.image}`}
               alt=""
@@ -49,6 +48,14 @@ const Post = (props) => {
             >
               <FontAwesomeIcon icon={faThumbsUp} className="fa-1x mx-auto" />
               &nbsp; Like
+            </button>
+            <button
+              type="submit"
+              className="btn text-light mt-3 ml-2"
+              style={{ backgroundColor: "#8D7B65" }}
+            >
+              <FontAwesomeIcon icon={faComment} className="fa-1x mx-auto" />
+              &nbsp; Comment
             </button>
           </div>
         </div>
