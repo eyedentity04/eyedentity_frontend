@@ -15,3 +15,22 @@ img.rounded-circle1 {
 .card .text-muted {
     font-size: smaller;
 }
+
+.card-img-top{
+    height: 400px;
+}
+
+@media (max-width: 576px){
+    .card p{
+        font-size: smaller;
+    }
+
+    .card .text-muted {
+        font-size: x-small;
+    
+    }.card-img-top{
+        height: 150px;
+    }
+
+
+}
