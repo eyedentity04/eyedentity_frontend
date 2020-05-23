@@ -7,6 +7,9 @@ import { getData } from "../../actioncreators/Home";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsUp,faComment } from "@fortawesome/free-solid-svg-icons";
+import dayjs from "dayjs";
+import advancedFormat from 'dayjs/plugin/advancedFormat'
+import relativeTime from 'dayjs/plugin/relativeTime'
 
 const Post = (props) => {
   const { data } = props;
@@ -19,7 +22,7 @@ const Post = (props) => {
     }
   }, []);
 
-
+  dayjs.extend(relativeTime)
   
   const showPost = data.map((item, index) => {
     console.log(item.tagPlace[0].namePlace);
@@ -37,7 +40,7 @@ const Post = (props) => {
                   {item.tagPlace[0].namePlace}
                 </p>
               </div>
-              <p className="text-muted ml-auto">{item.date}</p>
+              <p className="text-muted ml-auto">{dayjs(item.date).fromNow()}</p>
             </div>
           </div>
           <div class="card-body">

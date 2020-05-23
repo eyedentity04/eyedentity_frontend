@@ -1,15 +1,15 @@
 import React, { Component } from "react";
-import Navbar from "../Navbar";
-import profilepic from "../Img/img1.jpg";
-import "./Profile.css";
+import axios from 'axios'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUsers,
   faImages,
   faUserFriends,
 } from "@fortawesome/free-solid-svg-icons";
-import axios from 'axios'
 import Postprofile from './PostProfile'
+import Navbar from "../Navbar";
+import profilepic from "../Img/img1.jpg";
+import "./Profile.css";
 
 class Profile extends Component {
   constructor(){

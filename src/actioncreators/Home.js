@@ -57,19 +57,3 @@ const id = user.id
   }
 }
 
-
-// export const tag = () => {
-//   return (dispatch) =>{
-//     axios.get(`http://api.riyofirsan.com/users/findQuery?name=${data}`)
-//     .then((result) => {
-//       result.data
-//     })
-//     .catch(err => {
-//       window.alert(err)
-//     })
-//     dispatch({
-//       type : "TAG",
-//       payload : result.data
-//     })
-//   }
-// }

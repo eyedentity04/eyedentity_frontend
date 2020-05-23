@@ -13,5 +13,5 @@ export default combineReducers({
     homeUser : homeUser,
     commentUser : commentUser,
     location : location,
-    profileUser:profileUser
+    profileUser:profileUser,
 })

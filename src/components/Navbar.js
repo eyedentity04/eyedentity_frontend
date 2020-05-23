@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import Logo from "./Img/logofinal.png";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,7 +7,8 @@ import { faSearch, faPlus, faHome } from "@fortawesome/free-solid-svg-icons";
 import Logout from "./Homepage/Logout";
 import img1 from "./Img/img1.jpg";
 import "./Navbar.css";
-import axios from "axios";
+
+
 
 class Navbar extends Component {
   constructor() {
@@ -75,6 +77,7 @@ class Navbar extends Component {
                 </button>
               </div>
             </form>
+            
             
             <ul className="navbar-nav ml-auto">
               <li className="nav-item  ml-lg-2 ml-md-0 mr-2 mr-md-0">
