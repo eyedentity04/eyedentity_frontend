@@ -5,6 +5,8 @@ import { connect } from "react-redux";
 import "./Style.css";
 import Logo from "../Img/logofinal.png";
 import { login } from "../../actioncreators/login";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLock } from "@fortawesome/free-solid-svg-icons";
 
 const Index = (props) => {
   const [data, setData] = useState({
