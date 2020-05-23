@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Formik } from "formik";
-import "./Add.css";
-import "./tag.css";
-
 import { connect } from "react-redux";
 import { add } from "../../actioncreators/Home";
 import { Form } from "react-bootstrap";
 import Geocode from "react-geocode";
 import axios from "axios";
+import "./Add.css";
+import "./tag.css";
 
 const Add = (props) => {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -124,7 +123,6 @@ const Add = (props) => {
                 <button
                   type="button"
                   className="btn text-light ml-1"
-                  style={{ backgroundColor: "#C9A982" }}
                   onClick={() =>
                     setUrl(
                       `http://api.riyofirsan.com/users/findQuery?name=${query}`
@@ -157,7 +155,7 @@ const Add = (props) => {
                 </div>
               </div>
               <div className="upload-btn-wrapper">
-                <button type="submit" className="custom-btn" >
+                <button type="submit" className="custom-btn " >
                   Upload a file
                 </button>
 
@@ -175,7 +173,7 @@ const Add = (props) => {
             <button
                 type="submit"
                 className="btn text-light"
-                style={{ backgroundColor: "#C9A982" }}
+                // style={{ backgroundColor: "#C9A982" }}
               >
                 Submit
               </button>

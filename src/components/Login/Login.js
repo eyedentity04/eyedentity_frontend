@@ -62,7 +62,7 @@ const Index = (props) => {
           <p className="text-center leading">
             Don't have an account ? <Link to="/register">Register</Link>
           </p>
-            <button type="submit" className="btn text-light btn-block" style={{backgroundColor : "#C9A982"}}>
+            <button type="submit" className="btn text-light btn-block">
               Submit
             </button>
         </form>

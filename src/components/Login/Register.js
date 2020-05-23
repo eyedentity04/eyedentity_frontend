@@ -30,11 +30,11 @@ const Register = (props) => {
   return (
     <div className="cardform">
       <div className="card p-3 rounded" style={{ width: "18rem", backgroundColor: "white" }}>
-        <img
+      <img
           src={Logo}
-          className="card-img-top mx-auto"
+          className="mx-auto"
           alt="..."
-          style={{ width: "75px" }}
+          style={{ width: "55px" }}
         />
         <h4 className="card-title mx-auto">Register</h4>
         <form onSubmit={handleSubmit}>
@@ -87,7 +87,7 @@ const Register = (props) => {
           </p>
           </div>
           <div className="form-group form-check"></div>
-          <button type="submit" className="btn text-light btn-block makeacc" style={{backgroundColor : "#C9A982"}}>
+          <button type="submit" className="btn text-light btn-block">
             Make An Account
           </button>
         </form>

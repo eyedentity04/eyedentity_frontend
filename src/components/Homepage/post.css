@@ -36,3 +36,12 @@ img.rounded-circle1 {
 
 
 }
+
+.text-light{
+   background-color: #C9A982;
+}
+
+
+.text-light:hover{
+    background-color: rgb(134, 112, 86);
+ }
