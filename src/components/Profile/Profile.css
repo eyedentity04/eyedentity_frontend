@@ -13,6 +13,7 @@
     margin: 18% 0% 2% 2%;
     width: 150px;
     border-radius: 100px;
+    object-fit: cover;
 }
 
 .username{

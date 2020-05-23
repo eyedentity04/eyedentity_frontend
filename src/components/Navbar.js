@@ -35,7 +35,7 @@ class Navbar extends Component {
         <nav
           className="navbar navbar-expand-lg navbar-dark"
           style={{
-            backgroundColor: "#493D2A",
+            backgroundColor: "#4d3e3e",
             padding: "0% 5% 0% 5%",
           }}
         >

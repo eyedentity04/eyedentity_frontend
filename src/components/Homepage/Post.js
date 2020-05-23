@@ -42,7 +42,7 @@ const Post = (props) => {
               </p>
             <p class="card-text">{item.description}</p>
             <img
-              style={{ height: "400px" }}
+              style={{ height: "400px", objectFit : "cover" }}
               className="card-img-top"
               src={`http://api.riyofirsan.com/${item.image}`}
               alt=""
