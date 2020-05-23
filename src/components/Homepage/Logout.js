@@ -11,9 +11,9 @@ const Logout = (props) => {
   };
   return (
     <div className="nav-link" onClick={onChange}>
-     <FontAwesomeIcon icon={faSignOutAlt} className="fa-lg mx-auto" />
+     <FontAwesomeIcon icon={faSignOutAlt} className="fa-lg mx-auto"  />
      &nbsp;
-      Logout
+     <span className="itemnav">Logout</span>
     </div>
   );
 };

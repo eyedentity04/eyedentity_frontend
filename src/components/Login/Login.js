@@ -27,7 +27,7 @@ const Index = (props) => {
 
   return (
     <div className="cardform">
-      <div className="card p-3 rounded" style={{ width: "18rem", backgroundColor : "#fff3cd"}}>
+      <div className="card p-3 rounded" style={{ width: "18rem", backgroundColor : "white"}}>
         <img
           src={Logo}
           className="card-img-top mx-auto"
@@ -62,7 +62,7 @@ const Index = (props) => {
           <p className="text-center leading">
             Don't have an account ? <Link to="/register">Register</Link>
           </p>
-            <button type="submit" className="btn text-light btn-block" style={{backgroundColor : "#4d3e3e"}}>
+            <button type="submit" className="btn text-light btn-block" style={{backgroundColor : "#C9A982"}}>
               Submit
             </button>
         </form>
