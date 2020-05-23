@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route,
   Redirect,
@@ -10,13 +10,13 @@ import { connect } from "react-redux";
 import Login from "./components/Login/Login";
 import UserRegister from "./components/Login/Register";
 import Home from "./components/Home";
-import Profile from "./components/Profile/Profile"
+import Profile from "./components/Profile/Profile";
 
 function App(props) {
   return (
     <Router>
       <Switch>
-      <Route path="/profile">
+      <Route path="/profile/:_id" >
           <Profile/>
         </Route>
         <Route path="/" exact>

@@ -3,10 +3,11 @@ import axios from "axios";
 import Logo from "./Img/logofinal.png";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faPlus, faHome } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faHome } from "@fortawesome/free-solid-svg-icons";
 import Logout from "./Homepage/Logout";
 import img1 from "./Img/img1.jpg";
 import "./Navbar.css";
+import FilterUser from "./Homepage/FilterUser";
 
 
 
@@ -59,8 +60,9 @@ class Navbar extends Component {
           </button>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <FilterUser/>
             
-            <form className="form-inline my-2 my-lg-0 ">
+            {/* <form className="form-inline my-2 my-lg-0 ">
               <div className="input-group">
                 <input
                   type="text"
@@ -76,12 +78,12 @@ class Navbar extends Component {
                   <FontAwesomeIcon icon={faSearch} />
                 </button>
               </div>
-            </form>
+            </form> */}
             
             
             <ul className="navbar-nav ml-auto">
               <li className="nav-item  ml-lg-2 ml-md-0 mr-2 mr-md-0">
-                <Link className="nav-link" to="/profile">
+                <Link className="nav-link" to={`/profile/${user._id}`}>
                   <img
                     src={img1}
                     className="rounded-circle"
