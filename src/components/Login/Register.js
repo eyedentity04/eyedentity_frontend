@@ -29,7 +29,7 @@ const Register = (props) => {
 
   return (
     <div className="cardform">
-      <div className="card p-3 rounded" style={{ width: "18rem", backgroundColor: "#F1EAC3" }}>
+      <div className="card p-3 rounded" style={{ width: "18rem", backgroundColor: "white" }}>
         <img
           src={Logo}
           className="card-img-top mx-auto"
@@ -87,7 +87,7 @@ const Register = (props) => {
           </p>
           </div>
           <div className="form-group form-check"></div>
-          <button type="submit" className="btn btn-info btn-block" style={{backgroundColor : "#8D7B65"}}>
+          <button type="submit" className="btn text-light btn-block makeacc" style={{backgroundColor : "#C9A982"}}>
             Make An Account
           </button>
         </form>

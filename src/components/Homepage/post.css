@@ -1,3 +1,5 @@
+
+
 div.row{
     display: flex;
     align-items: center;
@@ -7,6 +9,7 @@ img.rounded-circle1 {
     border-radius: 70px;
     width: 80px;
     margin: 8px 8px 3px 30px;
+    object-fit: cover;
 }
 
 .card .text-muted {

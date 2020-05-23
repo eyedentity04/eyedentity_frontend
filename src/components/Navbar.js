@@ -37,7 +37,7 @@ class Navbar extends Component {
         <nav
           className="navbar navbar-expand-lg navbar-dark"
           style={{
-            backgroundColor: "#493D2A",
+            backgroundColor: "#C9A982",
             padding: "0% 5% 0% 5%",
           }}
         >
@@ -69,9 +69,9 @@ class Navbar extends Component {
                   size="50"
                 />
                 <button
-                  class="btn btn-info"
+                  class="btn text-light"
                   type="submit"
-                  style={{ backgroundColor: "#8D7B65" }}
+                  style={{ backgroundColor: "#A28A6C" }}
                 >
                   <FontAwesomeIcon icon={faSearch} />
                 </button>
@@ -96,13 +96,15 @@ class Navbar extends Component {
               <li className="nav-item  ml-lg-2 ml-md-0 mr-2 mr-md-0">
                 <Link className="nav-link" to="/">
                   <FontAwesomeIcon icon={faHome} className="fa-lg mx-auto" />
-                   Home
+                  &nbsp;
+                   <span className="itemnav">Home</span>
                 </Link>
               </li>
               <li className="nav-item ml-lg-2 ml-md-0 mr-2 mr-md-0">
                 <Link className="nav-link" to="/add">
                   <FontAwesomeIcon icon={faPlus} className="fa-lg mx-auto" />
-                   Add
+                  &nbsp;
+                  <span className="itemnav">Add</span>
                 </Link>
               </li>
 

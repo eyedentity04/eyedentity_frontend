@@ -14,8 +14,6 @@ import relativeTime from 'dayjs/plugin/relativeTime'
 const Post = (props) => {
   const { data } = props;
   
-
-
   useEffect(() => {
     if (data && !data.length) {
       props.getData();
@@ -49,6 +47,7 @@ const Post = (props) => {
               </p>
             <p class="card-text">{item.description}</p>
             <img
+              style={{ height: "400px", objectFit : "cover" }}
               className="card-img-top"
               src={`http://api.riyofirsan.com/${item.image}`}
               alt=""
@@ -56,7 +55,7 @@ const Post = (props) => {
             <button
               type="submit"
               className="btn text-light mt-3"
-              style={{ backgroundColor: "#8D7B65" }}
+              style={{ backgroundColor: "#C9A982" }}
             >
               <FontAwesomeIcon icon={faThumbsUp} className="fa-1x mx-auto" />
               &nbsp; Like
@@ -64,7 +63,7 @@ const Post = (props) => {
             <button
               type="submit"
               className="btn text-light mt-3 ml-2"
-              style={{ backgroundColor: "#8D7B65" }}
+              style={{ backgroundColor: "#C9A982" }}
             >
               <FontAwesomeIcon icon={faComment} className="fa-1x mx-auto" />
               &nbsp; Comment

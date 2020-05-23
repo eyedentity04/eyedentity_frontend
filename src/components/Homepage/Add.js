@@ -117,14 +117,14 @@ const Add = (props) => {
                   type="text"
                   className="form-control"
                   size="30"
-                  placeholder="Search Tag Your Friends Here"
+                  placeholder="Tag Your Friends Here"
                   value={query}
                   onChange={(event) => setQuery(event.target.value)}
                 />
                 <button
                   type="button"
-                  className="btn text-light"
-                  style={{ backgroundColor: "#8D7B65" }}
+                  className="btn text-light ml-1"
+                  style={{ backgroundColor: "#C9A982" }}
                   onClick={() =>
                     setUrl(
                       `http://api.riyofirsan.com/users/findQuery?name=${query}`
@@ -157,7 +157,7 @@ const Add = (props) => {
                 </div>
               </div>
               <div className="upload-btn-wrapper">
-                <button type="submit" className="custom-btn">
+                <button type="submit" className="custom-btn" >
                   Upload a file
                 </button>
 
@@ -175,7 +175,7 @@ const Add = (props) => {
             <button
                 type="submit"
                 className="btn text-light"
-                style={{ backgroundColor: "#8D7B65" }}
+                style={{ backgroundColor: "#C9A982" }}
               >
                 Submit
               </button>

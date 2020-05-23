@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
 
+body{
+    background-color:#fffafa ;
+}
 
 
 strong{
@@ -12,6 +15,9 @@ b{
 }
 
 b:hover{
-    color: rgb(110, 90, 71);
+    color: rgb(214, 186, 161);
 }
 
+.itemnav{
+    color: white;
+}
