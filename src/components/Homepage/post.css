@@ -18,6 +18,7 @@ img.rounded-circle1 {
 
 .card-img-top{
     height: 400px;
+    object-fit: cover;
 }
 
 @media (max-width: 576px){
@@ -30,6 +31,7 @@ img.rounded-circle1 {
     
     }.card-img-top{
         height: 150px;
+        object-fit: cover;
     }
 
 

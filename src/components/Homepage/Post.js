@@ -26,8 +26,8 @@ const Post = (props) => {
     console.log(item.tagPlace[0].namePlace);
     return (
       <div key={index}>
-        <div class="card mt-3 w-100" style={{ borderRadius: "10px" }}>
-          <div class="card-header">
+        <div className="card mt-3 w-100" style={{ borderRadius: "10px" }}>
+          <div className="card-header">
             <div className="d-flex flex-row">
               <img src={img1} style={{ height:"50px", width: "50px", borderRadius: "50%" }} />
               <div className="d-inline-flex flex-column">
@@ -47,7 +47,6 @@ const Post = (props) => {
               </p>
             <p class="card-text">{item.description}</p>
             <img
-              style={{ height: "400px", objectFit : "cover" }}
               className="card-img-top"
               src={`http://api.riyofirsan.com/${item.image}`}
               alt=""
