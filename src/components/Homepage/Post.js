@@ -55,7 +55,6 @@ const Post = (props) => {
             <button
               type="submit"
               className="btn text-light mt-3"
-              style={{ backgroundColor: "#C9A982" }}
             >
               <FontAwesomeIcon icon={faThumbsUp} className="fa-1x mx-auto" />
               &nbsp; Like
@@ -63,7 +62,6 @@ const Post = (props) => {
             <button
               type="submit"
               className="btn text-light mt-3 ml-2"
-              style={{ backgroundColor: "#C9A982" }}
             >
               <FontAwesomeIcon icon={faComment} className="fa-1x mx-auto" />
               &nbsp; Comment

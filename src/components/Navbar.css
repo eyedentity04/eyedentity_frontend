@@ -10,14 +10,10 @@ strong{
     font-size: 26px;
 }
 
-b{
-    color: rgb(255, 255, 255);
+.nav-link{
+    color: white !important;
 }
 
-b:hover{
-    color: rgb(214, 186, 161);
-}
-
-.itemnav{
-    color: white;
+.nav-link:hover{
+    color: rgb(128, 110, 94) !important;
 }

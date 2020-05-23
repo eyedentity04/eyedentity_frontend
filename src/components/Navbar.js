@@ -104,7 +104,7 @@ class Navbar extends Component {
                 <Link className="nav-link" to="/add">
                   <FontAwesomeIcon icon={faPlus} className="fa-lg mx-auto" />
                   &nbsp;
-                  <span className="itemnav">Add</span>
+                  Add
                 </Link>
               </li>
 
