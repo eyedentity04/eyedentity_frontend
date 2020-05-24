@@ -40,7 +40,7 @@ const comment = (props) => {
                 onChange={props.handleChange}
               />
               </div>
-              <button type="submit" className="btn btn-info" style={{backgroundColor : "#8D7B65"}}>
+              <button type="submit" className="btn text-light">
                 Comment
               </button>
             </div>

@@ -88,14 +88,7 @@ const Post = (props) => {
               <FontAwesomeIcon icon={faThumbsUp} className="fa-1x mx-auto" />
               &nbsp; Like
             </button>
-            <button
-              type="submit"
-              className="btn text-light mt-3 ml-2"
-              // onClick={()=>{addComment(item._id)}}
-            >
-              <FontAwesomeIcon icon={faComment} className="fa-1x mx-auto" />
-              &nbsp; Comment
-            </button>
+
           </div>
         </div>
       </div>
