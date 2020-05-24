@@ -4,9 +4,13 @@ import { Link } from 'react-router-dom';
 const UserDetail = props => {
     const { _id,name } = props;
     return (
-      <p>
+      <div>
+        
         <Link to={`/profile/${_id}`}>{name}</Link>
-      </p>
+      </div>
+
+        
+      
     );
   };
 

@@ -10,6 +10,9 @@ import { faThumbsUp,faComment } from "@fortawesome/free-solid-svg-icons";
 import dayjs from "dayjs";
 import advancedFormat from 'dayjs/plugin/advancedFormat'
 import relativeTime from 'dayjs/plugin/relativeTime'
+import Comment from '../Homepage/Comment'
+import { addLike } from "../../actioncreators/like";
+import axios from "axios"
 
 const Post = (props) => {
   const { data } = props;
@@ -19,6 +22,30 @@ const Post = (props) => {
       props.getData();
     }
   }, []);
+
+  const addlike = (targetPostId) =>{
+    const user = JSON.parse(localStorage.getItem("user"))
+    const token = user.token
+    window.alert("addLike")
+    axios.post("http://localhost:8000/like/create",{targetPostId},{
+      headers: { "token": token },
+    })
+    .then((result) => result)
+    .catch(err => err)
+    
+  }
+
+//   const addComment = (targetPostId) =>{
+//     const user = JSON.parse(localStorage.getItem("user"))
+//     const token = user.token
+//     window.alert("comment succes")
+//     axios.post("http://localhost:8000/comment/create",{targetPostId},{
+//       headers: { "token": token },
+//     })
+//     .then((result) => result)
+//     .catch(err => err)
+// onClick={() => {addlike(item._id)}}
+//   }
 
   dayjs.extend(relativeTime)
   
@@ -51,9 +78,11 @@ const Post = (props) => {
               src={`http://api.riyofirsan.com/${item.image}`}
               alt=""
             />
+            <Comment/>
             <button
-              type="submit"
+              type="button"
               className="btn text-light mt-3"
+              onClick={()=>{addlike(item._id)}}
             >
               <FontAwesomeIcon icon={faThumbsUp} className="fa-1x mx-auto" />
               &nbsp; Like
@@ -61,6 +90,7 @@ const Post = (props) => {
             <button
               type="submit"
               className="btn text-light mt-3 ml-2"
+              
             >
               <FontAwesomeIcon icon={faComment} className="fa-1x mx-auto" />
               &nbsp; Comment

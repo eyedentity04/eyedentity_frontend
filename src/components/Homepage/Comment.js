@@ -1,9 +1,9 @@
 import React from "react";
-import {Formik} from 'formik'
+import {Formik,Form} from 'formik'
 import "./Add.css";
 import { connect } from "react-redux";
 import {addComment} from "../../actioncreators/comment";
-import {Form} from 'react-bootstrap'
+// import {Form} from 'react-bootstrap'
 
 
 const comment = (props) => {
@@ -14,14 +14,15 @@ const comment = (props) => {
   return (
       <Formik
         initialValues={{
-          name : id,
-          comment : '',
+          targetPostId : item_.id,
+          userComment : id,
+          commentText : '',
         }}
         onSubmit ={(values)=>{
           let formData = new FormData();
 
-          formData.append('name',values.name)
-          formData.append('comment',values.comment)
+          formData.append('userComment',values.userComment)
+          formData.append('commentText',values.commentText)
 
           props.addComment(formData);
         }}
@@ -32,11 +33,11 @@ const comment = (props) => {
               <div className="form-group">
                 <textarea
                 className="form-control"
-                id="comment"
-                name="comment"
+                id="commentText"
+                name="commentText"
                 rows={2}
                 style={{ resize: "none" }}
-                value={props.values.comment}
+                value={props.values.commentText}
                 placeholder="Comment"
                 onChange={props.handleChange}
               />
