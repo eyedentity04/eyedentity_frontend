@@ -173,7 +173,6 @@ const Add = (props) => {
             <button
                 type="submit"
                 className="btn text-light"
-                // style={{ backgroundColor: "#C9A982" }}
               >
                 Submit
               </button>

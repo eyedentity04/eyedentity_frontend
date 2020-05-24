@@ -20,7 +20,6 @@ const Profile = () => {
     axios.get(`http://api.riyofirsan.com/users/show/${_id}`).then((res) => {
       const data = res.data;
       setData(data);
-      console.log(res);
     });
   }, []);
 
