@@ -44,7 +44,7 @@ const Add = (props) => {
         setData({
           lat: response.results[3].geometry.location.lat,
           lng: response.results[3].geometry.location.lng,
-          city: response.results[0].address_components[4].long_name,
+          city: response.results[0].formatted_address,
         });
       });
     });
@@ -70,7 +70,7 @@ const Add = (props) => {
         lat: lath,
         tag: "",
       }}
-      onSubmit={(values) => {
+      onSubmit={(values,action) => {
         let formData = new FormData();
 
         formData.append("name", values.name);
@@ -82,6 +82,7 @@ const Add = (props) => {
         formData.append("tag", values.tag);
 
         props.add(formData);
+        action.resetForm()
       }}
     >
       {(props) => (
@@ -111,7 +112,6 @@ const Add = (props) => {
               />
               <div value={props.namePlace} onChange={props.handleChange} />
 
-              <div className="input-group">
                 <input
                   type="text"
                   className="form-control"
@@ -153,7 +153,7 @@ const Add = (props) => {
                     ))}
                   </ul>
                 </div>
-              </div>
+              
               <div className="upload-btn-wrapper">
                 <button type="submit" className="custom-btn " >
                   Upload a file
@@ -173,7 +173,6 @@ const Add = (props) => {
             <button
                 type="submit"
                 className="btn text-light"
-                // style={{ backgroundColor: "#C9A982" }}
               >
                 Submit
               </button>

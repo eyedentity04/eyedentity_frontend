@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 const UserDetail = props => {
     const { _id,name } = props;
     return (
-      <div>
-        
+      <div className="card-body">
         <Link to={`/profile/${_id}`}>{name}</Link>
       </div>
 

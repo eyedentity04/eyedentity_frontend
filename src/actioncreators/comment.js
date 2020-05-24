@@ -1,11 +1,11 @@
 import axios from "axios";
 
-export const addComment = (targetPostId) => {
+export const addComment = (data,targetPostId) => {
   return (dispatch) => {
     const user = JSON.parse(localStorage.getItem("user"));
     const token = user.token;
     axios
-      .post("http://localhost:8000/like/create",targetPostId ,{
+      .post("http://api.riyofirsan.com/comment/create",data,{targetPostId},{
         headers: { "token": token },
       })
       .then((response) => {
@@ -14,7 +14,8 @@ export const addComment = (targetPostId) => {
           type: "COMMENT_ADD",
           payload: response.data,
         });
-      });
+      })
+      ;
   };
 };
 
