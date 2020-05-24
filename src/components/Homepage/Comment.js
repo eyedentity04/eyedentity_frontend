@@ -3,20 +3,26 @@ import {Formik,Form} from 'formik'
 import "./Add.css";
 import { connect } from "react-redux";
 import {addComment} from "../../actioncreators/comment";
+import { config } from "@fortawesome/fontawesome-svg-core";
 // import {Form} from 'react-bootstrap'
 
 
 const comment = (props) => {
-  // const {_id}=props
+  
 
   const user = JSON.parse(localStorage.getItem("user"));
   const id = user.id;  
   
+  console.log(props.data._id);
+  console.log(id);
+  
+  
+  
   return (
       <Formik
         initialValues={{
-          // targetPostId:_id,
-          userComment : id,
+          targetPostId: props.data._id,
+          userId : id,
           commentText : '',
         }}
         onSubmit ={(values,action)=>{

@@ -48,10 +48,10 @@ const Post = (props) => {
 
   dayjs.extend(relativeTime)
   
-  const showPost = data.map((item) => {
+  const showPost = data.map((item,index) => {
     console.log(item)
     return (
-      <div key={item._id}>
+      <div key={item._id} data={index}>
         <div className="card mt-3 w-100" style={{ borderRadius: "10px" }}>
           <div className="card-header">
             <div className="d-flex flex-row">
@@ -78,7 +78,7 @@ const Post = (props) => {
               alt=""
             />
 
-            <Comment />
+            <Comment data={item}/>
             
             <button
               type="button"
