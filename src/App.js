@@ -11,11 +11,15 @@ import Login from "./components/Login/Login";
 import UserRegister from "./components/Login/Register";
 import Home from "./components/Home";
 import Profile from "./components/Profile/Profile";
+import Add from './components/PageAdd/Addpage'
 
 function App(props) {
   return (
     <Router>
       <Switch>
+      <Route path="/add" exact>
+          <Add/>
+        </Route>
       <Route path="/profile/:_id" exact>
           <Profile/>
         </Route>
