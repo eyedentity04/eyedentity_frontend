@@ -5,7 +5,7 @@ export const add = (data) => {
     const user = JSON.parse(localStorage.getItem("user"));
     const token = user.token;
     axios
-      .post("http://api.riyofirsan.com/post/create", data, {
+      .post("https://api.riyofirsan.com/post/create", data, {
         headers: { "token": token },
       })
       .then((response) => {
@@ -23,7 +23,7 @@ export const getData = () => {
     const user = JSON.parse(localStorage.getItem("user"));
     const token = user.token;
     axios
-      .get("http://api.riyofirsan.com/post/test", {
+      .get("https://api.riyofirsan.com/post/test", {
         headers: { "token": token },
       })
       .then((response) => {
@@ -43,7 +43,7 @@ export const user = () => {
   const user = JSON.parse(localStorage.getItem('user'))
 const id = user.id
   return (dispatch) => {
-    axios.get(`http://api.riyofirsan.com/users/show/${id}`)
+    axios.get(`https://api.riyofirsan.com/users/show/${id}`)
     .then((response) => {
       console.log(response.data)
     .catch(err =>{

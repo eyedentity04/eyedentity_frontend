@@ -4,7 +4,7 @@ export const login = (data) => {
   return async (dispatch) => {
     try {
       const response = await axios.post(
-        "http://api.riyofirsan.com/users/login",
+        "https://api.riyofirsan.com/users/login",
         data
       );
       

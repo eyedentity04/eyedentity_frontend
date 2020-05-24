@@ -11,7 +11,7 @@ function FilterUser() {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("http://api.riyofirsan.com/users/show")
+      .get("https://api.riyofirsan.com/users/show")
       .then((res) => {
         setName(res.data);
         setLoading(false);

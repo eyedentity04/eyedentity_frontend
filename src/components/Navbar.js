@@ -23,7 +23,7 @@ class Navbar extends Component {
     const user = JSON.parse(localStorage.getItem("user"));
 
     axios
-      .get(`http://api.riyofirsan.com/users/show/${user.id}`)
+      .get(`https://api.riyofirsan.com/users/show/${user.id}`)
       .then((response) => {
         this.setState({ data: response.data });
         console.log(response);
