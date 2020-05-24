@@ -112,6 +112,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   getData: getData,
+  addLike: addLike
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Post);

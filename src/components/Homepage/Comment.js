@@ -14,7 +14,6 @@ const comment = (props) => {
   return (
       <Formik
         initialValues={{
-          targetPostId : item_.id,
           userComment : id,
           commentText : '',
         }}
