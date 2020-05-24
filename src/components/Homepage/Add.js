@@ -122,7 +122,7 @@ const Add = (props) => {
                 />
                 <button
                   type="button"
-                  className="btn text-light ml-1"
+                  className="btn text-light ml-1 mt-2"
                   onClick={() =>
                     setUrl(
                       `http://api.riyofirsan.com/users/findQuery?name=${query}`
@@ -169,13 +169,15 @@ const Add = (props) => {
                   }}
                 />
               </div>
-            </div>
-            <button
+              <br/>
+              <button
                 type="submit"
                 className="btn text-light"
               >
                 Submit
               </button>
+            </div>
+            
           </div>
         </Form>
       )}
