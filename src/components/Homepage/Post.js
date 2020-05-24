@@ -11,7 +11,6 @@ import dayjs from "dayjs";
 import advancedFormat from 'dayjs/plugin/advancedFormat'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import Comment from '../Homepage/Comment'
-import { addLike } from "../../actioncreators/like";
 import axios from "axios"
 
 const Post = (props) => {
@@ -27,32 +26,32 @@ const Post = (props) => {
     const user = JSON.parse(localStorage.getItem("user"))
     const token = user.token
     window.alert("addLike")
-    axios.post("http://localhost:8000/like/create",{targetPostId},{
+    
+    axios.post("http://api.riyofirsan.com/like/create",{targetPostId},{
       headers: { "token": token },
     })
-    .then((result) => result)
+    .then((result) => console.log(result))
     .catch(err => err)
     
   }
 
-//   const addComment = (targetPostId) =>{
-//     const user = JSON.parse(localStorage.getItem("user"))
-//     const token = user.token
-//     window.alert("comment succes")
-//     axios.post("http://localhost:8000/comment/create",{targetPostId},{
-//       headers: { "token": token },
-//     })
-//     .then((result) => result)
-//     .catch(err => err)
-// onClick={() => {addlike(item._id)}}
-//   }
+  // const addComment = (targetPostId) =>{
+  //   const user = JSON.parse(localStorage.getItem("user"))
+  //   const token = user.token
+  //   window.alert("comment succes")
+  //   axios.post("http://api.riyofirsan.com/comment/create",{targetPostId},{
+  //     headers: { "token": token },
+  //   })
+  //   .then((result) => console.log(result))
+  //   .catch(err => err)
+  // }
 
   dayjs.extend(relativeTime)
   
-  const showPost = data.map((item, index) => {
-    console.log(item.tagPlace[0].namePlace);
+  const showPost = data.map((item) => {
+    console.log(item)
     return (
-      <div key={index}>
+      <div key={item._id}>
         <div className="card mt-3 w-100" style={{ borderRadius: "10px" }}>
           <div className="card-header">
             <div className="d-flex flex-row">
@@ -78,7 +77,9 @@ const Post = (props) => {
               src={`http://api.riyofirsan.com/${item.image}`}
               alt=""
             />
-            <Comment/>
+
+            <Comment />
+            
             <button
               type="button"
               className="btn text-light mt-3"
@@ -90,7 +91,7 @@ const Post = (props) => {
             <button
               type="submit"
               className="btn text-light mt-3 ml-2"
-              
+              // onClick={()=>{addComment(item._id)}}
             >
               <FontAwesomeIcon icon={faComment} className="fa-1x mx-auto" />
               &nbsp; Comment
@@ -112,7 +113,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   getData: getData,
-  addLike: addLike
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Post);

@@ -7,23 +7,22 @@ import {addComment} from "../../actioncreators/comment";
 
 
 const comment = (props) => {
-  
+  // const {_id}=props
+
   const user = JSON.parse(localStorage.getItem("user"));
   const id = user.id;  
   
   return (
       <Formik
         initialValues={{
+          // targetPostId:_id,
           userComment : id,
           commentText : '',
         }}
-        onSubmit ={(values)=>{
-          let formData = new FormData();
+        onSubmit ={(values,action)=>{
 
-          formData.append('userComment',values.userComment)
-          formData.append('commentText',values.commentText)
-
-          props.addComment(formData);
+          props.addComment(values);
+          action.resetForm()
         }}
       >
         {props => (

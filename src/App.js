@@ -39,5 +39,5 @@ const mapStateToProps = (state) => {
     viaLogin: state.login.viaLogin
   };
 };
-
+// 
 export default connect(mapStateToProps)(App);

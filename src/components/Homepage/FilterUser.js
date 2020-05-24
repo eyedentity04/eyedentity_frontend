@@ -45,7 +45,7 @@ function FilterUser() {
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
-        </form>
+      </form>
     );
   }
 
@@ -62,10 +62,12 @@ function FilterUser() {
           />
         </div>
       </form>
-
-      {filteredName.map((item, index) => (
-        <UserDetail key={index} {...item} />
-      ))}
+      
+      <div className="card" style={{position:"absolute"}}>
+        {filteredName.map((item, index) => (
+          <UserDetail key={index} {...item} />
+        ))}
+      </div>
     </div>
   );
 }
