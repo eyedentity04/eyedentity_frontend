@@ -3,10 +3,13 @@ import axios from 'axios'
 import "./tag.css";
 
 const TagInput = (value,onChange) => {
+
+  const url = process.env.REACT_APP_API_URL
+
   const [tag, setTag] = useState([]);
   const [query, setQuery] = useState('');
   const [url, setUrl] = useState(
-    'http://api.riyofirsan.com/users/findQuery?name=redux',
+    `${url}/users/findQuery?name=redux`,
   );
  
   useEffect(() => {

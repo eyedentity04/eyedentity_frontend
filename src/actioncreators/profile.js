@@ -1,11 +1,14 @@
 import axios from 'axios'
 
+
+const url = process.env.REACT_APP_API_URL
+
 export const getData = () => {
     return (dispatch) => {
       const user = JSON.parse(localStorage.getItem("user"));
       const token = user.token;
       axios
-        .get(`http://api.riyofirsan.com/post/show/${user.id}`, {
+        .get(`${url}/post/show/${user.id}`, {
           headers: { "token": token },
         })
         .then((response) => {

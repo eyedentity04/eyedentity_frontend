@@ -1,10 +1,12 @@
 import axios from "axios";
 
+const url = process.env.REACT_APP_API_URL
+
 export const login = (data) => {
   return async (dispatch) => {
     try {
       const response = await axios.post(
-        "https://api.riyofirsan.com/users/login",
+        `${url}/users/login`,
         data
       );
       

@@ -1,5 +1,7 @@
 import axios from "axios";
 
+const url = process.env.REACT_APP_API_URL
+
 // export const register = (data) => {
 //   return async (dispatch) => {
 //     const response = await axios.post(
@@ -47,13 +49,13 @@ import axios from "axios";
 export const register = (data) => {
   return async (dispatch) => {
     try {
-      const response = await axios.post("https://api.riyofirsan.com/users/register",data)
+      const response = await axios.post(`${url}/users/register`,data)
       dispatch ({
         type : "USER_REGISTER",
         payload : response.data.data
       })
     }catch (error){
-      error && alert(`register failed ${error.message}`)
+      error && alert(`something wrong when you input data try again ${error.message}`)
     }
   }
 }

@@ -2,10 +2,13 @@ import React, { Fragment, useState, useEffect } from 'react';
 import axios from 'axios';
  
 function Filter() {
+
+    const url = process.env.REACT_APP_API_URL
+
     const [data, setData] = useState([]);
     const [query, setQuery] = useState('');
     const [url, setUrl] = useState(
-      'https://api.riyofirsan.com/users/findQuery?name=redux',
+      `${url}/findQuery?name=redux`,
     );
    
     useEffect(() => {
@@ -29,7 +32,7 @@ function Filter() {
         <button
           type="button"
           onClick={() =>
-            setUrl(`https://api.riyofirsan.com/users/findQuery?name=${query}`)
+            setUrl(`${url}/users/findQuery?name=${query}`)
           }
         >
           Search

@@ -9,6 +9,11 @@ import "./Add.css";
 import "./tag.css";
 
 const Add = (props) => {
+
+  const Url = process.env.REACT_APP_API_URL
+  const key = process.env.REACT_APP_API_KEY
+
+
   const user = JSON.parse(localStorage.getItem("user"));
   const id = user.id;
 
@@ -17,7 +22,7 @@ const Add = (props) => {
   const [query, setQuery] = useState("");
 
   const [url, setUrl] = useState(
-    "https://api.riyofirsan.com/users/findQuery?name=redux"
+    'https://api.riyofirsan.com/users/findQuery?name=redux'
   );
 
   useEffect(() => {
@@ -35,7 +40,7 @@ const Add = (props) => {
     navigator.geolocation.getCurrentPosition(function (position) {
       console.log(position.coords.latitude);
       console.log(position.coords.longitude);
-      Geocode.setApiKey("AIzaSyAVDqkzOARvGHvFnfaIYEiDBeIFaTjDDGI");
+      Geocode.setApiKey(`${key}`);
       Geocode.fromLatLng(
         position.coords.latitude,
         position.coords.longitude

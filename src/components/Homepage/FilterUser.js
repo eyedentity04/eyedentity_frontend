@@ -3,6 +3,9 @@ import axios from "axios";
 import UserDetail from "./Search";
 
 function FilterUser() {
+
+  const url = process.env.REACT_APP_API_URL
+
   const [name, setName] = useState([]);
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
@@ -11,7 +14,7 @@ function FilterUser() {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("https://api.riyofirsan.com/users/show")
+      .get(`${url}/users/show`)
       .then((res) => {
         setName(res.data);
         setLoading(false);

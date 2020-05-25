@@ -5,6 +5,9 @@ import Geocode from "react-geocode";
 import geolocation from "react-geolocation";
 
 Location = (props) => {
+
+  const key = process.env.REACT_APP_API_KEY
+
   // const {
   //   coords: { latitude, longitude },
   // } = props;
@@ -13,7 +16,7 @@ Location = (props) => {
     navigator.geolocation.getCurrentPosition(function (position) {
       console.log(position.coords.latitude);
       console.log(position.coords.longitude);
-      Geocode.setApiKey("AIzaSyAVDqkzOARvGHvFnfaIYEiDBeIFaTjDDGI");
+      Geocode.setApiKey(`${key}`);
       Geocode.fromLatLng(
         position.coords.latitude,
         position.coords.longitude

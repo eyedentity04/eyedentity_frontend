@@ -3,11 +3,30 @@ const initialState = {
 };
 
 const homeUser = (state = initialState, action) => {
+  console.log('action', action.payload)
   switch (action.type) {
     case "POST_ADD":
       return { ...state, data: [...state.data, action.payload] };
     case "POST_SHOW":
       return { ...state, data: action.payload };
+    case "POST_ADD_LIKE":
+      const dataLike = action.payload;
+      const newData = state.data.map(item => {
+        if (item._id == dataLike.postId){
+          item.likes3 = dataLike.like
+          item.likesCount = dataLike.like.length
+          return item;
+        }
+        return item;
+      });
+
+
+      console.log(state.data)
+      return {
+        ...state,
+        data: newData
+      };
+
     case "USER" : 
       return {...state, data : action.payload}
     case "TAG" : 
