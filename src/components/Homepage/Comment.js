@@ -7,21 +7,25 @@ import {addComment} from "../../actioncreators/comment";
 
 
 const comment = (props) => {
-  // const {_id}=props
-
+  const {_id} = props
   const user = JSON.parse(localStorage.getItem("user"));
   const id = user.id;  
   
   return (
       <Formik
         initialValues={{
-          // targetPostId:_id,
+          postId:_id,
           userComment : id,
           commentText : '',
         }}
         onSubmit ={(values,action)=>{
-
-          props.addComment(values);
+          const data = {
+            postId : values.postId,
+            userComment : values.userComment,
+            commentText : values.commentText
+          }
+          // console.log(data)
+          props.addComment(data);
           action.resetForm()
         }}
       >
@@ -40,7 +44,7 @@ const comment = (props) => {
                 onChange={props.handleChange}
               />
               </div>
-              <button type="submit" className="btn btn-info" style={{backgroundColor : "#8D7B65"}}>
+              <button type="submit" className="btn text-light">
                 Comment
               </button>
             </div>

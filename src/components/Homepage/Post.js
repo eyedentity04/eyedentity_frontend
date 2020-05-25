@@ -35,23 +35,12 @@ const Post = (props) => {
     
   }
 
-  // const addComment = (targetPostId) =>{
-  //   const user = JSON.parse(localStorage.getItem("user"))
-  //   const token = user.token
-  //   window.alert("comment succes")
-  //   axios.post("http://api.riyofirsan.com/comment/create",{targetPostId},{
-  //     headers: { "token": token },
-  //   })
-  //   .then((result) => console.log(result))
-  //   .catch(err => err)
-  // }
-
   dayjs.extend(relativeTime)
   
-  const showPost = data.map((item) => {
+  const showPost = data.map((item,index) => {
     console.log(item)
     return (
-      <div key={item._id}>
+      <div key={index}>
         <div className="card mt-3 w-100" style={{ borderRadius: "10px" }}>
           <div className="card-header">
             <div className="d-flex flex-row">
@@ -78,7 +67,7 @@ const Post = (props) => {
               alt=""
             />
 
-            <Comment />
+            <Comment key={index} {...item} />
             
             <button
               type="button"
@@ -88,14 +77,7 @@ const Post = (props) => {
               <FontAwesomeIcon icon={faThumbsUp} className="fa-1x mx-auto" />
               &nbsp; Like
             </button>
-            <button
-              type="submit"
-              className="btn text-light mt-3 ml-2"
-              // onClick={()=>{addComment(item._id)}}
-            >
-              <FontAwesomeIcon icon={faComment} className="fa-1x mx-auto" />
-              &nbsp; Comment
-            </button>
+
           </div>
         </div>
       </div>
