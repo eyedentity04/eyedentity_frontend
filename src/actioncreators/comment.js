@@ -6,6 +6,7 @@ export const addcomment = (data) => {
   console.log(data)
   
   return (dispatch) => {
+    console.log('ini data',data)
     const user = JSON.parse(localStorage.getItem("user"));
     const token = user.token;
     axios
@@ -13,13 +14,15 @@ export const addcomment = (data) => {
         headers: { "token": token },
       })
       .then((response) => {
-        console.log(response);
+        console.log("data berhasil masuk")
         dispatch({
           type: "COMMENT_ADD",
           payload: response.data,
         });
       })
-      ;
+      .catch(err => {
+        console.log(err)
+      });
   };
 };
 

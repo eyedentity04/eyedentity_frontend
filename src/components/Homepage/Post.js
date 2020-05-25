@@ -31,25 +31,13 @@ const Post = (props) => {
     props.addLike(targetPostId)
   }
 
-  // const addComment = (targetPostId) =>{
-  //   const user = JSON.parse(localStorage.getItem("user"))
-  //   const token = user.token
-  //   window.alert("comment succes")
-  //   axios.post("http://api.riyofirsan.com/comment/create",{targetPostId},{
-  //     headers: { "token": token },
-  //   })
-  //   .then((result) => console.log(result))
-  //   .catch(err => err)
-  // }
-  const [modalShow, setModalShow] = React.useState(false);
-
   dayjs.extend(relativeTime)
   
   const showPost = data.map((item,index) => {
     console.log(item)
     const btnLikeClassName = item.likedByMe ? "bg-secondary": ""
     return (
-      <div key={item._id} data={index}>
+      <div key={index}>
         <div className="card mt-3 w-100" style={{ borderRadius: "10px" }}>
           <div className="card-header">
             <div className="d-flex flex-row">
