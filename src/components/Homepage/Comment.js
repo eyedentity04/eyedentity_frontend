@@ -3,7 +3,7 @@ import {Formik,Form} from 'formik'
 import "./Add.css";
 import { connect } from "react-redux";
 import {addComment} from "../../actioncreators/comment";
-// import {Form} from 'react-bootstrap'
+import { config } from "@fortawesome/fontawesome-svg-core";
 
 
 const comment = (props) => {
@@ -24,7 +24,6 @@ const comment = (props) => {
             userComment : values.userComment,
             commentText : values.commentText
           }
-          // console.log(data)
           props.addComment(data);
           action.resetForm()
         }}

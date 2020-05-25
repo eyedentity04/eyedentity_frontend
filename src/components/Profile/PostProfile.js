@@ -38,7 +38,7 @@ const Post = (props) => {
             <p class="card-text">{item.description}</p>
             <img
               className="card-img-top"
-              src={`http://api.riyofirsan.com/${item.image}`}
+              src={`https://api.riyofirsan.com/${item.image}`}
               alt=""
             />
             <button

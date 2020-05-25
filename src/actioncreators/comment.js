@@ -6,7 +6,7 @@ export const addComment = (data) => {
     const user = JSON.parse(localStorage.getItem("user"));
     const token = user.token;
     axios
-      .post("http://api.riyofirsan.com/comment/create",data,{
+      .post("https://api.riyofirsan.com/comment/create",data,{
         headers: { "token": token },
       })
       .then((response) => {
@@ -27,7 +27,7 @@ export const getComment = () => {
     const user = JSON.parse(localStorage.getItem("user"));
     const token = user.token;
     axios
-      .get("http://api.riyofirsan.com/post/test", {
+      .get("https://api.riyofirsan.com/post/test", {
         headers: { "token": token },
       })
       .then((response) => {

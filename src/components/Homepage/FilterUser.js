@@ -11,7 +11,7 @@ function FilterUser() {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("http://api.riyofirsan.com/users/show")
+      .get(`http://api.riyofirsan.com/users/findQuery?name`)
       .then((res) => {
         setName(res.data);
         setLoading(false);
@@ -29,24 +29,9 @@ function FilterUser() {
     );
   }, [search, name]);
 
+
   if (loading) {
     return <p>Loading name...</p>;
-  }
-
-  if (search == "") {
-    return (
-      <form className="form-inline my-2 my-lg-0 ">
-        <div className="input-group">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Search"
-            size="50"
-            onChange={(e) => setSearch(e.target.value)}
-          />
-        </div>
-      </form>
-    );
   }
 
   return (
@@ -64,7 +49,7 @@ function FilterUser() {
       </form>
       
       <div className="card" style={{position:"absolute"}}>
-        {filteredName.map((item, index) => (
+        {filteredName.slice(0,3).map((item, index) => (
           <UserDetail key={index} {...item} />
         ))}
       </div>

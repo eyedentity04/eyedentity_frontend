@@ -17,7 +17,7 @@ const Profile = () => {
   const { _id } = useParams();
   const [data, setData] = useState({});
   useEffect(() => {
-    axios.get(`http://api.riyofirsan.com/users/show/${_id}`).then((res) => {
+    axios.get(`https://api.riyofirsan.com/users/show/${_id}`).then((res) => {
       const data = res.data;
       setData(data);
     });

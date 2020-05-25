@@ -5,7 +5,7 @@ function Filter() {
     const [data, setData] = useState([]);
     const [query, setQuery] = useState('');
     const [url, setUrl] = useState(
-      'http://api.riyofirsan.com/users/findQuery?name=redux',
+      'https://api.riyofirsan.com/users/findQuery?name=redux',
     );
    
     useEffect(() => {
@@ -29,7 +29,7 @@ function Filter() {
         <button
           type="button"
           onClick={() =>
-            setUrl(`http://api.riyofirsan.com/users/findQuery?name=${query}`)
+            setUrl(`https://api.riyofirsan.com/users/findQuery?name=${query}`)
           }
         >
           Search

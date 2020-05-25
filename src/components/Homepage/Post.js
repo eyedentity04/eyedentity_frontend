@@ -27,7 +27,7 @@ const Post = (props) => {
     const token = user.token
     window.alert("addLike")
     
-    axios.post("http://api.riyofirsan.com/like/create",{targetPostId},{
+    axios.post("https://api.riyofirsan.com/like/create",{targetPostId},{
       headers: { "token": token },
     })
     .then((result) => console.log(result))
@@ -63,7 +63,7 @@ const Post = (props) => {
             <p class="card-text">{item.description}</p>
             <img
               className="card-img-top"
-              src={`http://api.riyofirsan.com/${item.image}`}
+              src={`https://api.riyofirsan.com/${item.image}`}
               alt=""
             />
 

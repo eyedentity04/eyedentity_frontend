@@ -17,7 +17,7 @@ const Add = (props) => {
   const [query, setQuery] = useState("");
 
   const [url, setUrl] = useState(
-    "http://api.riyofirsan.com/users/findQuery?name=redux"
+    "https://api.riyofirsan.com/users/findQuery?name=redux"
   );
 
   useEffect(() => {
@@ -122,10 +122,10 @@ const Add = (props) => {
                 />
                 <button
                   type="button"
-                  className="btn text-light ml-1"
+                  className="btn text-light ml-1 mt-2"
                   onClick={() =>
                     setUrl(
-                      `http://api.riyofirsan.com/users/findQuery?name=${query}`
+                      `https://api.riyofirsan.com/users/findQuery?name=${query}`
                     )
                   }
                 >
@@ -170,10 +170,15 @@ const Add = (props) => {
                   }}
                 />
               </div>
+              <br/>
+              <button
+                type="submit"
+                className="btn text-light"
+              >
+                Submit
+              </button>
             </div>
-            <button type="submit" className="btn text-light">
-              Submit
-            </button>
+            
           </div>
         </Form>
       )}
