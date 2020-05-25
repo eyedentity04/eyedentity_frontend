@@ -75,7 +75,7 @@ const Add = (props) => {
         lat: lath,
         tag: "",
       }}
-      onSubmit={(values) => {
+      onSubmit={(values,action) => {
         let formData = new FormData();
 
         formData.append("name", values.name);
@@ -87,6 +87,7 @@ const Add = (props) => {
         formData.append("tag", values.tag);
 
         props.add(formData);
+        action.resetForm()
       }}
     >
       {(props) => (
@@ -116,7 +117,6 @@ const Add = (props) => {
               />
               <div value={props.namePlace} onChange={props.handleChange} />
 
-              <div className="input-group">
                 <input
                   type="text"
                   className="form-control"
@@ -136,32 +136,31 @@ const Add = (props) => {
                 >
                   Search
                 </button>
-              </div>
 
-              <div className="tags-input">
-                <ul id="tags">
-                  {tags.map((item, index) => (
-                    <li key={index} className="tag">
-                      <button
-                        className="btn-custom"
-                        onClick={(e) => (props.values.tag = item._id)}
-                      >
-                        <span className="tag-title">{item.name}</span>
-                      </button>
+                <div className="tags-input">
+                  <ul id="tags">
+                    {tags.map((item, index) => (
+                      <li key={index} className="tag">
+                        <button
+                          className="btn-custom"
+                          onClick={(e) => (props.values.tag = item._id)}
+                        >
+                          <span className="tag-title">{item.name}</span>
+                        </button>
 
-                      <span
-                        className="tag-close-icon"
-                        onClick={() => removeTags(index)}
-                      >
-                        x
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
+                        <span
+                          className="tag-close-icon"
+                          onClick={() => removeTags(index)}
+                        >
+                          x
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              
               <div className="upload-btn-wrapper">
-                <button type="submit" className="custom-btn ">
+                <button type="submit" className="custom-btn " >
                   Upload a file
                 </button>
 

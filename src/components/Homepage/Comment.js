@@ -26,8 +26,8 @@ const comment = (props) => {
   return (
       <Formik
         initialValues={{
-          postId:_id,
-          userComment : id,
+          targetPostId: props.data._id,
+          userId : id,
           commentText : '',
         }}
         onSubmit ={(values,action)=>{
