@@ -33,8 +33,6 @@ export const getcomment = () => {
           })
           .then((response) => {
             
-            console.log(response.data);
-            
             dispatch({
               type: "COMMENT_SHOW",
               payload: response.data,

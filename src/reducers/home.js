@@ -3,7 +3,6 @@ const initialState = {
 };
 
 const homeUser = (state = initialState, action) => {
-  console.log('action', action.payload)
   switch (action.type) {
     case "POST_ADD":
       return { ...state, data: [...state.data, action.payload] };

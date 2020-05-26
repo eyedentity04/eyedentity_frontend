@@ -20,18 +20,16 @@ const Post = (props) => {
   
   useEffect(() => {
       props.getData();
-  }, []);
+  }, [data]);
 
   const addlike = (targetPostId) =>{
     props.addLike(targetPostId)
   }
 
-  const [modalShow, setModalShow] = React.useState(false);
-
   dayjs.extend(relativeTime)
   
   const showPost = data.map((item,index) => {
-    console.log(item.name)
+   
     const btnLikeClassName = item.likedByMe ? "bg-secondary": ""
     return (
       <div key={item._id} data={index}>
@@ -82,7 +80,6 @@ const Post = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state.homeUser.data)
   return {
     data: state.homeUser.data,
   };
