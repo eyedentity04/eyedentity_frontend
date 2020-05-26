@@ -36,7 +36,7 @@ class Navbar extends Component {
 
   render() {
     let user = Object.assign({}, this.state.data);
-
+    const url = process.env.REACT_APP_API_URL
     return (
       <div>
         <nav
@@ -89,7 +89,7 @@ class Navbar extends Component {
               <li className="nav-item  ml-lg-2 ml-md-0 mr-2 mr-md-0">
                 <Link className="nav-link" to={`/profile/${user._id}`}>
                   <img
-                    src={img1}
+                    src={`${url}/${user.image}`}
                     className="rounded-circle"
                     style={{ width: "25px" }}
                     alt="..."

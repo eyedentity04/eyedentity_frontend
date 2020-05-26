@@ -20,7 +20,7 @@ const Post = (props) => {
     const user = JSON.parse(localStorage.getItem("user"))
     const token = user.token
     const id = user.id
-    axios.get(`https://api.riyofirsan.com/users/show/${_id}`).then((res) => {
+    axios.get(`${url}/users/show/${_id}`).then((res) => {
       const data = res.data;
       setName(data);
       console.log(data.name)
@@ -54,7 +54,7 @@ const Post = (props) => {
         <div class="card mt-3 w-100" style={{ borderRadius: "10px" }}>
           <div class="card-header">
             <div className="d-flex flex-row">
-              <img src={img1} style={{ width: "50px", borderRadius: "50%" }} />
+              <img src={`${url}/${item.image}`} style={{ width: "50px", borderRadius: "50%" }} />
               <div className="d-inline-flex flex-column">
                 <p className="lead font-weight-bold mb-0 ml-2">
                   {name.name}

@@ -69,3 +69,19 @@ export const user = () => {
     })
   }
 }
+
+export const editProfile = (data) =>{
+  const user = JSON.parse(localStorage.getItem('user'))
+  const id = user.id 
+  return(dispatch) => {
+    axios.put(`${url}/users/edit/${id}`,data)
+    .then(response => {
+      window.alert("success")
+      console.log(response)
+      dispatch({
+        type : "EDIT_PROFILE",
+        payload : response.data
+      })
+    }).catch( err => alert("failed to update yout profile" , err))
+  }
+}

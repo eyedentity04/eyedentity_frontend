@@ -20,7 +20,7 @@ const Post = (props) => {
   
   useEffect(() => {
       props.getData();
-  }, [data]);
+  }, []);
 
   const addlike = (targetPostId) =>{
     props.addLike(targetPostId)
@@ -29,14 +29,14 @@ const Post = (props) => {
   dayjs.extend(relativeTime)
   
   const showPost = data.map((item,index) => {
-   
+   console.log(item)
     const btnLikeClassName = item.likedByMe ? "bg-secondary": ""
     return (
       <div key={item._id} data={index}>
         <div className="card mt-3 w-100" style={{ borderRadius: "10px" }}>
           <div className="card-header">
             <div className="d-flex flex-row">
-              <img src={img1} style={{ height:"50px", width: "50px", borderRadius: "50%" }} />
+              <img src={`${url}/${item.name.image}`} style={{ height:"50px", width: "50px", borderRadius: "50%" }} />
               <div className="d-inline-flex flex-column">
                 <p className="lead font-weight-bold mb-0 ml-2">
                   {item.name.name}

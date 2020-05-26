@@ -24,7 +24,6 @@ const Register = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if(data && !data.length){
-      window.alert("register succes")
       props.register(data);
       console.log(props.register(data))
     }

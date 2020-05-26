@@ -50,6 +50,7 @@ export const register = (data) => {
   return async (dispatch) => {
     try {
       const response = await axios.post(`${url}/users/register`,data)
+      window.alert("succes")
       dispatch ({
         type : "USER_REGISTER",
         payload : response.data.data
