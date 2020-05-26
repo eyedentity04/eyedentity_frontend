@@ -3,6 +3,7 @@ import img1 from "../Img/img1.jpg";
 import "../Homepage/post.css"
 import { connect } from "react-redux";
 import { getData } from "../../actioncreators/profile";
+import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsUp,faComment } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios"
@@ -11,6 +12,7 @@ const Post = (props) => {
 
   const url = process.env.REACT_APP_API_URL
 
+  const { _id } = useParams();
   const [data,setData] = useState([])
   const [name,setName] = useState({})
 
@@ -18,7 +20,7 @@ const Post = (props) => {
     const user = JSON.parse(localStorage.getItem("user"))
     const token = user.token
     const id = user.id
-    axios.get(`https://api.riyofirsan.com/users/show/${id}`).then((res) => {
+    axios.get(`https://api.riyofirsan.com/users/show/${_id}`).then((res) => {
       const data = res.data;
       setName(data);
       console.log(data.name)
@@ -33,7 +35,7 @@ const Post = (props) => {
         const user = JSON.parse(localStorage.getItem("user"))
         const token = user.token
         const id = user.id
-        const result = await axios.get(`${url}/post/find/${id}`,{
+        const result = await axios.get(`${url}/post/find/${_id}`,{
         headers: { "token": token }
         }).catch(err => {
             window.alert("error",err)

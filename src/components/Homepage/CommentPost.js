@@ -5,7 +5,7 @@ import "./Add.css";
 
 const CommentPost = (props) => {
 
-    const {data} = props
+    // const {data} = props
 
     const [comment,setComment] = useState([])
 
