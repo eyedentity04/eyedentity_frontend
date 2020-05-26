@@ -26,8 +26,6 @@ const Post = (props) => {
     props.addLike(targetPostId)
   }
 
-  const [modalShow, setModalShow] = React.useState(false);
-
   dayjs.extend(relativeTime)
   
   const showPost = data.map((item,index) => {
