@@ -2,9 +2,6 @@ import React from "react";
 import {Formik} from 'formik'
 import "./Add.css";
 import { connect } from "react-redux";
-import {addLike} from "../../actioncreators/like";
-import {Form} from 'react-bootstrap'
-
 
 const like = (props) => {
   
