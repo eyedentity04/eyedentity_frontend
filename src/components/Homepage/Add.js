@@ -30,7 +30,6 @@ const Add = (props) => {
       const result = await axios(url);
 
       setTags(result.data);
-      console.log(result.data);
     };
 
     fetchData();
@@ -61,7 +60,6 @@ const Add = (props) => {
 
   const removeTags = (index) => {
     setTags([...tags.filter((tag) => tags.indexOf(tag) !== index)]);
-    console.log(index);
   };
 
   const searchTags = async (query) => {
@@ -69,7 +67,6 @@ const Add = (props) => {
       `https://api.riyofirsan.com/users/findQuery?name=${query}`
     )
     setTags(result.data)
-    console.log(result.data)
   }
 
   return (

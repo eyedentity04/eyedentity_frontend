@@ -22,7 +22,6 @@ const CommentPost = (props) => {
                 window.alert("error",err)
             })
             setComment(result.data)
-            console.log(result.data)
         }
         myComment()
         
@@ -30,7 +29,6 @@ const CommentPost = (props) => {
     
 
     let getComment = comment.map((item,index) => {
-        console.log(item.comment)
         return(
             <div key={item} data={index}>
                 <div className="card-title">
