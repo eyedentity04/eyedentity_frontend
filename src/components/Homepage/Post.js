@@ -6,14 +6,11 @@ import "./post.css";
 import { getData, addLike } from "../../actioncreators/Home";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faThumbsUp,faComment } from "@fortawesome/free-solid-svg-icons";
+import { faThumbsUp} from "@fortawesome/free-solid-svg-icons";
 import dayjs from "dayjs";
-import advancedFormat from 'dayjs/plugin/advancedFormat'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import Comment from '../Homepage/Comment'
 import CommentPost from '../Homepage/CommentPost'
-import {Button} from "react-bootstrap"
-import axios from "axios"
 
 const Post = (props) => {
 
@@ -22,31 +19,19 @@ const Post = (props) => {
   const { data } = props;
   
   useEffect(() => {
-    if (data && !data.length) {
       props.getData();
-    }
   }, []);
 
   const addlike = (targetPostId) =>{
     props.addLike(targetPostId)
   }
 
-  // const addComment = (targetPostId) =>{
-  //   const user = JSON.parse(localStorage.getItem("user"))
-  //   const token = user.token
-  //   window.alert("comment succes")
-  //   axios.post("http://api.riyofirsan.com/comment/create",{targetPostId},{
-  //     headers: { "token": token },
-  //   })
-  //   .then((result) => console.log(result))
-  //   .catch(err => err)
-  // }
   const [modalShow, setModalShow] = React.useState(false);
 
   dayjs.extend(relativeTime)
   
   const showPost = data.map((item,index) => {
-    console.log(item)
+    console.log(item.name)
     const btnLikeClassName = item.likedByMe ? "bg-secondary": ""
     return (
       <div key={item._id} data={index}>
@@ -78,11 +63,7 @@ const Post = (props) => {
                 <CommentPost data={item}/>
               </div>
             <Comment data={item}/>
-            {/* <CommentPost data={item} show={modalShow}
-                onHide={() => setModalShow(false)}/>
-            <Button variant="primary" onClick={() => setModalShow(true)}>
-              Comment
-              </Button> */}
+
             <button
               type="button"
               className={`btn text-light mt-3 ${btnLikeClassName}`}
@@ -109,7 +90,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   getData: getData,
-  addLike
+  addLike :addLike
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Post);

@@ -23,7 +23,7 @@ function FilterUser() {
         console.log(err);
       });
   }, []);
-
+  
   useEffect(() => {
     setFilteredName(
       name.filter((item) =>
@@ -60,7 +60,7 @@ function FilterUser() {
             type="text"
             className="form-control"
             placeholder="Search"
-            size="50"
+            size="40"
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
