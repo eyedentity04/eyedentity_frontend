@@ -20,7 +20,7 @@ function App(props) {
       <Route path="/add" exact>
           <Add/>
         </Route>
-      <Route path="/profile/:_id" exact>
+      <Route path="/profile/:_id" >
           <Profile/>
         </Route>
         <Route path="/" exact>

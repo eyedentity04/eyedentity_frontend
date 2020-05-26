@@ -9,10 +9,8 @@ import "./Add.css";
 import "./tag.css";
 
 const Add = (props) => {
-
-  const Url = process.env.REACT_APP_API_URL
-  const key = process.env.REACT_APP_API_KEY
-
+  const Url = process.env.REACT_APP_API_URL;
+  const key = process.env.REACT_APP_API_KEY;
 
   const user = JSON.parse(localStorage.getItem("user"));
   const id = user.id;
@@ -21,8 +19,10 @@ const Add = (props) => {
   const [tags, setTags] = useState([]);
   const [query, setQuery] = useState("");
 
+  const [tag, setTag] = useState([]);
+
   const [url, setUrl] = useState(
-    'https://api.riyofirsan.com/users/findQuery?name=redux'
+    "https://api.riyofirsan.com/users/findQuery?name=redux"
   );
 
   useEffect(() => {
@@ -64,6 +64,14 @@ const Add = (props) => {
     console.log(index);
   };
 
+  const searchTags = async (query) => {
+    const result = await axios (
+      `https://api.riyofirsan.com/users/findQuery?name=${query}`
+    )
+    setTags(result.data)
+    console.log(result.data)
+  }
+
   return (
     <Formik
       initialValues={{
@@ -75,26 +83,50 @@ const Add = (props) => {
         lat: lath,
         tag: "",
       }}
-      onSubmit={(values,action) => {
+      onSubmit={(values, action) => {
         let formData = new FormData();
 
-        formData.append("name", values.name);
-        formData.append("description", values.description);
+        formData.set("name", values.name);
+        formData.set("description", values.description);
+        formData.set("namePlace", city);
+        formData.set("long", lng);
+        formData.set("lat", lath);
         formData.append("image", values.image);
-        formData.append("namePlace", city);
-        formData.append("long", lng);
-        formData.append("lat", lath);
-        formData.append("tag", values.tag);
+
+        tag.forEach((item) => {
+          formData.append("tag", item._id);
+        });
 
         props.add(formData);
-        action.resetForm()
+        action.resetForm();
+        setTag([])
+        setTags([])
       }}
     >
       {(props) => (
         <Form onSubmit={props.handleSubmit}>
           <div className="container">
             <div className="form-group">
-              <input
+              <div className="tags-input">
+                <ul id="tags">
+                  {tag.map((item, index) => (
+                    <li key={index} className="tag">
+                      <button className="btn-custom">
+                        <span className="tag-title">{item.name}</span>
+                      </button>
+
+                      <span
+                        className="tag-close-icon"
+                        onClick={() => removeTags(index)}
+                      >
+                        x
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* <input
                 type="text"
                 className="form-control mt-5"
                 id="tag"
@@ -103,7 +135,7 @@ const Add = (props) => {
                 placeholder="Tag Someone With Search"
                 readOnly="readOnly"
                 onChange={props.handleChange}
-              />
+              /> */}
 
               <textarea
                 className="form-control"
@@ -117,50 +149,46 @@ const Add = (props) => {
               />
               <div value={props.namePlace} onChange={props.handleChange} />
 
-                <input
-                  type="text"
-                  className="form-control"
-                  size="30"
-                  placeholder="Tag Your Friends Here"
-                  value={query}
-                  onChange={(event) => setQuery(event.target.value)}
-                />
-                <button
-                  type="button"
-                  className="btn text-light ml-1 mt-2"
-                  onClick={() =>
-                    setUrl(
-                      `https://api.riyofirsan.com/users/findQuery?name=${query}`
-                    )
-                  }
-                >
-                  Search
-                </button>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Tag Your Friends Here"
+                value={query}
+                onChange={(event) => setQuery(event.target.value)}
+              />
+              <button
+                type="button"
+                className="btn text-light"
+                onClick={() => searchTags(query)}
+              >
+                Search
+              </button>
 
-                <div className="tags-input">
-                  <ul id="tags">
-                    {tags.map((item, index) => (
-                      <li key={index} className="tag">
-                        <button
-                          className="btn-custom"
-                          onClick={(e) => (props.values.tag = item._id)}
-                        >
-                          <span className="tag-title">{item.name}</span>
-                        </button>
+              <div className="tags-input">
+                <ul id="tags">
+                  {tags.map((item, index) => (
+                    <li key={index} className="tag">
+                      <button
+                        className="btn-custom"
+                        type="button"
+                        onClick={(e) => setTag([...tag, item])}
+                      >
+                        <span className="tag-title">{item.name}</span>
+                      </button>
 
-                        <span
-                          className="tag-close-icon"
-                          onClick={() => removeTags(index)}
-                        >
-                          x
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              
+                      <span
+                        className="tag-close-icon"
+                        onClick={() => removeTags(index)}
+                      >
+                        x
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
               <div className="upload-btn-wrapper">
-                <button type="submit" className="custom-btn " >
+                <button type="submit" className="custom-btn ">
                   Upload a file
                 </button>
 
@@ -174,15 +202,11 @@ const Add = (props) => {
                   }}
                 />
               </div>
-              <br/>
-              <button
-                type="submit"
-                className="btn text-light"
-              >
+              <br />
+              <button type="submit" className="btn text-light">
                 Submit
               </button>
             </div>
-            
           </div>
         </Form>
       )}

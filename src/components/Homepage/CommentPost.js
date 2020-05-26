@@ -11,8 +11,6 @@ const CommentPost = (props) => {
 
     const url = process.env.REACT_APP_API_URL
 
-    
-
     useEffect(() =>{
        
         async function myComment() {
