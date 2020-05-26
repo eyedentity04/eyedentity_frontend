@@ -65,12 +65,12 @@ const Add = (props) => {
   };
 
   const searchTags = async (query) => {
-    const result = await axios (
+    const result = await axios(
       `https://api.riyofirsan.com/users/findQuery?name=${query}`
-    )
-    setTags(result.data)
-    console.log(result.data)
-  }
+    );
+    setTags(result.data);
+    console.log(result.data);
+  };
 
   return (
     <Formik
@@ -99,8 +99,8 @@ const Add = (props) => {
 
         props.add(formData);
         action.resetForm();
-        setTag([])
-        setTags([])
+        setTag([]);
+        setTags([]);
       }}
     >
       {(props) => (
@@ -108,13 +108,10 @@ const Add = (props) => {
           <div className="container">
             <div className="form-group">
               <div className="tags-input">
-                <ul id="tags">
+                <ul id="tags" style={{cursor : "pointer"}}>
                   {tag.map((item, index) => (
-                    <li key={index} className="tag">
-                      <button className="btn-custom">
-                        <span className="tag-title">{item.name}</span>
-                      </button>
-
+                    <li key={index} className="tag test">
+                      <span className="tag-title">{item.name}</span>
                       <span
                         className="tag-close-icon"
                         onClick={() => removeTags(index)}
@@ -158,7 +155,7 @@ const Add = (props) => {
               />
               <button
                 type="button"
-                className="btn text-light"
+                className="btn text-light  mt-2"
                 onClick={() => searchTags(query)}
               >
                 Search
