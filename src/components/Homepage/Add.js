@@ -30,7 +30,6 @@ const Add = (props) => {
       const result = await axios(url);
 
       setTags(result.data);
-      console.log(result.data);
     };
 
     fetchData();
@@ -60,17 +59,22 @@ const Add = (props) => {
   let lath = data.lat;
 
   const removeTags = (index) => {
-    setTags([...tags.filter((tag) => tags.indexOf(tag) !== index)]);
-    console.log(index);
+    setTag([...tag.filter((tags) => tag.indexOf(tags) !== index)]);
   };
 
   const searchTags = async (query) => {
     const result = await axios(
       `https://api.riyofirsan.com/users/findQuery?name=${query}`
+<<<<<<< HEAD
     );
     setTags(result.data);
     console.log(result.data);
   };
+=======
+    )
+    setTags(result.data)
+  }
+>>>>>>> 49bf3415c21f85c51707b9134d3bf45dc190df39
 
   return (
     <Formik
@@ -107,6 +111,7 @@ const Add = (props) => {
         <Form onSubmit={props.handleSubmit}>
           <div className="container">
             <div className="form-group">
+              
               <div className="tags-input">
                 <ul id="tags" style={{cursor : "pointer"}}>
                   {tag.map((item, index) => (
@@ -122,17 +127,6 @@ const Add = (props) => {
                   ))}
                 </ul>
               </div>
-
-              {/* <input
-                type="text"
-                className="form-control mt-5"
-                id="tag"
-                name="tag"
-                value={props.values.tag}
-                placeholder="Tag Someone With Search"
-                readOnly="readOnly"
-                onChange={props.handleChange}
-              /> */}
 
               <textarea
                 className="form-control"

@@ -22,38 +22,30 @@ const CommentPost = (props) => {
           window.alert("error", err);
         });
       setComment(result.data);
-      console.log(result.data);
     }
     myComment();
   }, []);
 
   let getComment = comment.map((item, index) => {
-    console.log(item.comment);
     return (
-      <div key={item} data={index}>
+      <div key={index}>
         <div className="card-title">
-          <h6>
-            {item.comment.map((item, index) => (
-              <span key={index} data={item}>
-                {item.userComment.name}
-              </span>
-            ))}
-          </h6>
-        </div>
-        <div className="card-text">
-          <p>
-            {item.comment.map((item, index) => (
-              <span key={index} data={item}>
-                 {item.commentText}
-              </span>
-            ))}
-          </p>
+          {item.comment.map((item, index) => (
+            <div key={index}>
+              <h6 className="lead">{item.userComment.name}</h6>
+              <p>{item.commentText}</p>
+            </div>
+          ))}
         </div>
       </div>
     );
   });
 
-  return <div>{getComment}</div>;
+  return (
+    <div>
+      <div>{getComment}</div>
+    </div>
+  );
 };
 
 export default CommentPost;

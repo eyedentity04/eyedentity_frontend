@@ -10,18 +10,8 @@ import axios from "axios"
 
 const comment = (props) => {
   
- 
-
   const user = JSON.parse(localStorage.getItem("user"));
   const id = user.id;  
-  
-  console.log(props.data._id);
-  console.log(id);
-
-  
-  
-  
-  
   
   return (
       <Formik
