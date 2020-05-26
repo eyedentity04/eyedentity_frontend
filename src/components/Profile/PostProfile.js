@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import img1 from "../Img/img1.jpg";
+import dayjs from "dayjs";
+import relativeTime from 'dayjs/plugin/relativeTime'
 import "../Homepage/post.css"
-import { connect } from "react-redux";
-import { getData } from "../../actioncreators/profile";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsUp,faComment } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios"
@@ -45,6 +45,8 @@ const Post = (props) => {
     
 }, [])
 
+dayjs.extend(relativeTime)
+
   const showPost = data.map((item, index) => {
     console.log(item.tagPlace[0].namePlace);
     return (
@@ -59,7 +61,7 @@ const Post = (props) => {
                 </p>
                 <p className=" text-muted mb-0 ml-2">{item.tagPlace[0].namePlace}</p>
               </div>
-              <p className="text-muted ml-auto">{item.date}</p>
+              <p className="text-muted ml-auto">{dayjs(item.date).fromNow()}</p>
             </div>
           </div>
           <div class="card-body">
