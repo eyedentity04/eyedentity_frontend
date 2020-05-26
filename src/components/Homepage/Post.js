@@ -46,7 +46,7 @@ const Post = (props) => {
   dayjs.extend(relativeTime)
   
   const showPost = data.map((item,index) => {
-    console.log(item)
+    console.log(item.name)
     const btnLikeClassName = item.likedByMe ? "bg-secondary": ""
     return (
       <div key={item._id} data={index}>
