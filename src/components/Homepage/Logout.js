@@ -10,11 +10,13 @@ const Logout = (props) => {
     props.logout();
   };
   return (
+    <li className="nav-item  ml-lg-2 ml-md-0 mr-2 mr-md-0" style={{cursor : "pointer"}}>
     <div className="nav-link" onClick={onChange}>
      <FontAwesomeIcon icon={faSignOutAlt} className="fa-lg mx-auto"  />
      &nbsp;
-     <span className="itemnav">Logout</span>
+     <span >Logout</span>
     </div>
+    </li>
   );
 };
 

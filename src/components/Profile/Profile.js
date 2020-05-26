@@ -21,7 +21,7 @@ const Profile = () => {
       const data = res.data;
       setData(data);
     });
-  }, []);
+  }, [_id]);
 
   return (
     <div>
