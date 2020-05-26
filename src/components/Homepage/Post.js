@@ -76,7 +76,11 @@ const Post = (props) => {
     );
   });
 
-  return <div className="container">{showPost}</div>;
+  return <div className="container">
+    {showPost}  
+  </div>
+          
+
 };
 
 const mapStateToProps = (state) => {

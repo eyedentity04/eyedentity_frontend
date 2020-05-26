@@ -41,3 +41,7 @@ button {
 .tag.test{
     background-color: #C9A982;
 }
+
+.lead{
+    font-weight: 700 !important;
+}

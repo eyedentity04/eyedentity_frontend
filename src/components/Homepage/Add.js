@@ -65,16 +65,9 @@ const Add = (props) => {
   const searchTags = async (query) => {
     const result = await axios(
       `https://api.riyofirsan.com/users/findQuery?name=${query}`
-<<<<<<< HEAD
-    );
-    setTags(result.data);
-    console.log(result.data);
-  };
-=======
     )
     setTags(result.data)
   }
->>>>>>> 49bf3415c21f85c51707b9134d3bf45dc190df39
 
   return (
     <Formik
