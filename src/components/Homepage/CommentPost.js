@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react'
-import axios from "axios"
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 import "./Add.css";
 
@@ -46,16 +46,30 @@ const CommentPost = (props) => {
     })
 
     return (
-        <div className="card mt-3 mb-3">
-            <div className="card-header">
-                This is Comment
-            </div>
-            <div className="card-body">
-                {getComment}
-            </div>
+      <div key={item} data={index}>
+        <div className="card-title">
+          <h6>
+            {item.comment.map((item, index) => (
+              <span key={index} data={item}>
+                {item.userComment.name}
+              </span>
+            ))}
+          </h6>
         </div>
-    )
+        <div className="card-text">
+          <p>
+            {item.comment.map((item, index) => (
+              <span key={index} data={item}> 
+                {item.commentText}
+              </span>
+            ))}
+          </p>
+        </div>
+      </div>
+    );
+  });
 
+  return <div>{getComment}</div>;
 };
 
-export default CommentPost
+export default CommentPost;
