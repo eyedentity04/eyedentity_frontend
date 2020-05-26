@@ -12,6 +12,7 @@ import FilterUser from "./Homepage/FilterUser";
 
 
 class Navbar extends Component {
+
   constructor() {
     super();
     this.state = {
@@ -19,11 +20,14 @@ class Navbar extends Component {
     };
   }
 
+  
+
   componentDidMount() {
+    const url = process.env.REACT_APP_API_URL
     const user = JSON.parse(localStorage.getItem("user"));
 
     axios
-      .get(`https://api.riyofirsan.com/users/show/${user.id}`)
+      .get(`${url}/users/show/${user.id}`)
       .then((response) => {
         this.setState({ data: response.data });
         console.log(response);

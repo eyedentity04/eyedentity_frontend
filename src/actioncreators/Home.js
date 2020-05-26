@@ -1,15 +1,16 @@
 import axios from "axios";
 
+const url = process.env.REACT_APP_API_URL
+
 export const add = (data) => {
   return (dispatch) => {
     const user = JSON.parse(localStorage.getItem("user"));
     const token = user.token;
     axios
-      .post("https://api.riyofirsan.com/post/create", data, {
+      .post(`${url}/post/create`, data, {
         headers: { "token": token },
       })
       .then((response) => {
-        console.log(response);
         dispatch({
           type: "POST_ADD",
           payload: response.data,
@@ -23,37 +24,48 @@ export const getData = () => {
     const user = JSON.parse(localStorage.getItem("user"));
     const token = user.token;
     axios
-      .get("https://api.riyofirsan.com/post/test", {
+      .get(`${url}/post/test`, {
         headers: { "token": token },
       })
       .then((response) => {
-        console.log(response.data);
-        
-        dispatch({
+          dispatch({
           type: "POST_SHOW",
-          payload: response.data,
+          payload: response.data
         });
       });
   };
 };
 
-
-
-export const user = () => {
-  const user = JSON.parse(localStorage.getItem('user'))
-const id = user.id
-  return (dispatch) => {
-    axios.get(`https://api.riyofirsan.com/users/show/${id}`)
-    .then((response) => {
-      console.log(response.data)
-    .catch(err =>{
-      window.alert(err)
-    })
-    dispatch({
-      type : "USER",
-      payload : response.data
-    })
-    })
+export const addLike = (targetPostId) => {
+  return dispatch => {
+    const user = JSON.parse(localStorage.getItem("user"))
+      
+      axios.post(`${url}/like/create`,{targetPostId},{
+        headers: { "token": user.token },
+      })
+      .then(response => {
+        dispatch({
+          type: "POST_ADD_LIKE",
+          payload: response.data
+        })
+      })
+      .catch(err => err)
   }
 }
 
+export const user = () => {
+  const user = JSON.parse(localStorage.getItem('user'))
+  const id = user.id
+  return (dispatch) => {
+    axios.get(`${url}/users/show/${id}`)
+    .then( response => {
+      dispatch({
+        type : "USER",
+        payload : response.data
+      })
+    })
+    .catch(err =>{
+      window.alert(err)
+    })
+  }
+}

@@ -9,6 +9,11 @@ import "./Add.css";
 import "./tag.css";
 
 const Add = (props) => {
+
+  const Url = process.env.REACT_APP_API_URL
+  const key = process.env.REACT_APP_API_KEY
+
+
   const user = JSON.parse(localStorage.getItem("user"));
   const id = user.id;
 
@@ -17,7 +22,7 @@ const Add = (props) => {
   const [query, setQuery] = useState("");
 
   const [url, setUrl] = useState(
-    "https://api.riyofirsan.com/users/findQuery?name=redux"
+    'https://api.riyofirsan.com/users/findQuery?name=redux'
   );
 
   useEffect(() => {
@@ -35,7 +40,7 @@ const Add = (props) => {
     navigator.geolocation.getCurrentPosition(function (position) {
       console.log(position.coords.latitude);
       console.log(position.coords.longitude);
-      Geocode.setApiKey("AIzaSyAVDqkzOARvGHvFnfaIYEiDBeIFaTjDDGI");
+      Geocode.setApiKey(`${key}`);
       Geocode.fromLatLng(
         position.coords.latitude,
         position.coords.longitude
@@ -70,7 +75,7 @@ const Add = (props) => {
         lat: lath,
         tag: "",
       }}
-      onSubmit={(values) => {
+      onSubmit={(values,action) => {
         let formData = new FormData();
 
         formData.append("name", values.name);
@@ -82,6 +87,7 @@ const Add = (props) => {
         formData.append("tag", values.tag);
 
         props.add(formData);
+        action.resetForm()
       }}
     >
       {(props) => (
@@ -111,7 +117,6 @@ const Add = (props) => {
               />
               <div value={props.namePlace} onChange={props.handleChange} />
 
-              <div className="input-group">
                 <input
                   type="text"
                   className="form-control"
@@ -131,32 +136,31 @@ const Add = (props) => {
                 >
                   Search
                 </button>
-              </div>
 
-              <div className="tags-input">
-                <ul id="tags">
-                  {tags.map((item, index) => (
-                    <li key={index} className="tag">
-                      <button
-                        className="btn-custom"
-                        onClick={(e) => (props.values.tag = item._id)}
-                      >
-                        <span className="tag-title">{item.name}</span>
-                      </button>
+                <div className="tags-input">
+                  <ul id="tags">
+                    {tags.map((item, index) => (
+                      <li key={index} className="tag">
+                        <button
+                          className="btn-custom"
+                          onClick={(e) => (props.values.tag = item._id)}
+                        >
+                          <span className="tag-title">{item.name}</span>
+                        </button>
 
-                      <span
-                        className="tag-close-icon"
-                        onClick={() => removeTags(index)}
-                      >
-                        x
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
+                        <span
+                          className="tag-close-icon"
+                          onClick={() => removeTags(index)}
+                        >
+                          x
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              
               <div className="upload-btn-wrapper">
-                <button type="submit" className="custom-btn ">
+                <button type="submit" className="custom-btn " >
                   Upload a file
                 </button>
 

@@ -1,30 +1,38 @@
-import React from "react";
+import React  from "react";
 import {Formik,Form} from 'formik'
 import "./Add.css";
 import { connect } from "react-redux";
-import {addComment} from "../../actioncreators/comment";
+import {addcomment} from "../../actioncreators/comment";
 import { config } from "@fortawesome/fontawesome-svg-core";
+import axios from "axios"
+// import {Form} from 'react-bootstrap'
 
 
 const comment = (props) => {
-  const {_id} = props
+  
+ 
+
   const user = JSON.parse(localStorage.getItem("user"));
   const id = user.id;  
+  
+  console.log(props.data._id);
+  console.log(id);
+
+  
+  
+  
+  
   
   return (
       <Formik
         initialValues={{
-          postId:_id,
-          userComment : id,
+          targetPostId: props.data._id,
+          userId : id,
           commentText : '',
         }}
         onSubmit ={(values,action)=>{
-          const data = {
-            postId : values.postId,
-            userComment : values.userComment,
-            commentText : values.commentText
-          }
-          props.addComment(data);
+
+          props.addcomment(values);
           action.resetForm()
         }}
       >
@@ -53,6 +61,6 @@ const comment = (props) => {
     )
   }
 
-const mapDispatchToProps = { addComment: addComment };
+const mapDispatchToProps = { addcomment: addcomment };
 
 export default connect(null, mapDispatchToProps)(comment);

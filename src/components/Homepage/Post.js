@@ -3,7 +3,7 @@ import img1 from "../Img/img1.jpg";
 
 import { connect } from "react-redux";
 import "./post.css";
-import { getData } from "../../actioncreators/Home";
+import { getData, addLike } from "../../actioncreators/Home";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsUp,faComment } from "@fortawesome/free-solid-svg-icons";
@@ -11,9 +11,14 @@ import dayjs from "dayjs";
 import advancedFormat from 'dayjs/plugin/advancedFormat'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import Comment from '../Homepage/Comment'
+import CommentPost from '../Homepage/CommentPost'
+import {Button} from "react-bootstrap"
 import axios from "axios"
 
 const Post = (props) => {
+
+  const url = process.env.REACT_APP_API_URL
+
   const { data } = props;
   
   useEffect(() => {
@@ -23,24 +28,28 @@ const Post = (props) => {
   }, []);
 
   const addlike = (targetPostId) =>{
-    const user = JSON.parse(localStorage.getItem("user"))
-    const token = user.token
-    window.alert("addLike")
-    
-    axios.post("https://api.riyofirsan.com/like/create",{targetPostId},{
-      headers: { "token": token },
-    })
-    .then((result) => console.log(result))
-    .catch(err => err)
-    
+    props.addLike(targetPostId)
   }
+
+  // const addComment = (targetPostId) =>{
+  //   const user = JSON.parse(localStorage.getItem("user"))
+  //   const token = user.token
+  //   window.alert("comment succes")
+  //   axios.post("http://api.riyofirsan.com/comment/create",{targetPostId},{
+  //     headers: { "token": token },
+  //   })
+  //   .then((result) => console.log(result))
+  //   .catch(err => err)
+  // }
+  const [modalShow, setModalShow] = React.useState(false);
 
   dayjs.extend(relativeTime)
   
   const showPost = data.map((item,index) => {
     console.log(item)
+    const btnLikeClassName = item.likedByMe ? "bg-secondary": ""
     return (
-      <div key={index}>
+      <div key={item._id} data={index}>
         <div className="card mt-3 w-100" style={{ borderRadius: "10px" }}>
           <div className="card-header">
             <div className="d-flex flex-row">
@@ -60,24 +69,28 @@ const Post = (props) => {
           <p className="card-text text-muted mb-0">
                 {item.tag.map((item,index) =>  <span className="mr-1" key={index}> @{item.name}</span>)}
               </p>
-            <p class="card-text">{item.description}</p>
+            <p className="card-text">{item.description}</p>
             <img
               className="card-img-top"
-              src={`https://api.riyofirsan.com/${item.image}`}
+              src={`${url}/${item.image}`}
               alt=""
-            />
-
-            <Comment key={index} {...item} />
-            
+            /><div className="card">
+                <CommentPost data={item}/>
+              </div>
+            <Comment data={item}/>
+            {/* <CommentPost data={item} show={modalShow}
+                onHide={() => setModalShow(false)}/>
+            <Button variant="primary" onClick={() => setModalShow(true)}>
+              Comment
+              </Button> */}
             <button
               type="button"
-              className="btn text-light mt-3"
+              className={`btn text-light mt-3 ${btnLikeClassName}`}
               onClick={()=>{addlike(item._id)}}
             >
               <FontAwesomeIcon icon={faThumbsUp} className="fa-1x mx-auto" />
-              &nbsp; Like
+              &nbsp; Like {item.likesCount}
             </button>
-
           </div>
         </div>
       </div>
@@ -88,6 +101,7 @@ const Post = (props) => {
 };
 
 const mapStateToProps = (state) => {
+  console.log(state.homeUser.data)
   return {
     data: state.homeUser.data,
   };
@@ -95,6 +109,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   getData: getData,
+  addLike
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Post);
