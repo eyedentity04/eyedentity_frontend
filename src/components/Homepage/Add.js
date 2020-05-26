@@ -105,11 +105,10 @@ const Add = (props) => {
           <div className="container mt-5">
             <div className="form-group">
               <div className="tags-input">
-                <ul id="tags">
+                <ul id="tags" style={{cursor : "pointer"}}>
                   {tag.map((item, index) => (
-                    <li key={index} className="tag">
+                    <li key={index} className="tag test">
                       <span className="tag-title">{item.name}</span>
-
                       <span
                         className="tag-close-icon"
                         onClick={() => removeTags(index)}
