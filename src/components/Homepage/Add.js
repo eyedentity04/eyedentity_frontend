@@ -65,9 +65,9 @@ const Add = (props) => {
   const searchTags = async (query) => {
     const result = await axios(
       `https://api.riyofirsan.com/users/findQuery?name=${query}`
-    )
-    setTags(result.data)
-  }
+    );
+    setTags(result.data);
+  };
 
   return (
     <Formik
@@ -102,9 +102,8 @@ const Add = (props) => {
     >
       {(props) => (
         <Form onSubmit={props.handleSubmit}>
-          <div className="container">
+          <div className="container mt-5">
             <div className="form-group">
-              
               <div className="tags-input">
                 <ul id="tags" style={{cursor : "pointer"}}>
                   {tag.map((item, index) => (
@@ -133,20 +132,22 @@ const Add = (props) => {
               />
               <div value={props.namePlace} onChange={props.handleChange} />
 
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Tag Your Friends Here"
-                value={query}
-                onChange={(event) => setQuery(event.target.value)}
-              />
-              <button
-                type="button"
-                className="btn text-light  mt-2"
-                onClick={() => searchTags(query)}
-              >
-                Search
-              </button>
+              <div className="input-group">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Tag Your Friends Here"
+                  value={query}
+                  onChange={(event) => setQuery(event.target.value)}
+                />
+                <button
+                  type="button"
+                  className="btn text-light"
+                  onClick={() => searchTags(query)}
+                >
+                  Search
+                </button>
+              </div>
 
               <div className="tags-input">
                 <ul id="tags">

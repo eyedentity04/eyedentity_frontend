@@ -32,7 +32,7 @@ const CommentPost = (props) => {
         <div className="card-title">
           {item.comment.map((item, index) => (
             <div key={index}>
-              <h6 className="lead">{item.userComment.name}</h6>
+              <p className="lead">{item.userComment.name}</p>
               <p>{item.commentText}</p>
             </div>
           ))}
