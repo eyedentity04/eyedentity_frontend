@@ -20,7 +20,7 @@ function FilterUser() {
         console.log(err);
       });
   }, []);
-
+  
   useEffect(() => {
     setFilteredName(
       name.filter((item) =>
@@ -42,12 +42,12 @@ function FilterUser() {
             type="text"
             className="form-control"
             placeholder="Search"
-            size="50"
+            size="40"
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
       </form>
-      
+      {search.length }
       <div className="card" style={{position:"absolute"}}>
         {filteredName.slice(0,3).map((item, index) => (
           <UserDetail key={index} {...item} />

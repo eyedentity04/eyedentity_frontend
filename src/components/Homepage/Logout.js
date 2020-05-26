@@ -9,11 +9,12 @@ const Logout = (props) => {
   const onChange = () => {
     props.logout();
   };
+  
   return (
-    <div className="nav-link" onClick={onChange}>
+    <div className="nav-link" style={{cursor:"pointer"}} onClick={onChange}>
      <FontAwesomeIcon icon={faSignOutAlt} className="fa-lg mx-auto"  />
      &nbsp;
-     <span className="itemnav">Logout</span>
+     <span className="itemnav" >Logout</span>
     </div>
   );
 };

@@ -8,7 +8,6 @@ import { getData } from "../../actioncreators/Home";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsUp,faComment } from "@fortawesome/free-solid-svg-icons";
 import dayjs from "dayjs";
-import advancedFormat from 'dayjs/plugin/advancedFormat'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import Comment from '../Homepage/Comment'
 import axios from "axios"
@@ -20,7 +19,7 @@ const Post = (props) => {
     if (data && !data.length) {
       props.getData();
     }
-  }, []);
+  }, [data]);
 
   const addlike = (targetPostId) =>{
     const user = JSON.parse(localStorage.getItem("user"))

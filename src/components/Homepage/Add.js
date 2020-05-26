@@ -115,14 +115,13 @@ const Add = (props) => {
                 <input
                   type="text"
                   className="form-control"
-                  size="30"
                   placeholder="Tag Your Friends Here"
                   value={query}
                   onChange={(event) => setQuery(event.target.value)}
                 />
                 <button
                   type="button"
-                  className="btn text-light ml-1 mt-2"
+                  className="btn text-light"
                   onClick={() =>
                     setUrl(
                       `https://api.riyofirsan.com/users/findQuery?name=${query}`

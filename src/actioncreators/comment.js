@@ -6,11 +6,11 @@ export const addComment = (data) => {
     const user = JSON.parse(localStorage.getItem("user"));
     const token = user.token;
     axios
-      .post("https://api.riyofirsan.com/comment/create",data,{
+    .post("https://api.riyofirsan.com/comment/create",data,{
         headers: { "token": token },
       })
       .then((response) => {
-        console.log("data berhasil masuk")
+        console.log(response)
         dispatch({
           type: "COMMENT_ADD",
           payload: response.data,
@@ -27,7 +27,7 @@ export const getComment = () => {
     const user = JSON.parse(localStorage.getItem("user"));
     const token = user.token;
     axios
-      .get("https://api.riyofirsan.com/post/test", {
+      .get("https://api.riyofirsan.com/comment/show", {
         headers: { "token": token },
       })
       .then((response) => {
