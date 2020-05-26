@@ -65,12 +65,13 @@ function FilterUser() {
           />
         </div>
       </form>
-      
+      {search.length > 2 && ( 
       <div className="card" style={{position:"absolute"}}>
         {filteredName.map((item, index) => (
           <UserDetail key={index} {...item} />
         ))}
       </div>
+      )}
     </div>
   );
 }
