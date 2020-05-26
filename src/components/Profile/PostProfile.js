@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import img1 from "../Img/img1.jpg";
+import dayjs from "dayjs";
+import relativeTime from 'dayjs/plugin/relativeTime'
 import "../Homepage/post.css"
 import { connect } from "react-redux";
 import { getData } from "../../actioncreators/profile";
@@ -40,12 +42,14 @@ const Post = (props) => {
         }).catch(err => {
             window.alert("error",err)
         })
-        setData(result.data)
-        console.log(result.data)
+        setData(data)
+        console.log(data)
     }
     myProfile()
     
 }, [])
+
+dayjs.extend(relativeTime)
 
   const showPost = data.map((item, index) => {
     console.log(item.tagPlace[0].namePlace);
@@ -61,7 +65,7 @@ const Post = (props) => {
                 </p>
                 <p className=" text-muted mb-0 ml-2">{item.tagPlace[0].namePlace}</p>
               </div>
-              <p className="text-muted ml-auto">{item.date}</p>
+              <p className="text-muted ml-auto">{dayjs(item.date).fromNow()}</p>
             </div>
           </div>
           <div class="card-body">
