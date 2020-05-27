@@ -90,9 +90,9 @@ class Navbar extends Component {
                 <Link className="nav-link" to={`/profile/${user._id}`}>
                   <img
                     src={`${url}/${user.image}`}
-                    className="rounded-circle"
-                    style={{ width: "25px" }}
-                    alt="..."
+                    className="rounded circle"
+                    style= {{width : "25px"}}
+                     alt="..."
                   />
                   <b>
                     <span> {user.name}</span>{" "}
