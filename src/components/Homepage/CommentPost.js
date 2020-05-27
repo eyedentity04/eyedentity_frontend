@@ -26,22 +26,25 @@ const CommentPost = (props) => {
   }, []);
 
   let getComment = comment.map((item, index) => {
-    console.log(item)
     return (
       <div key={index}>
         {item.comment.map((item, index) => (
-            <ul key={index} className="list-group list-group-flush">
-              <li className="list-group-item border-top">
-              <div className="d-flex flex-row m-0">
-              <img
-                src={`${url}/${item.userComment.image}`}
-                style={{ height: "30px", width: "30px", borderRadius: "50%" }}
-              />
-                <p className="lead ml-1">{item.userComment.name}</p>
+          <ul key={index} className="list-group list-group-flush">
+            <li className="list-group-item border-top">
+                <div className="d-inline-flex flex-row">
+                  <img
+                    src={`${url}/${item.userComment.image}`}
+                    style={{
+                      height: "25px",
+                      width: "25px",
+                      borderRadius: "50%",
+                    }}
+                  />
+                  <p className="lead ml-1 mb-1">{item.userComment.name}</p>
                 </div>
                 <p className="card-text">{item.commentText}</p>
-              </li>
-            </ul>
+            </li>
+          </ul>
         ))}
       </div>
     );
@@ -49,7 +52,7 @@ const CommentPost = (props) => {
 
   return (
     <div>
-      <div >{getComment}</div>
+      <div>{getComment}</div>
     </div>
   );
 };

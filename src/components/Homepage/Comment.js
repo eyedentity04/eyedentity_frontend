@@ -1,10 +1,12 @@
 import React  from "react";
 import {Formik,Form} from 'formik'
 import "./Add.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { connect } from "react-redux";
 import {addcomment} from "../../actioncreators/comment";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import axios from "axios"
+import { faComment } from "@fortawesome/free-solid-svg-icons";
 // import {Form} from 'react-bootstrap'
 
 
@@ -42,7 +44,8 @@ const comment = (props) => {
               />
               </div>
               <button type="submit" className="btn text-light">
-                Comment
+              <FontAwesomeIcon icon={faComment} className="fa-1x mx-auto" />
+                &nbsp; Comment
               </button>
             </div>
           </Form>

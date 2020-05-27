@@ -10,11 +10,11 @@ import {Link} from 'react-router-dom'
 
 const Edit = (props) =>{
 
+
     return (
         <div className="yourStyle">
-      <div className="card p-3 rounded" style={{ width: "30rem", backgroundColor : "white"}}>
-
-        <h4 className="card-title mx-auto">want to change your style</h4>
+      <div className="card p-3 rounded" style={{ width: "25rem", backgroundColor : "white"}}>
+        <h4 className="card-title mx-auto">Change your style here</h4>
         <Formik
 
             initialValues={{
@@ -25,7 +25,6 @@ const Edit = (props) =>{
             }}
 
             
-
             onSubmit={(values) =>{
                 let formData = new FormData()
 
@@ -41,7 +40,7 @@ const Edit = (props) =>{
         >{(props) =>(
             <Form onSubmit={props.handleSubmit}>
                 <div className="form-group">
-            <label>name</label>
+            <label>Name</label>
             <input
               type="text"
               className="form-control"
@@ -52,7 +51,7 @@ const Edit = (props) =>{
             />
           </div>
           <div className="form-group">
-            <label>tell me about your self</label>
+            <label>Tell me about yourself</label>
             <input
               type="text-area"
               className="form-control"
@@ -90,7 +89,7 @@ const Edit = (props) =>{
               Submit
             </button>
             <p className="text-center leading">
-            see your update <Link to="/">back</Link>
+            Back to <Link to="/">home</Link>
             </p>
             </Form>
         )}
@@ -102,6 +101,7 @@ const Edit = (props) =>{
 
 }
 
-const mapDispatchToProps = {editProfile : editProfile,addLike:addLike}
+
+const mapDispatchToProps = {editProfile : editProfile}
 
 export default connect(null, mapDispatchToProps)(Edit)

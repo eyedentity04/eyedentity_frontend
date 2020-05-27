@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import img1 from "../Img/img1.jpg";
 
 import { connect } from "react-redux";
 import "./post.css";
