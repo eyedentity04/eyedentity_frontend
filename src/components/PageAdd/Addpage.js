@@ -1,5 +1,4 @@
 import React from 'react'
-import Navbar from '../Navbar'
 import {Formik,Form} from 'formik'
 
 import { connect } from "react-redux";
@@ -8,21 +7,13 @@ import {editProfile} from '../../actioncreators/Home'
 import {addLike} from "../..//actioncreators/Home"
 import {Link} from 'react-router-dom'
 
-import * as yup from 'yup';
 
 const Edit = (props) =>{
-
-   
 
     return (
         <div className="yourStyle">
       <div className="card p-3 rounded" style={{ width: "30rem", backgroundColor : "white"}}>
-        {/* <img
-          src={Logo}
-          className="mx-auto"
-          alt="..."
-          style={{ width: "55px" }}
-        /> */}
+
         <h4 className="card-title mx-auto">want to change your style</h4>
         <Formik
 
@@ -95,9 +86,6 @@ const Edit = (props) =>{
                 }}/>
             
          </div>
-          {/* <p className="text-center leading">
-            Don't have an account ? <Link to="/register">Register</Link>
-          </p> */}
             <button type="submit" className="btn text-light btn-block">
               Submit
             </button>

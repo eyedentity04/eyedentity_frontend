@@ -1,6 +1,4 @@
-
-
-div.row{
+div.row {
     display: flex;
     align-items: center;
 }
@@ -16,20 +14,22 @@ img.rounded-circle1 {
     font-size: smaller;
 }
 
-.card-img-top{
+.card-img-top {
     height: 400px;
     object-fit: cover;
 }
 
-@media (max-width: 576px){
-    .card p{
+@media (max-width: 576px) {
+    .card p {
         font-size: smaller;
     }
 
     .card .text-muted {
         font-size: x-small;
-    
-    }.card-img-top{
+
+    }
+
+    .card-img-top {
         height: 150px;
         object-fit: cover;
     }
@@ -37,11 +37,12 @@ img.rounded-circle1 {
 
 }
 
-.text-light{
-   background-color: #C9A982;
+.text-light {
+    background-color: #C9A982;
 }
 
 
-.text-light:hover{
+.text-light:hover {
     background-color: rgb(134, 112, 86);
- }
+}
+

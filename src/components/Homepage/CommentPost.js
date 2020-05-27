@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
 import "./Add.css";
 
 const CommentPost = (props) => {
@@ -27,25 +26,30 @@ const CommentPost = (props) => {
   }, []);
 
   let getComment = comment.map((item, index) => {
+    console.log(item)
     return (
       <div key={index}>
-        <div>
-          {item.comment.map((item, index) => (
-            <div key={index}>
-              <div className="card w-100">
-                <h6 className="lead">{item.userComment.name}</h6>
-                <p>{item.commentText}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+        {item.comment.map((item, index) => (
+            <ul key={index} className="list-group list-group-flush">
+              <li className="list-group-item border-top">
+              <div className="d-flex flex-row m-0">
+              <img
+                src={`${url}/${item.userComment.image}`}
+                style={{ height: "30px", width: "30px", borderRadius: "50%" }}
+              />
+                <p className="lead ml-1">{item.userComment.name}</p>
+                </div>
+                <p className="card-text">{item.commentText}</p>
+              </li>
+            </ul>
+        ))}
       </div>
     );
   });
 
   return (
     <div>
-      <div>{getComment}</div>
+      <div >{getComment}</div>
     </div>
   );
 };

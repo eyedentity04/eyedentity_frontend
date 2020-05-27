@@ -31,7 +31,7 @@ const Post = (props) => {
     const btnLikeClassName = item.likedByMe ? "bg-secondary" : "";
     return (
       <div key={item._id} data={index}>
-        <div className="card mt-3 w-100">
+        <div className="card mt-3 w-100" style={{borderRadius:"10px"}}>
           <div className="card-header">
             <div className="d-flex flex-row">
               <img
@@ -75,8 +75,9 @@ const Post = (props) => {
               <Comment data={item} />
             </div>
           </div>
+          <CommentPost  data={item} />
         </div>
-        <CommentPost data={item} />
+        
       </div>
     );
   });
