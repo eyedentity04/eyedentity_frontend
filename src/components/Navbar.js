@@ -66,36 +66,17 @@ class Navbar extends Component {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <FilterUser/>
             
-            {/* <form className="form-inline my-2 my-lg-0 ">
-              <div className="input-group">
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Search"
-                  size="50"
-                />
-                <button
-                  class="btn text-light"
-                  type="submit"
-                  style={{ backgroundColor: "#A28A6C" }}
-                >
-                  <FontAwesomeIcon icon={faSearch} />
-                </button>
-              </div>
-            </form> */}
-            
-            
             <ul className="navbar-nav ml-auto">
               <li className="nav-item  ml-lg-2 ml-md-0 mr-2 mr-md-0">
                 <Link className="nav-link" to={`/profile/${user._id}`}>
                   <img
                     src={`${url}/${user.image}`}
-                    className="rounded circle"
-                    style= {{width : "25px"}}
-                     alt="..."
+                    className="rounded-circle"
+                    style={{ width: "25px", height:"25px"}}
+                    alt="..."
                   />
                   <b>
-                    <span> {user.name}</span>{" "}
+                    <span> {user.name}</span>
                   </b>
                 </Link>
               </li>

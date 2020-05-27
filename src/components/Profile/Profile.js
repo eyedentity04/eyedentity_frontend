@@ -32,7 +32,7 @@ const Profile = () => {
     <div>
       <Navbar />
       <div className="profile">
-        <img src={`${url}/${data.image}`} className="profileimage mb-5" alt="..." />
+        <img src={`${url}/${data.image}`} className="profileimage" alt="..." />
 
         <div className="username">
           <h2>{data.name}</h2>

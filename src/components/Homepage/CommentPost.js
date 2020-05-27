@@ -28,22 +28,17 @@ const CommentPost = (props) => {
 
   let getComment = comment.map((item, index) => {
     return (
-      
       <div key={index}>
-        {comment !== 0  ?
-          <div>
+        <div>
           {item.comment.map((item, index) => (
             <div key={index}>
-              <div className="card mt-2">
-              <h6 className="lead">{item.userComment.name}</h6> 
-              <p>{item.commentText}</p>
-               </div>
-               </div>
+              <div className="card w-100">
+                <h6 className="lead">{item.userComment.name}</h6>
+                <p>{item.commentText}</p>
+              </div>
+            </div>
           ))}
         </div>
-        :null  
-      }
-        
       </div>
     );
   });

@@ -6,7 +6,7 @@ const initialState = {
 const homeUser = (state = initialState, action) => {
   switch (action.type) {
     case "POST_ADD":
-      return { ...state, data: [...state.data, action.payload] };
+      return { ...state, data: [action.payload,...state.data ] };
     case "POST_SHOW":
       return { ...state, data: action.payload };
     case "POST_ADD_LIKE":
