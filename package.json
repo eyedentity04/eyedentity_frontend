@@ -19,12 +19,15 @@
     "gitignore": "^0.6.0",
     "is-empty": "^1.2.0",
     "jwt-decode": "^2.2.0",
+    "mdbreact": "^4.27.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
+    "react-drop-zone": "^3.1.1",
     "react-geocode": "^0.2.1",
     "react-geolocation": "^1.0.4",
+    "react-hook-form": "^5.7.2",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
@@ -32,7 +35,8 @@
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-file-upload": "0.0.19",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "yup": "^0.29.0"
   },
   "scripts": {
     "start": "react-scripts start",

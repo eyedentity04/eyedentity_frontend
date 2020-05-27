@@ -82,18 +82,15 @@ const Add = (props) => {
       }}
       onSubmit={(values, action) => {
         let formData = new FormData();
-
         formData.set("name", values.name);
         formData.set("description", values.description);
         formData.set("namePlace", city);
         formData.set("long", lng);
         formData.set("lat", lath);
         formData.append("image", values.image);
-
         tag.forEach((item) => {
           formData.append("tag", item._id);
         });
-
         props.add(formData);
         action.resetForm();
         setTag([]);
@@ -102,10 +99,15 @@ const Add = (props) => {
     >
       {(props) => (
         <Form onSubmit={props.handleSubmit}>
-          <div className="container mt-5">
-            <div className="form-group">
+          <div className="container">
+            <div className="form-group mt-4">
               <div className="tags-input">
-                <ul id="tags" style={{cursor : "pointer"}}>
+                <ul
+                  id="tags"
+                  style={{
+                    cursor: "pointer",
+                  }}
+                >
                   {tag.map((item, index) => (
                     <li key={index} className="tag test">
                       <span className="tag-title">{item.name}</span>
@@ -125,7 +127,9 @@ const Add = (props) => {
                 id="description"
                 name="description"
                 rows={6}
-                style={{ resize: "none" }}
+                style={{
+                  resize: "none",
+                }}
                 value={props.values.description}
                 placeholder="Type something...."
                 onChange={props.handleChange}
@@ -187,6 +191,7 @@ const Add = (props) => {
                   }}
                 />
               </div>
+
               <br />
               <button type="submit" className="btn text-light">
                 Submit
@@ -199,6 +204,8 @@ const Add = (props) => {
   );
 };
 
-const mapDispatchToProps = { add: add };
+const mapDispatchToProps = {
+  add: add,
+};
 
 export default connect(null, mapDispatchToProps)(Add);

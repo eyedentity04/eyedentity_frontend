@@ -14,12 +14,16 @@ import profilepic from "../Img/img1.jpg";
 import "./Profile.css";
 
 const Profile = () => {
+
+  const url = process.env.REACT_APP_API_URL
+
   const { _id } = useParams();
   const [data, setData] = useState({});
   
   useEffect(() => {
-    axios.get(`https://api.riyofirsan.com/users/show/${_id}`).then((res) => {
+    axios.get(`${url}/users/show/${_id}`).then((res) => {
       const data = res.data;
+      console.log(data)
       setData(data);
     });
   }, [_id]);
@@ -28,11 +32,11 @@ const Profile = () => {
     <div>
       <Navbar />
       <div className="profile">
-        <img src={profilepic} className="profileimage mb-5" alt="..." />
+        <img src={`${url}/${data.image}`} className="profileimage" alt="..." />
 
         <div className="username">
           <h2>{data.name}</h2>
-          <span>This is a description about user</span>
+  <       span>{data.about}</span>
         </div>
 
         <br />

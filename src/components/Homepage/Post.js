@@ -19,7 +19,6 @@ const Post = (props) => {
 
   useEffect(() => {
     props.getData();
-    console.log(data)
   }, []);
 
   const addlike = (targetPostId) => {
@@ -32,11 +31,11 @@ const Post = (props) => {
     const btnLikeClassName = item.likedByMe ? "bg-secondary" : "";
     return (
       <div key={item._id} data={index}>
-        <div className="card mt-3 w-100" style={{ borderRadius: "10px" }}>
+        <div className="card mt-3 w-100">
           <div className="card-header">
             <div className="d-flex flex-row">
               <img
-                src={img1}
+                src={`${url}/${item.name.image}`}
                 style={{ height: "50px", width: "50px", borderRadius: "50%" }}
               />
               <div className="d-inline-flex flex-column">
@@ -75,12 +74,9 @@ const Post = (props) => {
             <div className="mt-2">
               <Comment data={item} />
             </div>
-            
-            <div className="mt-2">
-              <CommentPost data={item} />
-            </div>
           </div>
         </div>
+        <CommentPost data={item} />
       </div>
     );
   });
