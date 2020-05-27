@@ -11,8 +11,9 @@
 }
 
 .profileimage{
-    margin: 18% 0% 2% 2%;
-    width: 150px;
+    margin: 17% 0% 2% 2%;
+    width: 70px;
+    height: 70px;
     border-radius: 100px;
     object-fit: cover;
 }
