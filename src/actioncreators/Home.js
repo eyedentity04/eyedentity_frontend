@@ -44,6 +44,7 @@ export const addLike = (targetPostId) => {
         headers: { "token": user.token },
       })
       .then(response => {
+        console.log(response)
         dispatch({
           type: "POST_ADD_LIKE",
           payload: response.data

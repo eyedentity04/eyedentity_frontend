@@ -42,7 +42,7 @@ const Post = (props) => {
                   {item.name.name}
                 </p>
                 <p className=" text-muted mb-0 ml-2">
-                  {item.tagPlace[0].namePlace}
+                  {item.tagPlace[0].namePlace !== "undefined" ? item.tagPlace[0].namePlace : null}
                 </p>
               </div>
               <p className="text-muted ml-auto">{dayjs(item.date).fromNow()}</p>

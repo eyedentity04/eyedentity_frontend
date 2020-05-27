@@ -2,15 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faUsers,
-  faImages,
-  faUserFriends,
-} from "@fortawesome/free-solid-svg-icons";
 import Postprofile from "./PostProfile";
 import Navbar from "../Navbar";
-import profilepic from "../Img/img1.jpg";
 import "./Profile.css";
 
 const Profile = () => {
@@ -31,7 +24,7 @@ const Profile = () => {
   return (
     <div>
       <Navbar />
-      <div className="profile">
+      <div className="profile" style={{backgroundImage : `url(${url}/${data.backGroundImage})`}}>
         <img src={`${url}/${data.image}`} className="profileimage" alt="..."  />
 
         <div className="username">
@@ -42,20 +35,8 @@ const Profile = () => {
         <br />
       </div>
       <div className="jumbotron">
-        <div className="row">
-          <div className="col-lg-4">
-            <FontAwesomeIcon icon={faUserFriends} className="fa-2x " />
-            <h4 className="rowicon">Friends</h4>
-          </div>
-          <div className="col-lg-4">
-            <FontAwesomeIcon icon={faImages} className="fa-2x" />
-            <h4 className="rowicon">Images</h4>
-          </div>
-          <div className="col-lg-4">
-            <FontAwesomeIcon icon={faUsers} className="fa-2x " />
-            <h4 className="rowicon">Community</h4>
-          </div>
-        </div>
+        <h3>Post</h3>
+        <hr/>
       </div>
       <Postprofile />
     </div>

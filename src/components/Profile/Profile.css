@@ -1,7 +1,6 @@
 
 
  .profile{
-    background-image: url(../Img/profilebg.jpg);
     Background-size:cover;
     Background-repeat:no-repeat;
     display: flex;
@@ -23,23 +22,17 @@
     padding-left: 2%;
 }
 
-.row{
-    padding: 0% !important;
-    margin: 0% !important;
-}
 
 .jumbotron{
     background-color: rgb(214, 180, 139) !important;
     color: white;
-    padding: 15px 0% 15px 0% !important;
     border-radius: 0% !important;
-}
-
-
-.fa-2x{
-    margin:15px 0px 0px 188px;
-}
-
-.rowicon{
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
     text-align: center;
 }
+
+hr{
+    width: 200px;
+  border-top: 4px solid rgb(134, 112, 86) !important; 
+  }
