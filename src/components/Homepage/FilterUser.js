@@ -36,8 +36,8 @@ function FilterUser() {
     return <p>Loading name...</p>;
   }
 
-  if (search == "") {
-    return (
+  return (
+    <div>
       <form className="form-inline my-2 my-lg-0 ">
         <div className="input-group">
           <input
@@ -49,23 +49,7 @@ function FilterUser() {
           />
         </div>
       </form>
-    );
-  }
-
-  return (
-    <div>
-      <form className="form-inline my-2 my-lg-0 ">
-        <div className="input-group">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Search"
-            size="40"
-            onChange={(e) => setSearch(e.target.value)}
-          />
-        </div>
-      </form>
-      {search.length > 2 && ( 
+      {search.length > 1 && ( 
       <div className="card" style={{position:"absolute"}}>
         {filteredName.map((item, index) => (
           <UserDetail key={index} {...item} />
