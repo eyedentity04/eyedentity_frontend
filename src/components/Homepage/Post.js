@@ -10,19 +10,19 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import Comment from "../Homepage/Comment";
 import CommentPost from "../Homepage/CommentPost";
-import {addcomment} from "../../actioncreators/comment"
+import { addcomment } from "../../actioncreators/comment";
 
 const Post = (props) => {
   const url = process.env.REACT_APP_API_URL;
 
   const { data } = props;
 
-  const[showComment,setShowComment]=useState(false)
-  const[comments,setComments]=useState("")
+  const [showComment, setShowComment] = useState(false);
+  const [comments, setComments] = useState("");
 
   useEffect(() => {
     props.getData();
-  }, []);
+  }, [data]);
 
   const addlike = (targetPostId) => {
     props.addLike(targetPostId);
@@ -31,15 +31,15 @@ const Post = (props) => {
   dayjs.extend(relativeTime);
 
   const addCommentInPost = (newComment) => {
-    props.addcomment(newComment)
-    setComments(newComment)
-  }
+    props.addcomment(newComment);
+    setComments(newComment);
+  };
 
   const showPost = data.map((item, index) => {
     const btnLikeClassName = item.likedByMe ? "bg-secondary" : "";
     return (
       <div key={item._id} data={index}>
-        <div className="card mt-3 w-100" style={{borderRadius:"10px"}}>
+        <div className="card mt-3 w-100" style={{ borderRadius: "10px" }}>
           <div className="card-header">
             <div className="d-flex flex-row">
               <img
@@ -51,7 +51,9 @@ const Post = (props) => {
                   {item.name.name}
                 </p>
                 <p className=" text-muted mb-0 ml-2">
-                  {item.tagPlace[0].namePlace !== "undefined" ? item.tagPlace[0].namePlace : null}
+                  {item.tagPlace[0].namePlace !== "undefined"
+                    ? item.tagPlace[0].namePlace
+                    : null}
                 </p>
               </div>
               <p className="text-muted ml-auto">{dayjs(item.date).fromNow()}</p>
@@ -82,19 +84,18 @@ const Post = (props) => {
               type="button"
               className={`btn text-light mt-3 ml-1`}
               onClick={() => {
-                setShowComment(!showComment)
+                setShowComment(!showComment);
               }}
             >
               {showComment ? "Hide" : "Show"} Comment
             </button>
 
             <div className=" mt-2">
-              <Comment data={item} addCommentInPost={addCommentInPost}/>
+              <Comment data={item} addCommentInPost={addCommentInPost} />
             </div>
           </div>
-          {showComment && <CommentPost  data={item} comments={comments} />}
+          {showComment && <CommentPost data={item} comments={comments} />}
         </div>
-        
       </div>
     );
   });
@@ -111,7 +112,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
   getData: getData,
   addLike: addLike,
-  addcomment
+  addcomment,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Post);
