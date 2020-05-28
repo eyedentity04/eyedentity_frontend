@@ -14,7 +14,7 @@ const CommentPost = (props) => {
       const user = JSON.parse(localStorage.getItem("user"));
       const token = user.token;
       const result = await axios
-        .get(`${url}/comment/find/${props.data._id}`, {
+        .get(`${url}/comment/find/${data._id}`, {
           headers: { token: token },
         })
         .catch((err) => {
@@ -23,7 +23,7 @@ const CommentPost = (props) => {
       setComment(result.data);
     }
     myComment();
-  }, []);
+  }, [props.comments]);
 
   useEffect(() => {
     if (props.comments) {
@@ -32,7 +32,7 @@ const CommentPost = (props) => {
           const user = JSON.parse(localStorage.getItem("user"));
           const token = user.token;
           const result = await axios
-          .get(`${url}/comment/find/${props.data_id}`, {
+          .get(`${url}/comment/find/${data._id}`, {
             headers: { token: token },
           })
           .catch( err => {
