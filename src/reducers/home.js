@@ -22,8 +22,6 @@ const homeUser = (state = initialState, action) => {
         return item;
       });
       
-
-      console.log(state.data)
       return {
         ...state,
         data: newData
