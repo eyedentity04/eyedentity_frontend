@@ -63,7 +63,8 @@ dayjs.extend(relativeTime)
                 <p className="lead font-weight-bold mb-0 ml-2">
                   {name.name}
                 </p>
-                <p className=" text-muted mb-0 ml-2">{item.tagPlace[0].namePlace}</p>
+                <p className=" text-muted mb-0 ml-2">
+                {item.tagPlace[0].namePlace !== "undefined" ? item.tagPlace[0].namePlace : null}</p>
               </div>
               <p className="text-muted ml-auto">{dayjs(item.date).fromNow()}</p>
             </div>
@@ -75,21 +76,7 @@ dayjs.extend(relativeTime)
               src={`https://api.riyofirsan.com/${item.image}`}
               alt=""
             />
-            <button
-              type="submit"
-              className="btn text-light mt-3"
-            >
-              <FontAwesomeIcon icon={faThumbsUp} className="fa-1x mx-auto" />
-              &nbsp; Like
-            </button>
-            <button
-              type="submit"
-              className="btn text-light mt-3 ml-2"
-            >
-              <FontAwesomeIcon icon={faComment} className="fa-1x mx-auto" />
-              &nbsp; Comment
-            </button>
-          </div>
+           </div>
         </div>
       </div>
     );

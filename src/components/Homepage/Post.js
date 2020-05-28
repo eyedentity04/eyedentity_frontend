@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import { connect } from "react-redux";
 import "./post.css";
@@ -10,11 +10,15 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import Comment from "../Homepage/Comment";
 import CommentPost from "../Homepage/CommentPost";
+import {addcomment} from "../../actioncreators/comment"
 
 const Post = (props) => {
   const url = process.env.REACT_APP_API_URL;
 
   const { data } = props;
+
+  const[showComment,setShowComment]=useState(false)
+  const[comments,setComments]=useState("")
 
   useEffect(() => {
     props.getData();
@@ -25,6 +29,11 @@ const Post = (props) => {
   };
 
   dayjs.extend(relativeTime);
+
+  const addCommentInPost = (newComment) => {
+    props.addcomment(newComment)
+    setComments(newComment)
+  }
 
   const showPost = data.map((item, index) => {
     const btnLikeClassName = item.likedByMe ? "bg-secondary" : "";
@@ -42,7 +51,7 @@ const Post = (props) => {
                   {item.name.name}
                 </p>
                 <p className=" text-muted mb-0 ml-2">
-                  {item.tagPlace[0].namePlace}
+                  {item.tagPlace[0].namePlace !== "undefined" ? item.tagPlace[0].namePlace : null}
                 </p>
               </div>
               <p className="text-muted ml-auto">{dayjs(item.date).fromNow()}</p>
@@ -69,12 +78,21 @@ const Post = (props) => {
               <FontAwesomeIcon icon={faThumbsUp} className="fa-1x mx-auto" />
               &nbsp; Like {item.likesCount}
             </button>
+            <button
+              type="button"
+              className={`btn text-light mt-3 ml-1`}
+              onClick={() => {
+                setShowComment(!showComment)
+              }}
+            >
+              {showComment ? "Hide" : "Show"} Comment
+            </button>
 
-            <div className="mt-2">
-              <Comment data={item} />
+            <div className=" mt-2">
+              <Comment data={item} addCommentInPost={addCommentInPost}/>
             </div>
           </div>
-          <CommentPost  data={item} />
+          {showComment && <CommentPost  data={item} comments={comments} />}
         </div>
         
       </div>
@@ -93,6 +111,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
   getData: getData,
   addLike: addLike,
+  addcomment
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Post);

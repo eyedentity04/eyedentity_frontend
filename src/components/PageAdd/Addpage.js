@@ -51,7 +51,7 @@ const Edit = (props) =>{
             />
           </div>
           <div className="form-group">
-            <label>Tell me about yourself</label>
+            <label>Status Message</label>
             <input
               type="text-area"
               className="form-control"
@@ -74,7 +74,7 @@ const Edit = (props) =>{
             
          </div>
          <div className="form-group">
-            <label>Photo Profile</label>
+            <label>Profile Background </label>
             <input
                 type="file"
                 className="form-control"

@@ -24,7 +24,7 @@ const comment = (props) => {
         }}
         onSubmit ={(values,action)=>{
 
-          props.addcomment(values);
+          props.addCommentInPost(values);
           action.resetForm()
         }}
       >
