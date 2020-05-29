@@ -6,6 +6,8 @@ import Postprofile from "./PostProfile";
 import Navbar from "../Navbar";
 import "./Profile.css";
 
+
+
 const Profile = () => {
 
   const url = process.env.REACT_APP_API_URL
@@ -24,7 +26,7 @@ const Profile = () => {
   return (
     <div>
       <Navbar />
-      <div className="profile" style={{backgroundImage : `url(${url}/${data.backGroundImage})`}}>
+      <div className="img-fluid" style={{backgroundImage : `url(${url}/${data.backGroundImage})`}}>
         <img src={`${url}/${data.image}`} className="profileimage" alt="..."  />
 
         <div className="username">

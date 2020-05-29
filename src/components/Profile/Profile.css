@@ -1,12 +1,10 @@
 
 
  .profile{
-    Background-size:cover;
-    Background-repeat:no-repeat;
-    display: flex;
-    justify-content:end;
-    align-items: flex-end;
-    color: white;
+    background-size:cover;
+    background-repeat:no-repeat;
+    height: 500px;
+    object-fit: cover;
 }
 
 .profileimage{

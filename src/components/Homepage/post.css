@@ -15,7 +15,7 @@ img.rounded-circle1 {
 }
 
 .card-img-top {
-    height: 400px;
+    height: auto;
     object-fit: cover;
 }
 
@@ -30,7 +30,7 @@ img.rounded-circle1 {
     }
 
     .card-img-top {
-        height: 150px;
+        height: auto;
         object-fit: cover;
     }
 
