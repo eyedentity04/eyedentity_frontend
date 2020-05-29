@@ -176,14 +176,14 @@ const Add = (props) => {
                 </ul>
               </div>
 
-              <div className="upload-btn-wrapper">
+              <div className="upload-btn-wrapper mt-2" >
                 <button type="submit" className="custom-btn ">
                   Upload a file
                 </button>
 
                 <input
                   type="file"
-                  className="form-control"
+                  className="form-control "
                   id="image"
                   name="image"
                   onChange={(event) => {
@@ -191,9 +191,8 @@ const Add = (props) => {
                   }}
                 />
               </div>
-
-              <br />
-              <button type="submit" className="btn text-light">
+              <br/>
+           <button type="submit" className="btn text-light">
                 Submit
               </button>
             </div>

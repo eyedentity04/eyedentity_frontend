@@ -16,6 +16,7 @@ button {
     color: #C9A982;
     background-color: white;
     padding: 4px 12px;
+    margin-top: 0%;
     border-radius: 8px;
     font-size: 12px;
     font-weight: bold;
@@ -45,3 +46,4 @@ button {
 .lead{
     font-weight: 700 !important;
 }
+

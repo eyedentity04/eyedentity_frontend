@@ -26,7 +26,7 @@ const Profile = () => {
   return (
     <div>
       <Navbar />
-      <div className="img-fluid" style={{backgroundImage : `url(${url}/${data.backGroundImage})`}}>
+      <div className="profile" style={{backgroundImage : `url(${url}/${data.backGroundImage})`}}>
         <img src={`${url}/${data.image}`} className="profileimage" alt="..."  />
 
         <div className="username">
