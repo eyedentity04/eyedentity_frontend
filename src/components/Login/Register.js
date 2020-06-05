@@ -3,7 +3,7 @@ import "./Style.css";
 import { connect } from "react-redux";
 import Logo from "../Img/logofinal.png";
 import { register } from "../../actioncreators/register";
-import {Link} from 'react-router-dom'
+import {Link,useHistory} from 'react-router-dom'
 
 const Register = (props) => {
   const [data, setData] = useState({
@@ -12,6 +12,8 @@ const Register = (props) => {
     password: "",
     confirmPassword: "",
   });
+
+  const history=useHistory()
 
   const handleChange = (event) => {
     let { name, value } = event.currentTarget;
@@ -25,10 +27,10 @@ const Register = (props) => {
     e.preventDefault();
     if(data && !data.length){
       props.register(data);
-      console.log(props.register(data))
+      window.alert("succes")
+      history.push("/login")
     }
-    
-    
+
   };
 
   return (
