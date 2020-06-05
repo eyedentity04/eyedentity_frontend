@@ -23,11 +23,8 @@ const Profile = () => {
   return (
     <div>
       <Navbar />
-      <div
-        className="profile"
-        style={{ backgroundImage: `url(${url}/${data.backGroundImage})` }}
-      >
-        <img src={`${url}/${data.image}`} className="profileimage" alt="..." />
+      <div className="profile" style={{backgroundImage : `url(${url}/${data.backGroundImage})`}}>
+        <img src={`${url}/${data.image}`} className="profileimage" alt="..."  />
 
         <div className="username">
           <h2>{data.name}</h2>
