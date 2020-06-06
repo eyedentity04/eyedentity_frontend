@@ -42,9 +42,9 @@ function FilterUser() {
         <div className="input-group">
           <input
             type="text"
-            className="form-control"
+            className="form-control search"
             placeholder="Search"
-            size="50"
+            size="70"
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>

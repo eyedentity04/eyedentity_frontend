@@ -4,16 +4,26 @@ body{
     background-color:#fffafa ;
 }
 
+.navbar{
+    background-color : rgb(241, 235, 212);
+    border-bottom: 5px solid rgb(216, 207, 177);
+}
 
 strong{
+    color: #8D7B65;
     font-family:'Parisienne', cursive;
     font-size: 26px;
 }
 
 .nav-link{
-    color: white !important;
+    color: #8D7B65 !important;
 }
 
 .nav-link:hover{
     color: rgb(128, 110, 94) !important;
+}
+
+input.search{
+    border-color:whitesmoke ;
+    border-radius: 20px;
 }
