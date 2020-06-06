@@ -47,9 +47,6 @@ const CommentPost = (props) => {
   },[props.comments]);
 
   let getComment = comment.map((item, index) => {
-    console.log(item.userComment.name)
-    console.log(item.userComment.image)
-    console.log(item.commentText)
     return (
       <div key={index}>
           <ul  className="list-group list-group-flush">
