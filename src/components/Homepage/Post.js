@@ -24,8 +24,8 @@ const Post = (props) => {
     props.getData();
   }, [data]);
 
-  const addlike = (postId) => {
-    props.addLike(postId);
+  const addlike = (targetPostId) => {
+    props.addLike(targetPostId);
   };
 
   dayjs.extend(relativeTime);
