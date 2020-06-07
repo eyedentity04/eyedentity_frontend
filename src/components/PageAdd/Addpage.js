@@ -106,26 +106,30 @@ const Edit = (props) => {
                         }}
                       />
                     </div>
+                    <div className="settingsave">
+                    <button
+                      type="button"
+                      className="btn btn-secondary save"
+                      data-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button type="submit" className="btn text-light save">
+                      Save Changes
+                    </button>
+                    </div>
+                    
                   </Form>
                 )}
               </Formik>
             </div>
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                data-dismiss="modal"
-              >
-                Close
-              </button>
-              <button type="submit" className="btn text-light">
-                      Save Changes
-              </button>
-            </div>
+            {/* <div className="modal-footer">
+              
+            </div> */}
           </div>
         </div>
       </div>
-      
+
       {/* <div className="card p-3 rounded" style={{ width: "25rem", backgroundColor : "white"}}>
         <h4 className="card-title mx-auto">Change your style here</h4>
         <Formik
