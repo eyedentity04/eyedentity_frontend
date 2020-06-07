@@ -102,13 +102,15 @@ const Add = (props) => {
       {(props) => (
         <Form onSubmit={props.handleSubmit}>
           <div className="container">
-          <textarea
+          <textarea readOnly
                 className="form-control mt-4 mb-4"
                 data-toggle= "modal"
                 data-target="#exampleModalCenter"
                 rows={4}
                 style={{
                   resize: "none",
+                  backgroundColor :" white",
+                  cursor :"pointer"
                 }}
                 placeholder="Type something...."
               />
@@ -159,7 +161,6 @@ const Add = (props) => {
                 rows={4}
                 style={{
                   resize: "none",
-                  cursor : "pointer"
                 }}
                 value={props.values.description}
                 placeholder="Type something...."
