@@ -8,6 +8,8 @@ import { addLike } from "../..//actioncreators/Home";
 import { Link } from "react-router-dom";
 
 const Edit = (props) => {
+
+
   return (
     <div className="">
       <div
@@ -107,22 +109,27 @@ const Edit = (props) => {
                       />
                     </div>
                     <div className="settingsave">
+                    <button type="submit" className="btn text-light btn-block">
+                      Save Changes
+                    </button>
                     <button
                       type="button"
-                      className="btn btn-secondary save"
+                      className="btn btn-secondary btn-block"
                       data-dismiss="modal"
                     >
                       Close
                     </button>
-                    <button type="submit" className="btn text-light save">
-                      Save Changes
-                    </button>
+                    
                     </div>
                     
                   </Form>
                 )}
               </Formik>
             </div>
+
+
+
+            
             {/* <div className="modal-footer">
               
             </div> */}

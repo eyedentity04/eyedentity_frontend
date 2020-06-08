@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCog } from "@fortawesome/free-solid-svg-icons";
+import { faPen } from "@fortawesome/free-solid-svg-icons";
 import Postprofile from "./PostProfile";
 import Navbar from "../Navbar";
 import "./Profile.css";
@@ -42,7 +42,7 @@ const Profile = () => {
 
 
         <div className="settings">
-        <FontAwesomeIcon icon={faCog} className="fa-2x mx-auto" data-toggle="modal" data-target="#exampleModalCenter" />
+        <FontAwesomeIcon icon={faPen} className="fa-2x mx-auto" data-toggle="modal" data-target="#exampleModalCenter" />
         <Add/>
         </div>
 

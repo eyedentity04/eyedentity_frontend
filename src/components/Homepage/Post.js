@@ -30,7 +30,7 @@ const Post = (props) => {
     const btnLikeClassName = item.likedByMe ? "bg-secondary" : "";
     return (
       <div key={item._id} data={index}>
-        <div className="card mt-3 w-100" style={{ borderRadius: "10px" }}>
+        <div className="card w-100 post" style={{ borderRadius: "10px" }}>
           <div className="card-header">
             <div className="d-flex flex-row">
               <img
@@ -63,7 +63,7 @@ const Post = (props) => {
 
             <button
               type="button"
-              className={`btn text-light mt-3 ${btnLikeClassName}`}
+              className={`btn text-light mr-2 ${btnLikeClassName}`}
               onClick={() => {
                 addlike(item._id);
               }}
@@ -71,7 +71,17 @@ const Post = (props) => {
               <FontAwesomeIcon icon={faThumbsUp} className="fa-1x mx-auto" />
               &nbsp; Like {item.likesCount}
             </button>
-            <Link to={`/${item._id}`} target="_blank" className="btn btn-primary">Comment</Link>
+
+
+            <Link to={`/${item._id}`}  target="_blank" className="btn text-light">
+            <FontAwesomeIcon icon={faComment} className="fa-1x mx-auto" />
+            <span className="comment">
+            Comment
+            </span>
+              
+              </Link>
+            
+            
           </div>
         </div>
       </div>

@@ -1,3 +1,7 @@
+div.post{
+   margin-top: 38px;
+}
+
 div.row {
     display: flex;
     align-items: center;
@@ -46,3 +50,6 @@ img.rounded-circle1 {
     background-color: rgb(134, 112, 86);
 }
 
+.comment{
+    margin-left: 6px;
+}
