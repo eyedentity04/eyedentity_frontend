@@ -13,8 +13,8 @@ const Register = (props) => {
     confirmPassword: "",
   });
 
-  const history= useHistory()
-
+  const history = useHistory()
+  
   const handleChange = (event) => {
     let { name, value } = event.currentTarget;
     setData({

@@ -12,6 +12,7 @@ import UserRegister from "./components/Login/Register";
 import Home from "./components/Home";
 import Profile from "./components/Profile/Profile";
 import Add from './components/PageAdd/Addpage'
+import PostId from "./components/Homepage/PostId";
 
 function App(props) {
   return (
@@ -32,7 +33,9 @@ function App(props) {
         <Route path="/register" exact>
           <UserRegister />
         </Route>
-        
+        <Route path="/:_id">
+          <PostId/>
+        </Route>
       </Switch>
     </Router>
   );

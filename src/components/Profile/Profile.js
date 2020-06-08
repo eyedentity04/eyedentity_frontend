@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCog } from "@fortawesome/free-solid-svg-icons";
 import Postprofile from "./PostProfile";
 import Navbar from "../Navbar";
 import "./Profile.css";
+import Add from '../PageAdd/Addpage'
 
 const Profile = () => {
   const url = process.env.REACT_APP_API_URL;
@@ -23,19 +25,29 @@ const Profile = () => {
   return (
     <div>
       <Navbar />
-      <div className="profile" style={{backgroundImage : `url(${url}/${data.backGroundImage})`}}>
-        <img src={`${url}/${data.image}`} className="profileimage" alt="..."  />
-
-        <div className="username">
-          <h2>{data.name}</h2>
-          <span>{data.about}</span>
-        </div>
+      <div
+        className="profile"
+        style={{ backgroundImage: `url(${url}/${data.backGroundImage})` }}
+      >
+        <img src={`${url}/${data.image}`} className="profileimage" alt="..." />
 
         <br />
       </div>
       <div className="jumbotron">
-        <h3>Post</h3>
-        <hr />
+        <div className="row user-row">
+        <div className="userdata">
+          <h2>{data.name}</h2>
+        <span>{data.about}</span>
+          </div>
+
+
+        <div className="settings">
+        <FontAwesomeIcon icon={faCog} className="fa-2x mx-auto" data-toggle="modal" data-target="#exampleModalCenter" />
+        <Add/>
+        </div>
+
+        </div>
+        
       </div>
       <Postprofile />
     </div>

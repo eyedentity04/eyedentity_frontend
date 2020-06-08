@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Formik } from "formik";
 import { connect } from "react-redux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserTag} from "@fortawesome/free-solid-svg-icons";
 import { add } from "../../actioncreators/Home";
 import { Form } from "react-bootstrap";
 import Geocode from "react-geocode";
@@ -100,7 +102,37 @@ const Add = (props) => {
       {(props) => (
         <Form onSubmit={props.handleSubmit}>
           <div className="container">
-            <div className="form-group mt-4">
+          <textarea readOnly
+                className="form-control mt-4 mb-4"
+                data-toggle= "modal"
+                data-target="#exampleModalCenter"
+                rows={4}
+                style={{
+                  resize: "none",
+                  backgroundColor :" white",
+                  cursor :"pointer"
+                }}
+                placeholder="Type something...."
+              />
+
+
+            <div 
+            className="modal fade" 
+            id="exampleModalCenter" 
+            tabIndex={-1} 
+            role="dialog" 
+            aria-labelledby="exampleModalCenterTitle" 
+            aria-hidden="true">
+              <div className="modal-dialog modal-dialog-centered" role="document">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h5 className="modal-title" id="exampleModalCenterTitle mx-auto">Post here</h5>
+                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+                  <div className="modal-body">
+                  <div className="form-group mt-4">
               <div className="tags-input">
                 <ul
                   id="tags"
@@ -123,10 +155,10 @@ const Add = (props) => {
               </div>
 
               <textarea
-                className="form-control"
+                className="form-control "
                 id="description"
                 name="description"
-                rows={6}
+                rows={4}
                 style={{
                   resize: "none",
                 }}
@@ -134,9 +166,9 @@ const Add = (props) => {
                 placeholder="Type something...."
                 onChange={props.handleChange}
               />
-              <div value={props.namePlace} onChange={props.handleChange} />
+              <div value={props.namePlace} onChange={props.handleChange} />    
 
-              <div className="input-group">
+           <div className="input-group">
                 <input
                   type="text"
                   className="form-control"
@@ -192,11 +224,21 @@ const Add = (props) => {
                 />
               </div>
               <br/>
-           <button type="submit" className="btn text-light">
-                Submit
-              </button>
+             
             </div>
-          </div>
+                  </div>
+                  <div className="modal-footer">
+                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Back</button>
+                    <button type="submit" className="btn text-light">
+                    Submit
+                    </button>
+                  </div>
+            </div>
+            </div>  
+            </div>
+
+            
+            </div>
         </Form>
       )}
     </Formik>

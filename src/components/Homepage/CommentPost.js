@@ -21,6 +21,7 @@ const CommentPost = (props) => {
           window.alert("error", err);
         });
       setComment(result.data);
+     
     }
     myComment();
   }, [props.comments]);
@@ -48,8 +49,7 @@ const CommentPost = (props) => {
   let getComment = comment.map((item, index) => {
     return (
       <div key={index}>
-        {item.comment.map((item, index) => (
-          <ul key={index} className="list-group list-group-flush">
+          <ul  className="list-group list-group-flush">
             <li className="list-group-item border-top">
               <div className="d-inline-flex flex-row">
                 <img
@@ -65,7 +65,6 @@ const CommentPost = (props) => {
               <p className="card-text">{item.commentText}</p>
             </li>
           </ul>
-        ))}
       </div>
     );
   });

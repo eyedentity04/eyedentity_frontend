@@ -16,7 +16,7 @@ export const register = (data) => {
       alert("success")
 
     }catch (error){
-      if (error.response.data) {
+      if (error.message) {
         const failedRegister = JSON.stringify(error.response.data)
         error && alert(` ${failedRegister}`)
       }

@@ -42,8 +42,7 @@ class Navbar extends Component {
         <nav
           className="navbar navbar-expand-lg navbar-dark"
           style={{
-            backgroundColor: "#C9A982",
-            padding: "0% 5% 0% 5%",
+            padding: "0% 5% 0% 5%"
           }}
         >
           <Link className="navbar-brand" to="/">
@@ -87,13 +86,13 @@ class Navbar extends Component {
                    <span className="itemnav">Home</span>
                 </Link>
               </li>
-              <li className="nav-item ml-lg-2 ml-md-0 mr-2 mr-md-0">
+              {/* <li className="nav-item ml-lg-2 ml-md-0 mr-2 mr-md-0">
                 <Link className="nav-link" to="/add">
                   <FontAwesomeIcon icon={faPlus} className="fa-lg mx-auto" />
                   &nbsp;
                   Add
                 </Link>
-              </li>
+              </li> */}
 
               <li className="nav-item ml-lg-2 ml-md-0 mr-2 mr-md-0">
                 <Logout />

@@ -47,3 +47,12 @@ button {
     font-weight: 700 !important;
 }
 
+.modal{
+    color:#8D7B65 ;
+}
+
+.modal-body{
+    padding-top: 0%  !important;
+    margin-top: 0% !important;
+}
+

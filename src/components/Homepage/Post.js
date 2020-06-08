@@ -8,17 +8,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsUp, faComment } from "@fortawesome/free-solid-svg-icons";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
-import Comment from "../Homepage/Comment";
-import CommentPost from "../Homepage/CommentPost";
-import { addcomment } from "../../actioncreators/comment";
+import { Link, useHistory } from "react-router-dom";
+
 
 const Post = (props) => {
   const url = process.env.REACT_APP_API_URL;
 
   const { data } = props;
-
-  const [showComment, setShowComment] = useState(false);
-  const [comments, setComments] = useState("");
 
   useEffect(() => {
     props.getData();
@@ -29,11 +25,6 @@ const Post = (props) => {
   };
 
   dayjs.extend(relativeTime);
-
-  const addCommentInPost = (newComment) => {
-    props.addcomment(newComment);
-    setComments(newComment);
-  };
 
   const showPost = data.map((item, index) => {
     const btnLikeClassName = item.likedByMe ? "bg-secondary" : "";
@@ -80,21 +71,8 @@ const Post = (props) => {
               <FontAwesomeIcon icon={faThumbsUp} className="fa-1x mx-auto" />
               &nbsp; Like {item.likesCount}
             </button>
-            <button
-              type="button"
-              className={`btn text-light mt-3 ml-1`}
-              onClick={() => {
-                setShowComment(!showComment);
-              }}
-            >
-              {showComment ? "Hide" : "Show"} Comment
-            </button>
-
-            <div className=" mt-2">
-              <Comment data={item} addCommentInPost={addCommentInPost} />
-            </div>
+            <Link to={`/${item._id}`} target="_blank" className="btn btn-primary">Comment</Link>
           </div>
-          {showComment && <CommentPost data={item} comments={comments} />}
         </div>
       </div>
     );
@@ -112,7 +90,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
   getData: getData,
   addLike: addLike,
-  addcomment,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Post);
