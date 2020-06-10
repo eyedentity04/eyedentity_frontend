@@ -112,13 +112,13 @@ const Edit = (props) => {
                     <button type="submit" className="btn text-light btn-block">
                       Save Changes
                     </button>
-                    <button
+                    {/* <button
                       type="button"
                       className="btn btn-secondary btn-block"
                       data-dismiss="modal"
                     >
                       Close
-                    </button>
+                    </button> */}
                     
                     </div>
                     

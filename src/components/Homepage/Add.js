@@ -251,13 +251,13 @@ const Add = (props) => {
                     <button type="submit" className="btn text-light btn-block" >
                       Submit
                     </button>
-                    <button
+                    {/* <button
                       type="button"
-                      className="btn btn-secondary btn-block"
+                      className="btn btn-outline-secondary btn-block"
                       data-dismiss="modal"
                     >
                       Back
-                    </button>
+                    </button> */}
                   </div>
                     
                 </div>
