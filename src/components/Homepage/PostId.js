@@ -20,7 +20,6 @@ const PostId = (props) => {
   const { _id } = useParams();
   const [data, setData] = useState({});
 
-  const [showComment, setShowComment] = useState(false);
   const [comments, setComments] = useState("");
 
   useEffect(() => {
@@ -54,10 +53,10 @@ const PostId = (props) => {
         <div className="card mt-3 w-100" style={{ borderRadius: "10px" }}>
           <div className="card-header">
             <div className="d-flex flex-row">
-              {/* <img
-                src={`${url}/${data.name.image}`}
+              <img
+                src={`${url}/${data.name}`}
                 style={{ height: "50px", width: "50px", borderRadius: "50%" }}
-              /> */}
+              />
               <div className="d-inline-flex flex-column">
                 {/* <p className="lead font-weight-bold mb-0 ml-2">
                   {data.name.name}
@@ -93,21 +92,11 @@ const PostId = (props) => {
               &nbsp; Like {data.likesCount}
             </button>
 
-            <button
-              type="button"
-              className={`btn text-light mt-3 ml-1`}
-              onClick={() => {
-                setShowComment(!showComment);
-              }}
-            >
-              {showComment ? "Hide" : "Show"} Comment
-            </button>
-
             <div className=" mt-2">
               <Comment data={data} addCommentInPost={addCommentInPost} />
             </div>
           </div>
-          {showComment && <CommentPost data={data} comments={comments} />}
+          <CommentPost data={data} comments={comments} />
         </div>
       </div>
     </div>
