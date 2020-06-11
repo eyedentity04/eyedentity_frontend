@@ -13,6 +13,7 @@ const Profile = () => {
 
   const { _id } = useParams();
   const [data, setData] = useState({});
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     axios.get(`${url}/users/show/${_id}`).then((res) => {
@@ -42,8 +43,10 @@ const Profile = () => {
 
 
         <div className="settings">
-        <FontAwesomeIcon icon={faPen} className="fa-2x mx-auto iconhover" data-toggle="modal" data-target="#exampleModalCenter" />
-        <Add/>
+        <FontAwesomeIcon icon={faPen} className="fa-2x mx-auto iconhover" onClick={() => setShowModal(true)} />
+        <Add 
+        show={showModal}
+        onHide={() => setShowModal(false)}/>
         </div>
 
         </div>

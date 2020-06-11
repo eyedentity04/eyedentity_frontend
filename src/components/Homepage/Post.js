@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 
 import { connect } from "react-redux";
 import "./post.css";
-import { getData, addLike } from "../../actioncreators/Home";
 
+import { getData, addLike } from "../../actioncreators/Home";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsUp, faComment } from "@fortawesome/free-solid-svg-icons";
 import dayjs from "dayjs";
