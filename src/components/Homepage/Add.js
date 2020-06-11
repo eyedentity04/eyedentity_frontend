@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Formik } from "formik";
 import { connect } from "react-redux";
-import { add } from "../../actioncreators/Home";
+import { add,saveHide } from "../../actioncreators/Home";
 import { Form } from "react-bootstrap";
 import Geocode from "react-geocode";
 import axios from "axios";
@@ -114,8 +114,8 @@ function Add (props) {
           formData.append("tag", item._id);
         });
         props.add(formData);
-        console.log(props.add())
         action.resetForm();
+        props.onHide(false)
         setTag([]);
         setTags([]);
         
@@ -243,6 +243,7 @@ function Add (props) {
 
 const mapDispatchToProps = {
   add: add,
+  
 };
 
 export default connect(null, mapDispatchToProps)(Add);

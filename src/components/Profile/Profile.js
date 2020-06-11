@@ -4,11 +4,13 @@ import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen } from "@fortawesome/free-solid-svg-icons";
 import Postprofile from "./PostProfile";
+import { saveHide } from "../../actioncreators/Home";
 import Navbar from "../Navbar";
 import "./Profile.css";
 import Add from '../PageAdd/Addpage'
+import { connect } from "react-redux";
 
-const Profile = () => {
+const Profile = (props) => {
   const url = process.env.REACT_APP_API_URL;
 
   const { _id } = useParams();
@@ -21,7 +23,7 @@ const Profile = () => {
       console.log(data);
       setData(data);
     });
-  }, [_id]);
+  }, [data]);
 
   return (
     <div>
@@ -46,7 +48,9 @@ const Profile = () => {
         <FontAwesomeIcon icon={faPen} className="fa-2x mx-auto iconhover" onClick={() => setShowModal(true)} />
         <Add 
         show={showModal}
-        onHide={() => setShowModal(false)}/>
+        onHide={() => setShowModal(false)}
+        success={props.saveHide}
+        />
         </div>
 
         </div>
@@ -57,4 +61,6 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+const mapDispatchtoProps = {saveHide:saveHide}
+
+export default connect (null,mapDispatchtoProps)( Profile);
