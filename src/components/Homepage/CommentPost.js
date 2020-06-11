@@ -36,9 +36,6 @@ const CommentPost = (props) => {
           .get(`${url}/comment/find/${data._id}`, {
             headers: { token: token },
           })
-          .catch( err => {
-            window.alert("error",err)
-          })
           setComment(result.data);
         }
         myComment()
