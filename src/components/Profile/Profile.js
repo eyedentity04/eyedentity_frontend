@@ -23,7 +23,7 @@ const Profile = (props) => {
       console.log(data);
       setData(data);
     });
-  }, [_id]);
+  }, [data]);
 
   return (
     <div>
