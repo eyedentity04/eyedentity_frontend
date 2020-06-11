@@ -55,4 +55,13 @@ button {
     padding-top: 0%  !important;
     margin-top: 0% !important;
 }
+/* 
+.btn.btn-outline-secondary{
+    border-width: 3px;
+    border-color: rgb(172, 144, 113) !important;
+}
 
+.btn.btn-outline-secondary:hover{
+    background-color: rgb(138, 123, 107);
+    
+} */

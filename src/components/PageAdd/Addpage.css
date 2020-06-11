@@ -11,3 +11,11 @@
 /* .save{
     margin-right: 3%;
 }  */
+
+.iconhover{
+    color:rgb(207, 183, 153);
+}
+
+.iconhover:hover{
+    color: rgb(129, 108, 83);
+}

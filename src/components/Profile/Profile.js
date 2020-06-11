@@ -42,7 +42,7 @@ const Profile = () => {
 
 
         <div className="settings">
-        <FontAwesomeIcon icon={faPen} className="fa-2x mx-auto" data-toggle="modal" data-target="#exampleModalCenter" />
+        <FontAwesomeIcon icon={faPen} className="fa-2x mx-auto iconhover" data-toggle="modal" data-target="#exampleModalCenter" />
         <Add/>
         </div>
 

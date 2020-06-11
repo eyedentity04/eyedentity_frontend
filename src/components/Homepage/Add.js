@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Formik } from "formik";
 import { connect } from "react-redux";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserTag } from "@fortawesome/free-solid-svg-icons";
 import { add } from "../../actioncreators/Home";
 import { Form } from "react-bootstrap";
 import Geocode from "react-geocode";
@@ -22,6 +20,7 @@ const Add = (props) => {
   const [query, setQuery] = useState("");
 
   const [tag, setTag] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
   const [url, setUrl] = useState(
     "https://api.riyofirsan.com/users/findQuery?name=redux"
@@ -97,6 +96,7 @@ const Add = (props) => {
         action.resetForm();
         setTag([]);
         setTags([]);
+        setShowModal(!showModal)
       }}
     >
       {(props) => (
@@ -248,16 +248,16 @@ const Add = (props) => {
                       <br />
                       <br />
                     </div>
-                    <button type="submit" className="btn text-light btn-block">
+                    <button type="submit" className="btn text-light btn-block" >
                       Submit
                     </button>
-                    <button
+                    {/* <button
                       type="button"
-                      className="btn btn-secondary btn-block"
+                      className="btn btn-outline-secondary btn-block"
                       data-dismiss="modal"
                     >
                       Back
-                    </button>
+                    </button> */}
                   </div>
                     
                 </div>

@@ -38,13 +38,13 @@ function FilterUser() {
 
   return (
     <div>
-      <form className="form-inline my-2 my-lg-0 ">
+      <form className="form-inline my-2 my-lg-0 ml-2">
         <div className="input-group">
           <input
             type="text"
             className="form-control search"
             placeholder="Search"
-            size="70"
+            size="60"
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
