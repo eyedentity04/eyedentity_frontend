@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 
 import { connect } from "react-redux";
 import "./post.css";
-import { getData, addLike } from "../../actioncreators/Home";
 
+import { getData, addLike } from "../../actioncreators/Home";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsUp, faComment } from "@fortawesome/free-solid-svg-icons";
 import dayjs from "dayjs";
@@ -63,7 +63,7 @@ const Post = (props) => {
 
             <button
               type="button"
-              className={`btn text-light mr-2 ${btnLikeClassName}`}
+              className={`btn text-light mr-2 mt-3 ${btnLikeClassName}`}
               onClick={() => {
                 addlike(item._id);
               }}
@@ -73,7 +73,7 @@ const Post = (props) => {
             </button>
 
 
-            <Link to={`/${item._id}`}  target="_blank" className="btn text-light">
+            <Link to={`/${item._id}`}  target="_blank" className="btn text-light mt-3">
             <FontAwesomeIcon icon={faComment} className="fa-1x mx-auto" />
             <span className="comment">
             Comment

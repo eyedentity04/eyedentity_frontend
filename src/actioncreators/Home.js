@@ -11,11 +11,18 @@ export const add = (data) => {
         headers: { token: token },
       })
       .then((response) => {
+        window.alert("success")
         dispatch({
           type: "POST_ADD",
           payload: response.data,
         });
-      });
+      })
+      .catch(err =>{
+        alert("error")
+      })
+      dispatch ({
+        type : "HIDE"
+      })
   };
 };
 
@@ -84,6 +91,7 @@ export const user = () => {
       .catch((err) => {
         window.alert(err);
       });
+
   };
 };
 
@@ -100,7 +108,15 @@ export const editProfile = (data) => {
           type: "EDIT_PROFILE",
           payload: response.data,
         });
+        dispatch({
+          type : "HIDE"
+        })
       })
       .catch((err) => alert("failed to update yout profile", err));
   };
 };
+
+
+export const saveHide = () => {
+  return { type : "HIDE"}
+}
