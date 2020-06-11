@@ -3,7 +3,7 @@ import { Formik, Form } from "formik";
 
 import { connect } from "react-redux";
 import "./Addpage.css";
-import { editProfile } from "../../actioncreators/Home";
+import { editProfile,saveHide } from "../../actioncreators/Home";
 import { addLike } from "../..//actioncreators/Home";
 import { Link } from "react-router-dom";
 import {
@@ -15,12 +15,17 @@ import {
 } from "react-bootstrap";
 
 const Edit = (props) => {
+  const [isShow, setIsShow] = React.useState(false);
+
+  const handleSave = () => setIsShow(false)
+
   return (
     <Modal
       {...props}
       size="md"
       aria-labelledby="contained-modal-title-vcenter"
       centered
+      
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
@@ -42,8 +47,8 @@ const Edit = (props) => {
             formData.set("about", values.about);
             formData.append("image", values.image);
             formData.append("backGroundImage", values.backGroundImage);
-
             props.editProfile(formData);
+            props.onHide(false)
           }}
         >
           {(props) => (
@@ -101,7 +106,7 @@ const Edit = (props) => {
                 <button
                   type="submit"
                   className="btn text-light btn-block"
-                  onSubmit={props.onHide}
+                  onSubmit={handleSave}
                 >
                   Save Changes
                 </button>
@@ -116,6 +121,6 @@ const Edit = (props) => {
 
 
 
-const mapDispatchToProps = { editProfile: editProfile };
+const mapDispatchToProps = { editProfile: editProfile,saveHide : saveHide };
 
 export default connect(null, mapDispatchToProps)(Edit);

@@ -1,6 +1,7 @@
 const initialState = {
   data: [],
-  edit : {}
+  edit : {},
+  isShow : false
 };
 
 const homeUser = (state = initialState, action) => {
@@ -33,7 +34,8 @@ const homeUser = (state = initialState, action) => {
       return {...state,data:[...state.data,action.payload]}
     case "EDIT_PROFILE" : 
     return { ...state, edit:[...state.data,action.payload]};
-
+    case "HIDE" :
+      return {...state , isShow : false}
     default:
       return state;
   }
