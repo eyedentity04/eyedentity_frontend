@@ -28,6 +28,7 @@ function Add (props) {
 
   const [tag, setTag] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  const [hideModal, sethideModal] = useState(true);
   
 
   const [url, setUrl] = useState(
@@ -224,7 +225,7 @@ function Add (props) {
               <br />
               <br />
             </div>
-            <button type="submit" className="btn text-light btn-block">
+            <button type="submit" className="btn text-light btn-block" onSubmit={hideModal}>
               Submit
             </button> 
         </Form>
