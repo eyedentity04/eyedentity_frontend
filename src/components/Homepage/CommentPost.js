@@ -9,47 +9,49 @@ const CommentPost = (props) => {
 
   const url = process.env.REACT_APP_API_URL;
 
-  console.log(data._id)
+  console.log(props.id)
   
-  useEffect(() => {
-    async function myComment() {
-      const user = JSON.parse(localStorage.getItem("user"));
-      const token = user.token;
-      const result = await axios
-        .get(`${url}/comment/find/${data._id}`, {
-          headers: { token: token },
-        })
-        .then((result) => {
-          console.log(result)
-          setComment(result.data)
-        })
-        .catch((err) => {
-          window.alert("error", err); 
-        });
-     
-     
-    }
-    console.log(myComment())
-    myComment();
-  }, [data]);
+  
 
-  // useEffect(() =>{
-  //   console.log(data._id)
-  //   const user = JSON.parse(localStorage.getItem("user"));
-  //   const token = user.token;
-  //   axios.get(`${url}/comment/find/${data._id}`,{
-  //     headers : {"token" : token}
-  //   })
-  //   .then((result) => {
-  //     console.log(result)
-  //     setComment(result.data)
-  //   })
-  // },[data])
+  // useEffect(() => {
+  //   async function myComment() {
+  //     const user = JSON.parse(localStorage.getItem("user"));
+  //     const token = user.token;
+  //     const result = await axios
+  //       .get(`${url}/comment/find/${data._id}`, {
+  //         headers: { token: token },
+  //       })
+  //       .then((result) => {
+  //         console.log(result)
+  //         setComment(result.data)
+  //       })
+  //       .catch((err) => {
+  //         window.alert("error", err); 
+  //       });
+     
+     
+  //   }
+  //   console.log(myComment())
+  //   myComment();
+  // }, [data]);
+
+  useEffect(() =>{
+    console.log(data._id)
+    const user = JSON.parse(localStorage.getItem("user"));
+    const token = user.token;
+    axios.get(`${url}/comment/find/${props.id}`,{
+      headers : {"token" : token}
+    })
+    .then((result) => {
+      console.log(result)
+      setComment(result.data)
+    })
+  },[props.id])
 
 
 
   let getComment = comment.map((item, index) => {
-    console.log(item.userComment.name)
+    console.log(item)
     return (
       <div key={index}>
           <ul  className="list-group list-group-flush">
@@ -57,6 +59,7 @@ const CommentPost = (props) => {
               <div className="d-inline-flex flex-row">
                 <img
                   src={`${url}/${item.userComment.image}`}
+                  alt = "undifined"
                   style={{
                     height: "25px",
                     width: "25px",

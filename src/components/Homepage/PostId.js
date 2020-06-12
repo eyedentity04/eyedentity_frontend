@@ -17,6 +17,7 @@ import TagsInput from "react-tagsinput";
 
 const PostId = (props) => {
 
+  
 
   const url = process.env.REACT_APP_API_URL;
 
@@ -46,7 +47,7 @@ const PostId = (props) => {
           })
         })
 
-        console.log(res.data.tagPlace[0])
+        console.log(res.data)
         setPlace(res.data.tagPlace[0])
         setData(res.data.name)
         setPost(res.data)
@@ -68,6 +69,8 @@ const PostId = (props) => {
 
   console.log(like)
   console.log(data)
+  console.log(post)
+  console.log(comments)
   console.log(post._id)
   let show = tag.map((item) => {
     return item.name
@@ -117,10 +120,10 @@ const PostId = (props) => {
             </button>
 
             <div className=" mt-2">
-              <Comment data={data} addCommentInPost={addCommentInPost} />
+              <Comment data={post} id={post._id} addCommentInPost={addCommentInPost} />
             </div>
           </div>
-          <CommentPost data={data} comments={comments} />
+          <CommentPost data={post} id={post._id} comments={data} />
         </div>
       </div>
     </div>
