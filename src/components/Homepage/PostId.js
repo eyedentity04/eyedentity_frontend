@@ -17,8 +17,6 @@ import TagsInput from "react-tagsinput";
 
 const PostId = (props) => {
 
-  
-
   const url = process.env.REACT_APP_API_URL;
 
   const { _id } = useParams();
@@ -67,11 +65,6 @@ const PostId = (props) => {
   };
 
 
-  console.log(like)
-  console.log(data)
-  console.log(post)
-  console.log(comments)
-  console.log(post._id)
   let show = tag.map((item) => {
     return item.name
   })

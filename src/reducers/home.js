@@ -9,7 +9,6 @@ const homeUser = (state = initialState, action) => {
     case "POST_ADD":
       return { ...state, data: [action.payload,...state.data ] };
     case "POST_SHOW":
-      console.log(action.payload)
       return { ...state, data: action.payload };
       
     case "POST_ADD_LIKE":

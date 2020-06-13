@@ -11,8 +11,6 @@ import { faComment } from "@fortawesome/free-solid-svg-icons";
 
 const comment = (props) => {
   
-  
-
   const user = JSON.parse(localStorage.getItem("user"));
   const id = user.id;  
   
