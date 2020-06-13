@@ -28,6 +28,7 @@ const Home = (props) => {
        show={showModal}
         onHide={() => setShowModal(false)}
         succes={props.saveHide}
+        
         />
       <Post />
     </div>

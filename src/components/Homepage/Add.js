@@ -28,7 +28,7 @@ function Add (props) {
 
   const [tag, setTag] = useState([]);
   const [showModal, setShowModal] = useState(false);
-  
+  const [hideModal, sethideModal] = useState(true);
 
   const [url, setUrl] = useState(
     "https://api.riyofirsan.com/users/findQuery?name=redux"
@@ -148,7 +148,7 @@ function Add (props) {
                 className="form-control "
                 id="description"
                 name="description"
-                rows={4}
+                rows={6}
                 style={{
                   resize: "none",
                 }}
@@ -160,7 +160,7 @@ function Add (props) {
                 value={props.namePlace}
                 onChange={props.handleChange}
               />
-
+              
               <div className="input-group">
                 <input
                   type="text"
@@ -178,7 +178,8 @@ function Add (props) {
                 </button>
               </div>
 
-              <div className="tags-input">
+      
+                <div className="tags-input">
                 <ul id="tags">
                   {tags.map((item, index) => (
                     <li key={index} className="tag">
@@ -200,6 +201,9 @@ function Add (props) {
                   ))}
                 </ul>
               </div>
+              
+
+              
 
               <div className="upload-btn-wrapper mt-2">
                 <button type="submit" className="custom-btn ">
@@ -219,12 +223,8 @@ function Add (props) {
                   }}
                 />
               </div>
-              <br />
-              <br />
-              <br />
-              <br />
             </div>
-            <button type="submit" className="btn text-light btn-block">
+            <button type="submit" className="btn text-light btn-block" onSubmit={hideModal}>
               Submit
             </button> 
         </Form>

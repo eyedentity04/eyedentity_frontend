@@ -11,7 +11,6 @@ export const add = (data) => {
         headers: { token: token },
       })
       .then((response) => {
-        window.alert("success")
         dispatch({
           type: "POST_ADD",
           payload: response.data,

@@ -12,29 +12,6 @@ const CommentPost = (props) => {
   console.log(props.id)
   
   
-
-  // useEffect(() => {
-  //   async function myComment() {
-  //     const user = JSON.parse(localStorage.getItem("user"));
-  //     const token = user.token;
-  //     const result = await axios
-  //       .get(`${url}/comment/find/${data._id}`, {
-  //         headers: { token: token },
-  //       })
-  //       .then((result) => {
-  //         console.log(result)
-  //         setComment(result.data)
-  //       })
-  //       .catch((err) => {
-  //         window.alert("error", err); 
-  //       });
-     
-     
-  //   }
-  //   console.log(myComment())
-  //   myComment();
-  // }, [data]);
-
   useEffect(() =>{
     console.log(data._id)
     const user = JSON.parse(localStorage.getItem("user"));
@@ -43,11 +20,9 @@ const CommentPost = (props) => {
       headers : {"token" : token}
     })
     .then((result) => {
-      console.log(result)
       setComment(result.data)
     })
   },[props.id])
-
 
 
   let getComment = comment.map((item, index) => {
@@ -77,6 +52,9 @@ const CommentPost = (props) => {
 
   return (
     <div>
+      <div className="container">
+      <p>There are {getComment.length} comments</p>
+      </div>
       <div>{getComment}</div>
     </div>
   );
