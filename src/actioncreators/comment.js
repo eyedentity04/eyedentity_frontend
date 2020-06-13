@@ -2,9 +2,7 @@ import axios from "axios";
 
 const url = process.env.REACT_APP_API_URL
 
-export const addcomment = (data) => {
-  console.log(data)
-  
+export const addcomment = (data) => {  
   return (dispatch) => {
     const user = JSON.parse(localStorage.getItem("user"));
     const token = user.token;

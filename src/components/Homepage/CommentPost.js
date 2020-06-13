@@ -9,41 +9,24 @@ const CommentPost = (props) => {
 
   const url = process.env.REACT_APP_API_URL;
 
-  useEffect(() => {
-    async function myComment() {
-      const user = JSON.parse(localStorage.getItem("user"));
-      const token = user.token;
-      const result = await axios
-        .get(`${url}/comment/find/${props._id}`, {
-          headers: { token: token },
-        })
-        .catch((err) => {
-          window.alert("error", err);
-        });
-      setComment(result.data);
-     
-    }
-    myComment();
-  }, [data]);
+  console.log(props.id)
+  
+  
+  useEffect(() =>{
+    console.log(data._id)
+    const user = JSON.parse(localStorage.getItem("user"));
+    const token = user.token;
+    axios.get(`${url}/comment/find/${props.id}`,{
+      headers : {"token" : token}
+    })
+    .then((result) => {
+      setComment(result.data)
+    })
+  },[props.id])
 
-  useEffect(() => {
-    if (props.comments) {
-      if (props.comments.targetPostId == data._id) {
-        async function myComment() {
-          const user = JSON.parse(localStorage.getItem("user"));
-          const token = user.token;
-          const result = await axios
-          .get(`${url}/comment/find/${data._id}`, {
-            headers: { token: token },
-          })
-          setComment(result.data);
-        }
-        myComment()
-      }
-    }
-  },[data]);
 
   let getComment = comment.map((item, index) => {
+    console.log(item)
     return (
       <div key={index}>
           <ul  className="list-group list-group-flush">
@@ -51,6 +34,7 @@ const CommentPost = (props) => {
               <div className="d-inline-flex flex-row">
                 <img
                   src={`${url}/${item.userComment.image}`}
+                  alt = "undifined"
                   style={{
                     height: "25px",
                     width: "25px",
@@ -68,6 +52,9 @@ const CommentPost = (props) => {
 
   return (
     <div>
+      <div className="container">
+      <p>There are {getComment.length} comments</p>
+      </div>
       <div>{getComment}</div>
     </div>
   );

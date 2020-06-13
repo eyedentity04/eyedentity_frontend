@@ -13,12 +13,18 @@ import Comment from "../Homepage/Comment";
 import CommentPost from "../Homepage/CommentPost";
 import { addcomment } from "../../actioncreators/comment";
 import Navbar from "../Navbar";
+import TagsInput from "react-tagsinput";
 
 const PostId = (props) => {
+
   const url = process.env.REACT_APP_API_URL;
 
   const { _id } = useParams();
   const [data, setData] = useState({});
+  const [post,setPost] = useState({})
+  const [tag,setTag] = useState([])
+  const [like,setlike] = useState({})
+  const [place,setPlace] = useState([])
 
   const [comments, setComments] = useState("");
 
@@ -28,9 +34,22 @@ const PostId = (props) => {
     axios
       .get(`${url}/post/show/${_id}`, { headers: { token: token } })
       .then((res) => {
-        const data = res.data;
-        console.log(data);
-        setData(data);
+        axios
+        .get(`${url}/like/like`, { headers: { token: token } })
+        .then((likes) => {
+          console.log(likes)
+          setlike( {        
+            likesCount : likes.data.find((like) => res.data._id == like.postId)
+            ? likes.data.find((like) => res.data._id == like.postId).likes
+            : 0,
+          })
+        })
+
+        console.log(res.data)
+        setPlace(res.data.tagPlace[0])
+        setData(res.data.name)
+        setPost(res.data)
+        setTag(res.data.tag)
       });
   }, []);
 
@@ -45,6 +64,11 @@ const PostId = (props) => {
     setComments(newComment);
   };
 
+
+  let show = tag.map((item) => {
+    return item.name
+  })
+  
   const btnLikeClassName = data.likedByMe ? "bg-secondary" : "";
   return (
     <div>
@@ -54,49 +78,45 @@ const PostId = (props) => {
           <div className="card-header">
             <div className="d-flex flex-row">
               <img
-                src={`${url}/${data.name}`}
+                src={`${url}/${data.image}`}
                 style={{ height: "50px", width: "50px", borderRadius: "50%" }}
               />
               <div className="d-inline-flex flex-column">
                 <p className="lead font-weight-bold mb-0 ml-2">
-                  lol
+                  {data.name}
                 </p> 
-                {/* <p className=" text-muted mb-0 ml-2">
-                  {data.tagPlace[0].namePlace !== "undefined"
-                    ? data.tagPlace[0].namePlace
+                <p className=" text-muted mb-0 ml-2">
+                  {place.namePlace !== "undefined"
+                    ? place.namePlace
                     : null}
-                </p> */}
+                </p>
               </div>
               <p className="text-muted ml-auto">{dayjs(data.date).fromNow()}</p>
             </div>
           </div>
           <div class="card-body">
-             {/* <p className="card-text text-muted mb-0">
-              {data.tag.map((item, index) => (
-                <span className="mr-1" key={index}>
-                  @{item.name}
-                </span>
-              ))}
-            </p> */}
-            <p className="card-text">{data.description}</p>
-            <img className="card-img-top" src={`${url}/${data.image}`} alt="" />
+             <p className="card-text text-muted mb-0">
+              {show}
+            </p>
+            <p className="card-text">{post.description}</p>
+            <img className="card-img-top" src={`${url}/${post.image}`} alt="" />
 
             <button
               type="button"
               className={`btn text-light mt-3 ${btnLikeClassName}`}
               onClick={() => {
-                addlike(data._id);
+                addlike(post._id);
               }}
             >
               <FontAwesomeIcon icon={faThumbsUp} className="fa-1x mx-auto" />
-              &nbsp; Like {data.likesCount}
+              &nbsp; Like {like.likesCount}
             </button>
 
             <div className=" mt-2">
-              <Comment data={data} addCommentInPost={addCommentInPost} />
+              <Comment data={post} id={post._id} addCommentInPost={addCommentInPost} />
             </div>
           </div>
-          <CommentPost data={data} comments={comments} />
+          <CommentPost data={post} id={post._id} comments={data} />
         </div>
       </div>
     </div>
@@ -105,7 +125,7 @@ const PostId = (props) => {
 
 const mapDispatchToProps = {
   addLike: addLike,
-  addcomment,
+  addcomment : addcomment,
 };
 
 export default connect(null, mapDispatchToProps)(PostId);

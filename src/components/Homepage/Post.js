@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import axios from 'axios'
 import { connect } from "react-redux";
 import "./post.css";
 
@@ -76,7 +76,7 @@ const Post = (props) => {
             <Link to={`/${item._id}`}  target="_blank" className="btn text-light mt-3">
             <FontAwesomeIcon icon={faComment} className="fa-1x mx-auto" />
             <span className="comment">
-            Comment
+            View All Comments 
             </span>
               
               </Link>
