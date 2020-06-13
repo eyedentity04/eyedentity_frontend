@@ -17,9 +17,9 @@ const like = (props) => {
         onSubmit ={(values)=>{
           let formData = new FormData();
 
-          formData.append('userLike',values.like)
           
-          props.addComment(formData);
+          
+          props.addComment(values);
         }}
       >
         {props => (
