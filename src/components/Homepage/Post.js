@@ -18,7 +18,7 @@ const Post = (props) => {
 
   useEffect(() => {
     props.getData();
-  }, [data]);
+  }, []);
 
   const addlike = (postId) => {
     props.addLike(postId);
