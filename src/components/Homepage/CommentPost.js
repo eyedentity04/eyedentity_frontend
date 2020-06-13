@@ -14,7 +14,7 @@ const CommentPost = (props) => {
       const user = JSON.parse(localStorage.getItem("user"));
       const token = user.token;
       const result = await axios
-        .get(`${url}/comment/find/${data._id}`, {
+        .get(`${url}/comment/find/${props._id}`, {
           headers: { token: token },
         })
         .catch((err) => {
@@ -24,7 +24,7 @@ const CommentPost = (props) => {
      
     }
     myComment();
-  }, [props.comments]);
+  }, [data]);
 
   useEffect(() => {
     if (props.comments) {
@@ -41,7 +41,7 @@ const CommentPost = (props) => {
         myComment()
       }
     }
-  },[props.comments]);
+  },[data]);
 
   let getComment = comment.map((item, index) => {
     return (

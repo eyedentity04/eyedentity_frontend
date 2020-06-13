@@ -32,7 +32,7 @@ const PostId = (props) => {
         console.log(data);
         setData(data);
       });
-  }, [_id]);
+  }, []);
 
   const addlike = (targetPostId) => {
     props.addLike(targetPostId);
@@ -58,9 +58,9 @@ const PostId = (props) => {
                 style={{ height: "50px", width: "50px", borderRadius: "50%" }}
               />
               <div className="d-inline-flex flex-column">
-                {/* <p className="lead font-weight-bold mb-0 ml-2">
-                  {data.name.name}
-                </p>  */}
+                <p className="lead font-weight-bold mb-0 ml-2">
+                  lol
+                </p> 
                 {/* <p className=" text-muted mb-0 ml-2">
                   {data.tagPlace[0].namePlace !== "undefined"
                     ? data.tagPlace[0].namePlace
