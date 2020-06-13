@@ -69,14 +69,13 @@ const Post = (props) => {
               }}
             >
               <FontAwesomeIcon icon={faThumbsUp} className="fa-1x mx-auto" />
-              &nbsp; Like {item.likesCount}
+              &nbsp;  {item.likesCount}
             </button>
 
 
             <Link to={`/${item._id}`}  target="_blank" className="btn text-light mt-3">
-            <FontAwesomeIcon icon={faComment} className="fa-1x mx-auto" />
             <span className="comment">
-            View All Comments 
+            Show All Comments 
             </span>
               
               </Link>
