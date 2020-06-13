@@ -6,6 +6,7 @@ import { faSignOutAlt,} from "@fortawesome/free-solid-svg-icons";
 
 
 const Logout = (props) => {
+
   const onChange = () => {
     props.logout();
   };

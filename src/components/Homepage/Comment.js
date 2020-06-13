@@ -7,24 +7,27 @@ import {addcomment} from "../../actioncreators/comment";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import axios from "axios"
 import { faComment } from "@fortawesome/free-solid-svg-icons";
-// import {Form} from 'react-bootstrap'
 
 
 const comment = (props) => {
   
+  
+
   const user = JSON.parse(localStorage.getItem("user"));
   const id = user.id;  
   
+  console.log(props.data._id)
+  console.log(props.id)
+
   return (
       <Formik
         initialValues={{
           targetPostId: props.data._id,
-          userId : id,
+          userComment : id,
           commentText : '',
         }}
         onSubmit ={(values,action)=>{
-
-          props.addCommentInPost(values);
+          props.addcomment(values);
           action.resetForm()
         }}
       >
