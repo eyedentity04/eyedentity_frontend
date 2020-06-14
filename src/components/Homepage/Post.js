@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from "react";
-import axios from 'axios'
+import React, { useEffect} from "react";
 import { connect } from "react-redux";
 import "./post.css";
 
 import { getData, addLike } from "../../actioncreators/Home";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faThumbsUp, faComment } from "@fortawesome/free-solid-svg-icons";
+import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
-import { Link, useHistory } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 
 const Post = (props) => {
