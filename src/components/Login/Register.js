@@ -26,9 +26,9 @@ const Register = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if(data && !data.length){
-      props.register(data);
+      props.register(data,history);
     }
-    history.push("/login")
+    
   };
 
   return (

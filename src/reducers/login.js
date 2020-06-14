@@ -1,7 +1,6 @@
 const initialState = {
-  viaLogin: localStorage.getItem("user") 
+  viaLogin: localStorage.getItem("user")
 };
-
 
 const login = (state = initialState, action) => {
   
