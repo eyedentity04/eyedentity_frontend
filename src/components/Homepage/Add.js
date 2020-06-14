@@ -31,7 +31,7 @@ function Add (props) {
   
 
   const [url, setUrl] = useState(
-    "https://api.riyofirsan.com/users/findQuery?name=redux"
+    "https://api.riyofirsan.com/users/findQuery?name=!@#$%^$"
   );
 
   useEffect(() => {
@@ -72,6 +72,9 @@ function Add (props) {
   };
 
   const searchTags = async (query) => {
+    if (query === "") {
+      query = "!@#$@@"
+    }
     const result = await axios(
       `https://api.riyofirsan.com/users/findQuery?name=${query}`
     );
