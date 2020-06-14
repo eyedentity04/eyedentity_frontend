@@ -109,10 +109,10 @@ const PostId = (props) => {
               }}
             >
               <FontAwesomeIcon icon={faThumbsUp} className="fa-1x mx-auto" />
-              &nbsp; Like {like.likesCount}
+              &nbsp;{like.likesCount}
             </button>
 
-            <div className=" mt-2">
+            <div className=" mt-3">
               <Comment data={post} id={post._id} addCommentInPost={addCommentInPost} />
             </div>
           </div>

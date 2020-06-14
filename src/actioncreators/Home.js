@@ -11,7 +11,6 @@ export const add = (data) => {
         headers: { token: token },
       })
       .then((response) => {
-        window.alert("success")
         dispatch({
           type: "POST_ADD",
           payload: response.data,
@@ -53,14 +52,14 @@ export const getData = () => {
   };
 };
 
-export const addLike = (targetPostId) => {
+export const addLike = (postId) => {
   return (dispatch) => {
     const user = JSON.parse(localStorage.getItem("user"));
 
     axios
       .post(
         `${url}/like/create`,
-        { targetPostId },
+        { postId },
         {
           headers: { token: user.token },
         }
