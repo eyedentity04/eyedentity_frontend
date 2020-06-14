@@ -52,14 +52,14 @@ export const getData = () => {
   };
 };
 
-export const addLike = (postId) => {
+export const addLike = (postId,userLike) => {
   return (dispatch) => {
     const user = JSON.parse(localStorage.getItem("user"));
 
     axios
       .post(
         `${url}/like/create`,
-        { postId },
+        { postId,userLike },
         {
           headers: { token: user.token },
         }

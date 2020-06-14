@@ -1,7 +1,7 @@
 import React, { useEffect} from "react";
 import { connect } from "react-redux";
 import "./post.css";
-
+import Like from "./Like"
 import { getData, addLike } from "../../actioncreators/Home";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
@@ -19,9 +19,12 @@ const Post = (props) => {
     props.getData();
   }, [data]);
 
-  const addlike = (postId) => {
-    props.addLike(postId);
+  const addlike = (postId,userLike) => {
+    props.addLike(postId,userLike);
   };
+
+  const user = JSON.parse(localStorage.getItem("user"))
+  const id = user.id
 
   dayjs.extend(relativeTime);
 
@@ -64,13 +67,12 @@ const Post = (props) => {
               type="button"
               className={`btn text-light mr-2 mt-3 ${btnLikeClassName}`}
               onClick={() => {
-                addlike(item._id);
+                addlike(item._id,id);
               }}
             >
               <FontAwesomeIcon icon={faThumbsUp} className="fa-1x mx-auto" />
               &nbsp;  {item.likesCount}
             </button>
-
 
             <Link to={`/${item._id}`}  target="_blank" className="btn text-light mt-3">
             <span className="comment">
