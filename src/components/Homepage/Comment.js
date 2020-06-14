@@ -4,8 +4,6 @@ import "./Add.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { connect } from "react-redux";
 import {addcomment} from "../../actioncreators/comment";
-import { config } from "@fortawesome/fontawesome-svg-core";
-import axios from "axios"
 import { faComment } from "@fortawesome/free-solid-svg-icons";
 
 

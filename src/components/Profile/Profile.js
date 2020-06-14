@@ -9,6 +9,7 @@ import Navbar from "../Navbar";
 import "./Profile.css";
 import Add from '../PageAdd/Addpage'
 import { connect } from "react-redux";
+import { showSuccess} from "../../actioncreators/Home";
 
 const Profile = (props) => {
   const url = process.env.REACT_APP_API_URL;
@@ -50,6 +51,7 @@ const Profile = (props) => {
         show={showModal}
         onHide={() => setShowModal(false)}
         success={props.saveHide}
+        showSuccess={props.showSuccess}
         />
         </div>
 
@@ -61,6 +63,6 @@ const Profile = (props) => {
   );
 };
 
-const mapDispatchtoProps = {saveHide:saveHide}
+const mapDispatchtoProps = {saveHide:saveHide, showSuccess : showSuccess }
 
 export default connect (null,mapDispatchtoProps)( Profile);
