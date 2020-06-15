@@ -24,8 +24,6 @@ const Post = (props) => {
     axios.get(`${url}/users/show/${_id}`).then((res) => {
       const data = res.data;
       setName(data);
-      console.log(data.name);
-      console.log(data.image);
     });
   }, [data]);
 
@@ -41,7 +39,6 @@ const Post = (props) => {
           window.alert("error", err);
         });
       setData(result.data);
-      console.log(result.data);
     }
     myProfile();
   }, [data]);
@@ -49,7 +46,6 @@ const Post = (props) => {
   dayjs.extend(relativeTime);
 
   const showPost = data.map((item, index) => {
-    // console.log(item.tagPlace[0].namePlace);
     return (
       <div key={index}>
         <div class="card mt-3 w-100" style={{ borderRadius: "10px" }}>
@@ -57,7 +53,7 @@ const Post = (props) => {
             <div className="d-flex flex-row">
               <img
                 src={`${url}/${name.image}`}
-                style={{ width: "50px", borderRadius: "50%" }}
+                style={{  height: "50px", width: "50px", borderRadius: "50%" }}
               />
               <div className="d-inline-flex flex-column">
                 <p className="lead font-weight-bold mb-0 ml-2">{name.name}</p>

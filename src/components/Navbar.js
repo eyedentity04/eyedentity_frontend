@@ -30,7 +30,6 @@ class Navbar extends Component {
       .get(`${url}/users/show/${user.id}`)
       .then((response) => {
         this.setState({ data: response.data });
-        console.log(response);
       });
   }
 

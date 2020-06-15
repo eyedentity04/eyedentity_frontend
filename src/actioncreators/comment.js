@@ -11,7 +11,6 @@ export const addcomment = (data) => {
         headers: { "token": token },
       })
       .then((response) => {
-        console.log(response);
         dispatch({
           type: "COMMENT_ADD",
           payload: response.data,

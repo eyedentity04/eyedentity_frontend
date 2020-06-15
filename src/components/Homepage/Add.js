@@ -48,14 +48,11 @@ function Add(props) {
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(function (position) {
-      console.log(position.coords.latitude);
-      console.log(position.coords.longitude);
       Geocode.setApiKey(`${key}`);
       Geocode.fromLatLng(
         position.coords.latitude,
         position.coords.longitude
       ).then((response) => {
-        console.log(response.results[0].address_components[4].long_name);
         setData({
           lat: response.results[3].geometry.location.lat,
           lng: response.results[3].geometry.location.lng,
@@ -79,13 +76,20 @@ function Add(props) {
 
   const searchTags = async (query) => {
     if (query === "") {
-      query = "!@#$@@";
+      query = "!@12@32#$%";
     }
     const result = await axios(
       `https://api.riyofirsan.com/users/findQuery?name=${query}`
     );
     setTags(result.data);
   };
+
+  const setCurrentTag = (item) => {
+    if (item === tag){
+    
+    }
+    setTag(item)
+  }
 
   return (
     <Modal
@@ -128,8 +132,8 @@ function Add(props) {
         >
           {(props) => (
             <Form onSubmit={props.handleSubmit}>
-              <div className="form-group mt-4">
-                <div className="tags-input">
+              <div className="form-group">
+                <div className="tags-input mt-2 mb-2" >
                   <ul
                     id="tags"
                     style={{
@@ -189,17 +193,10 @@ function Add(props) {
                         <button
                           className="btn-custom"
                           type="button"
-                          onClick={(e) => setTag([...tag, item])}
+                          onClick={() => setCurrentTag([...tag, item])}
                         >
                           <span className="tag-title">{item.name}</span>
                         </button>
-
-                        <span
-                          className="tag-close-icon"
-                          onClick={() => removeTags(index)}
-                        >
-                          x
-                        </span>
                       </li>
                     ))}
                   </ul>

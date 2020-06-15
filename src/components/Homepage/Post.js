@@ -13,7 +13,7 @@ import { Link} from "react-router-dom";
 const Post = (props) => {
   const url = process.env.REACT_APP_API_URL;
 
-  const { data } = props;
+  const { data } = props
 
   useEffect(() => {
     props.getData();

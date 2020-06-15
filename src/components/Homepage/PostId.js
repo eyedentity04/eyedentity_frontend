@@ -37,15 +37,12 @@ const PostId = (props) => {
         axios
         .get(`${url}/like/like`, { headers: { token: token } })
         .then((likes) => {
-          console.log(likes)
           setlike( {        
             likesCount : likes.data.find((like) => res.data._id == like.postId)
             ? likes.data.find((like) => res.data._id == like.postId).likes
             : 0,
           })
         })
-
-        console.log(res.data)
         setPlace(res.data.tagPlace[0])
         setData(res.data.name)
         setPost(res.data)
@@ -113,10 +110,10 @@ const PostId = (props) => {
             </button>
 
             <div className=" mt-3">
-              <Comment data={post} id={post._id} addCommentInPost={addCommentInPost} />
+              <Comment data={post} id={_id} addCommentInPost={addCommentInPost} />
             </div>
           </div>
-          <CommentPost data={post} id={post._id} comments={data} />
+          <CommentPost data={post} id={_id} comments={data} />
         </div>
       </div>
     </div>
