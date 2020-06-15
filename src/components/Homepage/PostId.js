@@ -113,10 +113,10 @@ const PostId = (props) => {
             </button>
 
             <div className=" mt-3">
-              <Comment data={post} id={post._id} addCommentInPost={addCommentInPost} />
+              <Comment data={post} id={_id} addCommentInPost={addCommentInPost} />
             </div>
           </div>
-          <CommentPost data={post} id={post._id} comments={data} />
+          <CommentPost data={post} id={_id} comments={data} />
         </div>
       </div>
     </div>

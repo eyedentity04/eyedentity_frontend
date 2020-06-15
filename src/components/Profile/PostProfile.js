@@ -57,7 +57,7 @@ const Post = (props) => {
             <div className="d-flex flex-row">
               <img
                 src={`${url}/${name.image}`}
-                style={{ width: "50px", borderRadius: "50%" }}
+                style={{  height: "50px", width: "50px", borderRadius: "50%" }}
               />
               <div className="d-inline-flex flex-column">
                 <p className="lead font-weight-bold mb-0 ml-2">{name.name}</p>

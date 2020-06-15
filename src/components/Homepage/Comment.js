@@ -4,13 +4,13 @@ import "./Add.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { connect } from "react-redux";
 import {addcomment} from "../../actioncreators/comment";
-import { config } from "@fortawesome/fontawesome-svg-core";
-import axios from "axios"
 import { faComment } from "@fortawesome/free-solid-svg-icons";
 
 
 const comment = (props) => {
   
+  const { data } = props;
+
   const user = JSON.parse(localStorage.getItem("user"));
   const id = user.id;  
   
@@ -20,7 +20,7 @@ const comment = (props) => {
   return (
       <Formik
         initialValues={{
-          targetPostId: props.data._id,
+          targetPostId: props.id,
           userComment : id,
           commentText : '',
         }}

@@ -25,7 +25,7 @@ const Home = (props) => {
               
             /></div>
       <Add        
-       show={showModal}
+        show={showModal}
         onHide={() => setShowModal(false)}
         succes={props.saveHide}
         

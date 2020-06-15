@@ -8,12 +8,8 @@ const CommentPost = (props) => {
   const [comment, setComment] = useState([]);
 
   const url = process.env.REACT_APP_API_URL;
-
-  console.log(props.id)
-  
   
   useEffect(() =>{
-    console.log(data._id)
     const user = JSON.parse(localStorage.getItem("user"));
     const token = user.token;
     axios.get(`${url}/comment/find/${props.id}`,{
@@ -22,11 +18,10 @@ const CommentPost = (props) => {
     .then((result) => {
       setComment(result.data)
     })
-  },[props.id])
+  },[comment])
 
 
   let getComment = comment.map((item, index) => {
-    console.log(item)
     return (
       <div key={index}>
           <ul  className="list-group list-group-flush">

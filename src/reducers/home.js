@@ -1,7 +1,9 @@
 const initialState = {
   data: [],
   edit : {},
-  isShow : false
+  isShow : false,
+  success : {show : false, message : ""},
+  error : {show : false, message : ""}
 };
 
 const homeUser = (state = initialState, action) => {
@@ -35,8 +37,18 @@ const homeUser = (state = initialState, action) => {
     return { ...state, edit:[...state.data,action.payload]};
     case "HIDE" :
       return {...state , isShow : false}
+    case "SUCCESS" :
+      return {...state, success : {show : true, message : action.payload}}
+    case "SUCCESS_HIDE" : 
+      return {...state, success : {show : false, message : ""}}
+    case "ERROR" :
+      return {...state, error : {show : true, message : action.payload}}
+    case "ERROR_HIDE" : 
+      return {...state, error : {show : false, message : ""}}  
     default:
       return state;
+
+
   }
 };
 

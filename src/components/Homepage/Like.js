@@ -1,9 +1,13 @@
 import React from "react";
-import {Formik} from 'formik'
+import {Formik,Form} from 'formik'
 import "./Add.css";
 import { connect } from "react-redux";
+import {addLike} from "../../actioncreators/Home"
+
 
 const like = (props) => {
+
+  console.log(props)
   
   const user = JSON.parse(localStorage.getItem("user"));
   const id = user.id;  
@@ -19,7 +23,7 @@ const like = (props) => {
 
           
           
-          props.addComment(values);
+          props.addLike(values);
         }}
       >
         {props => (
@@ -47,6 +51,6 @@ const like = (props) => {
     )
   }
 
-const mapDispatchToProps = { addComment: addComment };
+const mapDispatchToProps = { addLike: addLike };
 
 export default connect(null, mapDispatchToProps)(like);

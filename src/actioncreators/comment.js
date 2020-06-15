@@ -12,6 +12,7 @@ export const addcomment = (data) => {
       })
       .then((response) => {
         console.log(response);
+        console.log(response.data._id)
         dispatch({
           type: "COMMENT_ADD",
           payload: response.data,

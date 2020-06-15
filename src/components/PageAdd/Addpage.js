@@ -1,11 +1,8 @@
 import React from "react";
 import { Formik, Form } from "formik";
-
 import { connect } from "react-redux";
 import "./Addpage.css";
 import { editProfile,saveHide } from "../../actioncreators/Home";
-import { addLike } from "../..//actioncreators/Home";
-import { Link } from "react-router-dom";
 import {
   ModalTitle,
   ModalBody,
@@ -13,6 +10,7 @@ import {
   Modal,
   Button,
 } from "react-bootstrap";
+import { showSuccess} from "../../actioncreators/Home";
 
 const Edit = (props) => {
   const [isShow, setIsShow] = React.useState(false);
@@ -49,6 +47,7 @@ const Edit = (props) => {
             formData.append("backGroundImage", values.backGroundImage);
             props.editProfile(formData);
             props.onHide(false)
+            props.showSuccess("Succesfully changed")
           }}
         >
           {(props) => (
@@ -121,6 +120,6 @@ const Edit = (props) => {
 
 
 
-const mapDispatchToProps = { editProfile: editProfile,saveHide : saveHide };
+const mapDispatchToProps = { editProfile: editProfile,saveHide : saveHide, showSuccess : showSuccess };
 
 export default connect(null, mapDispatchToProps)(Edit);
