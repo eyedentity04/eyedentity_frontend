@@ -48,14 +48,11 @@ function Add(props) {
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(function (position) {
-      console.log(position.coords.latitude);
-      console.log(position.coords.longitude);
       Geocode.setApiKey(`${key}`);
       Geocode.fromLatLng(
         position.coords.latitude,
         position.coords.longitude
       ).then((response) => {
-        console.log(response.results[0].address_components[4].long_name);
         setData({
           lat: response.results[3].geometry.location.lat,
           lng: response.results[3].geometry.location.lng,

@@ -16,7 +16,6 @@ function Filter() {
         const result = await axios(url);
    
         setData(result.data);
-        console.log(result.data)
       };
    
       fetchData();

@@ -37,15 +37,12 @@ const PostId = (props) => {
         axios
         .get(`${url}/like/like`, { headers: { token: token } })
         .then((likes) => {
-          console.log(likes)
           setlike( {        
             likesCount : likes.data.find((like) => res.data._id == like.postId)
             ? likes.data.find((like) => res.data._id == like.postId).likes
             : 0,
           })
         })
-
-        console.log(res.data)
         setPlace(res.data.tagPlace[0])
         setData(res.data.name)
         setPost(res.data)

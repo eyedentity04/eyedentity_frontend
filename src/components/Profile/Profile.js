@@ -21,7 +21,6 @@ const Profile = (props) => {
   useEffect(() => {
     axios.get(`${url}/users/show/${_id}`).then((res) => {
       const data = res.data;
-      console.log(data);
       setData(data);
     });
   }, [data]);

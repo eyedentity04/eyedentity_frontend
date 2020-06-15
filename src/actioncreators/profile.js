@@ -12,8 +12,6 @@ export const getData = () => {
           headers: { "token": token },
         })
         .then((response) => {
-          console.log(response.data);
-          
           dispatch({
             type: "PROFILE_POST_SHOW",
             payload: response.data,

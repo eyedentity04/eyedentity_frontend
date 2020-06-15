@@ -5,10 +5,7 @@ import { connect } from "react-redux";
 import {addLike} from "../../actioncreators/Home"
 
 
-const like = (props) => {
-
-  console.log(props)
-  
+const like = (props) => {  
   const user = JSON.parse(localStorage.getItem("user"));
   const id = user.id;  
   

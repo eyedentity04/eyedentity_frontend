@@ -65,7 +65,6 @@ export const addLike = (postId,userLike) => {
         }
       )
       .then((response) => {
-        console.log(response);
         dispatch({
           type: "POST_ADD_LIKE",
           payload: response.data,
@@ -101,7 +100,6 @@ export const editProfile = (data) => {
     axios
       .put(`${url}/users/edit/${id}`, data)
       .then((response) => {
-        console.log(response);
         dispatch({
           type: "EDIT_PROFILE",
           payload: response.data,

@@ -13,10 +13,6 @@ const comment = (props) => {
 
   const user = JSON.parse(localStorage.getItem("user"));
   const id = user.id;  
-  
-  console.log(props.data._id)
-  console.log(props.id)
-
   return (
       <Formik
         initialValues={{

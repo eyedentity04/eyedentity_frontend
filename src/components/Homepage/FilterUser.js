@@ -19,9 +19,6 @@ function FilterUser() {
         setName(res.data);
         setLoading(false);
       })
-      .catch((err) => {
-        console.log(err);
-      });
   }, []);
   
   useEffect(() => {
